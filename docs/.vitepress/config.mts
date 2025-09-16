@@ -42,7 +42,7 @@ export default defineConfig({
           ]
         },
         {
-          text: 'листинг товаров',
+          text: 'Листинг товаров',
           collapsed: true,
           items: [
           ]

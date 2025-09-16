@@ -13,6 +13,9 @@ hero:
     - theme: alt
       text: Интеграция и API
       link: /integration
+    - theme: alt
+      text: Коллекция механик
+      link: /mechanics
 
 features:
   - title: Feature A

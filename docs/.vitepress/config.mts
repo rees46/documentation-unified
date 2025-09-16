@@ -12,6 +12,7 @@ export default defineConfig({
       { text: 'Начало', link: '/' },
       { text: 'Руководство', link: '/guides' },
       { text: 'Интеграция и API', link: '/integration' },
+      { text: 'Механики', link: '/mechanics' },
       { text: 'Обучение', link: '/education' },
       { text: 'Глоссарий', link: '/glossary' },
       { text: 'Юридические документы', link: '/legal' },
@@ -20,6 +21,46 @@ export default defineConfig({
     sidebar: {
       '/guides/': [],
       '/integration/': [],
+
+      '/mechanics/': [
+        {
+          text: 'CDP и обогащение данных',
+          collapsed: true,
+          items: [
+          ]
+        },
+        {
+          text: 'Товарные рекомендации',
+          collapsed: true,
+          items: [
+          ]
+        },
+        {
+          text: 'Поиск',
+          collapsed: true,
+          items: [
+          ]
+        },
+        {
+          text: 'листинг товаров',
+          collapsed: true,
+          items: [
+          ]
+        },
+        {
+          text: 'Товарные коллекции',
+          collapsed: true,
+          items: [
+          ]
+        },
+        {
+          text: 'Попапы',
+          collapsed: true,
+          items: [
+          ]
+        },
+      ],
+
       '/education/': [],
 
       '/glossary/': [

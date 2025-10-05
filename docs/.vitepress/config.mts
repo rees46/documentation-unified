@@ -20,7 +20,24 @@ export default defineConfig({
 
     sidebar: {
       '/guides/': [],
-      '/integration/': [],
+
+      // TODO переделать на верхнеуровневые разделы, а внутри уже расширенные локальные разделы
+      '/integration/': [
+        {
+          text: 'Программа лояльности',
+          collapsed: true,
+          items: [
+            { text: 'Основное подключение', link: '/loyalty/setup/' },
+            { text: 'Участники', link: '/loyalty/membership' },
+            { text: 'Уровни', link: '/loyalty/levels' },
+            { text: 'Бонусы', link: '/loyalty/bonuses' },
+            { text: 'Стикеры', link: '/loyalty/stickers' },
+            { text: 'Акции', link: '/loyalty/promotions' },
+            { text: 'Промокоды и купоны', link: '/loyalty/promo-codes' },
+            { text: 'Реферальная программа', link: '/loyalty/referral' },
+          ]
+        },
+      ],
 
       '/mechanics/': [
         {
@@ -65,7 +82,6 @@ export default defineConfig({
       '/education/': [],
 
       '/glossary/': [
-
         {
           text: 'E-commerce',
           collapsed: true,

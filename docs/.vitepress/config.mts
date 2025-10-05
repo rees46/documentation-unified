@@ -23,6 +23,25 @@ export default defineConfig({
 
       // TODO переделать на верхнеуровневые разделы, а внутри уже расширенные локальные разделы
       '/integration/': [
+          {
+              text: 'Базовая интеграция',
+              collapsed: true,
+              items: [
+                  { text: 'Введение', link: '/setup/' },
+                  { text: 'Трекинг через SDK', link: '/loyalty/tracking' },
+              ]
+          },
+          {
+              text: 'Товарный фид',
+              collapsed: true,
+              items: [
+                  { text: 'Введение', link: '/feed/' },
+                  { text: 'Импорт через XML', link: '/feed/xml' },
+                  { text: 'Импорт через API', link: '/feed/api' },
+                  { text: 'Импорт через БД', link: '/feed/database' },
+                  { text: 'Расширенные свойства', link: '/feed/industry-properties' },
+              ]
+          },
         {
           text: 'Программа лояльности',
           collapsed: true,

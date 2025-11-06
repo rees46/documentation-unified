@@ -20,7 +20,95 @@ export default defineConfig({
 
     sidebar: {
       '/guides/': [],
-      '/integration/': [],
+
+      '/integration/': [
+        {
+          text: 'Начальная интеграция',
+          collapsed: true,
+          items: [
+            { text: 'Введение', link: '/integration/start/index.md' },
+            { text: 'Установка SDK', link: '/integration/start/sdk.md' },
+            { text: 'Инициализация сессии', link: '/integration/start/init.md' },
+            { text: 'Стандартные события', link: '/integration/start/events.md' },
+            { text: 'Кастомные события', link: '/integration/start/custom-events.md' },
+            { text: 'Профиль', link: '/integration/start/profile.md' },
+          ]
+        },
+        {
+          text: 'Каталог',
+          collapsed: true,
+          items: [
+            { text: 'Введение', link: '/integration/catalog/index.md' },
+          ]
+        },
+        {
+          text: 'Каналы коммуникации',
+          collapsed: true,
+          items: [
+            { text: 'Введение', link: '/integration/channels/index.md' },
+          ]
+        },
+        {
+          text: 'Товарные рекомендации',
+          collapsed: true,
+          items: [
+            { text: 'Введение', link: '/integration/recommendations/index.md' },
+          ]
+        },
+        {
+          text: 'Поиск',
+          collapsed: true,
+          items: [
+            { text: 'Введение', link: '/integration/search/index.md' },
+          ]
+        },
+        {
+          text: 'Листинг товаров',
+          collapsed: true,
+          items: [
+            { text: 'Введение', link: '/integration/listing/index.md' },
+          ]
+        },
+        {
+          text: 'Товарные коллекции',
+          collapsed: true,
+          items: [
+            { text: 'Введение', link: '/integration/collections/index.md' },
+          ]
+        },
+        {
+          text: 'Сторис',
+          collapsed: true,
+          items: [
+            { text: 'Введение', link: '/integration/stories/index.md' },
+          ]
+        },
+        {
+          text: 'Попапы и in-app push',
+          collapsed: true,
+          items: [
+            { text: 'Введение', link: '/integration/popups/index.md' },
+          ]
+        },
+        {
+          text: 'Программа лояльности',
+          collapsed: true,
+          items: [
+            { text: 'Введение', link: '/integration/loyalty/index.md' },
+          ]
+        },
+        {
+          text: 'Режим PRO',
+          collapsed: true,
+          items: [
+            { text: 'Введение', link: '/integration/extended/index.md' },
+            { text: 'On-premise', link: '/integration/extended/on-premise.md' },
+            { text: 'White label', link: '/integration/extended/white-label.md' },
+            { text: 'S2S – серверная интеграция', link: '/integration/extended/s2s.md' },
+            { text: 'Dashboard API', link: '/integration/extended/dashboard-api.md' },
+          ]
+        },
+      ],
 
       '/mechanics/': [
         {

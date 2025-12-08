@@ -95,6 +95,16 @@ export default defineConfig({
           collapsed: true,
           items: [
             { text: 'Введение', link: '/integration/loyalty/index.md' },
+            {
+              text: 'Wallet',
+              collapsed: true,
+              items: [
+                { text: 'Введение', link: '/integration/loyalty/wallet/index.md' },
+                { text: 'Настройка Apple Wallet', link: '/integration/loyalty/wallet/apple.md' },
+                { text: 'Настройка Google Wallet', link: '/integration/loyalty/wallet/google.md' },
+                { text: 'Распространение', link: '/integration/loyalty/wallet/distribute.md' },
+              ]
+            }
           ]
         },
         {

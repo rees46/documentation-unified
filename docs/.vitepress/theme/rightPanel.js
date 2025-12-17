@@ -4,7 +4,7 @@ export const rightPanels = [
         title: 'API Reference',
         buttonLabel: 'API',
         items: [
-            { text: 'Introduction', link: '../integration/api/index.md' },
+            { text: 'Introduction', link: 'docs/integration/api/' },
         ]
-    },
+    }
 ]

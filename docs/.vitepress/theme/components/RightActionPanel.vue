@@ -12,35 +12,50 @@
     </div>
 
     <transition name="slide">
-      <div
-          v-if="current"
-          class="drawer"
-      >
+      <div v-if="current" class="drawer">
         <h3>{{ current.title }}</h3>
 
-        <ul>
-          <li
-              v-for="item in current.items"
-              :key="item.link"
-          >
-            <a
-                :href="item.link"
-                @click="close"
+        <nav class="menu">
+          <template v-for="item in current.items" :key="item.text">
+            <!-- ГРУППА -->
+            <div v-if="item.items" class="group">
+              <div class="group-title">{{ item.text }}</div>
+
+              <button
+                  v-for="child in item.items"
+                  :key="child.link"
+                  class="link"
+                  :class="{ active: isActive(child.link) }"
+                  @click="navigate(child.link)"
+              >
+                {{ child.text }}
+              </button>
+            </div>
+
+            <button
+                v-else
+                class="link"
+                :class="{ active: isActive(item.link) }"
+                @click="navigate(item.link)"
             >
               {{ item.text }}
-            </a>
-          </li>
-        </ul>
+            </button>
+          </template>
+        </nav>
       </div>
     </transition>
   </aside>
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
-import { rightPanels } from '../rightPanel.js'
+import { ref, computed, watch } from 'vue'
+import { useRoute, useRouter } from 'vitepress'
+import { rightPanels } from '../rightPanel'
 
 const panels = rightPanels
+const route = useRoute()
+const router = useRouter()
+
 const activePanel = ref<string | null>(null)
 
 const toggle = (id: string) => {
@@ -54,6 +69,33 @@ const close = () => {
 const current = computed(() =>
     panels.find(p => p.id === activePanel.value)
 )
+
+const navigate = (link?: string) => {
+  if (!link) return
+  router.go(link)
+  close()
+}
+
+const isActive = (link?: string) => {
+  if (!link) return false
+  return route.path === link || route.path.startsWith(link + '/')
+}
+
+watch(
+    () => route.path,
+    (path) => {
+      const matched = panels.find(panel =>
+          panel.items?.some(item =>
+              item.items
+                  ? item.items.some(child => path.startsWith(child.link))
+                  : path.startsWith(item.link)
+          )
+      )
+
+      activePanel.value = matched?.id ?? null
+    },
+    { immediate: true }
+)
 </script>
 
 <style scoped>
@@ -66,7 +108,6 @@ const current = computed(() =>
   border-left: 1px solid var(--vp-c-divider);
 }
 
-/* КНОПКИ */
 .buttons {
   width: 56px;
   display: flex;
@@ -88,20 +129,43 @@ const current = computed(() =>
   background: var(--vp-c-brand-soft);
 }
 
-/* DRAWER */
 .drawer {
   width: 260px;
   padding: 16px;
   background: var(--vp-c-bg);
+  overflow-y: auto;
 }
 
-.drawer ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
-/* АНИМАЦИЯ */
+.link {
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 6px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.link.active {
+  background: var(--vp-c-brand-soft);
+  font-weight: 500;
+}
+
+.group {
+  margin-top: 12px;
+}
+
+.group-title {
+  font-size: 12px;
+  margin-bottom: 4px;
+  color: var(--vp-c-text-2);
+}
+
 .slide-enter-active,
 .slide-leave-active {
   transition: transform 0.2s ease, opacity 0.2s;

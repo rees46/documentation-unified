@@ -95,6 +95,7 @@ export default defineConfig({
           collapsed: true,
           items: [
             { text: 'Введение', link: '/integration/loyalty/index.md' },
+            { text: 'Жизненный цикл заказа в программе лояльности', link: '/integration/loyalty/orders_loyalty.md' },
             {
               text: 'Wallet',
               collapsed: true,

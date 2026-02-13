@@ -4,6 +4,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: "REES46",
   description: "Документация платформы",
+  base: "./",
   themeConfig: {
 
     // https://vitepress.dev/reference/default-theme-config

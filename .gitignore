@@ -1,6 +1,6 @@
 .idea
-docs/.vitepress/cache
-docs/.vitepress/temp
+**/.vitepress/cache
+**/.vitepress/temp
 node_modules
 /coverage
 /docs/client/shared.ts
@@ -18,4 +18,3 @@ examples-temp
 pnpm-global
 TODOs.md
 *.timestamp-*.mjs
-package-lock.json

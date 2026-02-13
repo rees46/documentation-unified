@@ -10,9 +10,9 @@ RUN npm run docs:build
 FROM nginx:1.27-alpine AS runtime
 
 COPY config/nginx/nginx.conf /etc/nginx/conf.d/default.conf
-COPY --from=build /app/docs/.vitepress/dist /usr/share/nginx/html/help
+COPY --from=build /app/docs/.vitepress/dist /app
 
-WORKDIR /usr/share/nginx/html/help
+WORKDIR /app
 
 EXPOSE 8080
 CMD ["nginx", "-g", "daemon off;"]

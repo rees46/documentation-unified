@@ -1,0 +1,17 @@
+name: Publish docker image
+
+on:
+  push:
+    branches:
+      - master
+    paths-ignore:
+      - .github/**
+  workflow_dispatch:
+
+jobs:
+  build-and-push:
+    name: Build Docker image and push
+    uses: rees46/workflow/.github/workflows/docker-publish.yaml@master
+    permissions: write-all
+    with:
+      packageName: documentation-unified

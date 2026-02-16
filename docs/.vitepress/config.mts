@@ -96,6 +96,16 @@ export default defineConfig({
           items: [
             { text: 'Введение', link: '/integration/loyalty/index.md' },
             {
+              text: 'Участники ПЛ',
+              collapsed: true,
+              items: [
+                { text: 'Введение', link: '/integration/loyalty/membership/index.md' },
+                { text: 'Вступление в ПЛ', link: '/integration/loyalty/membership/join.md' },
+                { text: 'Выход из ПЛ', link: '/integration/loyalty/membership/leave.md' },
+                { text: 'Статус участника', link: '/integration/loyalty/membership/status.md' },
+              ]
+            },
+            {
               text: 'Wallet',
               collapsed: true,
               items: [

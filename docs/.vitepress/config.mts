@@ -125,7 +125,7 @@ export default defineConfig({
                 { text: 'Продление подписки', link: '/integration/loyalty/subscriptions/prolong.md' },
                 { text: 'Удаление подписки', link: '/integration/loyalty/subscriptions/leave.md' },
                 { text: 'Список клиентов', link: '/integration/loyalty/subscriptions/members.md' },
-                { text: 'Статус клиента', link: '/integration/loyalty/subscriptions/details.md' },
+                { text: 'Статус клиента', link: '/integration/loyalty/subscriptions/status.md' },
               ]
             }
           ]

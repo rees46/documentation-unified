@@ -114,6 +114,19 @@ export default defineConfig({
                 { text: 'Настройка Google Wallet', link: '/integration/loyalty/wallet/google.md' },
                 { text: 'Распространение', link: '/integration/loyalty/wallet/distribute.md' },
               ]
+            },
+            {
+              text: 'Подписки',
+              collapsed: true,
+              items: [
+                { text: 'Введение', link: '/integration/loyalty/subscriptions/index.md' },
+                { text: 'Сущности', link: '/integration/loyalty/subscriptions/glossary.md' },
+                { text: 'Создание подписки', link: '/integration/loyalty/subscriptions/join.md' },
+                { text: 'Продление подписки', link: '/integration/loyalty/subscriptions/prolong.md' },
+                { text: 'Удаление подписки', link: '/integration/loyalty/subscriptions/leave.md' },
+                { text: 'Список клиентов', link: '/integration/loyalty/subscriptions/members.md' },
+                { text: 'Статус клиента', link: '/integration/loyalty/subscriptions/details.md' },
+              ]
             }
           ]
         },

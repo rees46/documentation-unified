@@ -3,7 +3,7 @@
 Продление уже существующей подписки без изменения других ее свойств. Используйте этот метод, когда списали с клиента оплату за подписку и передайте дату, до которой эта подписка продлена.
 
 ```
-PATCH https://api.rees46.ru/loyalty/subscriptions/prolong
+PATCH https://api.rees46.ru/loyalty/subscriptions/members/prolong
 ```
 
 ## Параметры
@@ -24,7 +24,7 @@ PATCH https://api.rees46.ru/loyalty/subscriptions/prolong
 curl --header "Content-Type: application/json" \
   --request PATCH \
   --data-binary "@payload.json" \
-  https://api.rees46.ru/loyalty/subscriptions/prolong
+  https://api.rees46.ru/loyalty/subscriptions/members/prolong
 ```
 
 Пример JSON-тела:

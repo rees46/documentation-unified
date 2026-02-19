@@ -7,7 +7,7 @@
 Метод не рекомендуется использовать для продления подписки, так как это может повлиять на расчеты лимитов и отчетность. Для продления подписки без изменения других условий (тариф, дата очистки лимитов), используйте метод [продления подписки](./prolong.md).
 
 ```
-POST https://api.rees46.ru/loyalty/subscriptions/join
+POST https://api.rees46.ru/loyalty/subscriptions/members/join
 ```
 
 ## Параметры
@@ -30,7 +30,7 @@ POST https://api.rees46.ru/loyalty/subscriptions/join
 curl --header "Content-Type: application/json" \
   --request POST \
   --data-binary "@payload.json" \
-  https://api.rees46.ru/loyalty/subscriptions/join
+  https://api.rees46.ru/loyalty/subscriptions/members/join
 ```
 
 Пример JSON-тела:

@@ -5,7 +5,7 @@
 Если клиент переходит на другой тариф этой же подписки, проще использовать метод [создания подписки](./join.md) с указанием нового тарифа.
 
 ```
-DELETE https://api.rees46.ru/loyalty/subscriptions/leave
+DELETE https://api.rees46.ru/loyalty/subscriptions/members/leave
 ```
 
 ## Параметры
@@ -25,7 +25,7 @@ DELETE https://api.rees46.ru/loyalty/subscriptions/leave
 curl --header "Content-Type: application/json" \
   --request DELETE \
   --data-binary "@payload.json" \
-  https://api.rees46.ru/loyalty/subscriptions/leave
+  https://api.rees46.ru/loyalty/subscriptions/members/leave
 ```
 
 Пример JSON-тела:

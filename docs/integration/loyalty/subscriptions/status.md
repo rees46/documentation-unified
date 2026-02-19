@@ -3,7 +3,7 @@
 Возвращает информацию об участнике подписки, а также информацию о текущих бенефитах и остатках лимитов.
 
 ```
-GET https://api.rees46.ru/loyalty/subscriptions/status
+GET https://api.rees46.ru/loyalty/subscriptions/members/status
 ```
 
 ## Параметры
@@ -19,7 +19,7 @@ GET https://api.rees46.ru/loyalty/subscriptions/status
 Пример запроса:
 
 ```shell 
-curl https://api.rees46.ru/loyalty/subscriptions/status?shop_id=...&shop_secret=...&identifier=...
+curl https://api.rees46.ru/loyalty/subscriptions/members/status?shop_id=...&shop_secret=...&identifier=...
 ```
 
 ## Ответ

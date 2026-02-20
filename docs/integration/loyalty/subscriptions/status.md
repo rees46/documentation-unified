@@ -69,9 +69,12 @@ curl https://api.rees46.ru/loyalty/subscriptions/members/status?shop_id=...&shop
               "status": "inactive"
             }
           ],
-          "limit": 5000,
-          "used": 3700,
-          "left": 1300
+          "savings_limit": 5000,
+          "savings_used": 3700,
+          "savings_left": 1300,
+          "usage_limit": 5,
+          "usage_used": 3,
+          "usage_left": 2
         }
       }
     ]
@@ -111,9 +114,12 @@ curl https://api.rees46.ru/loyalty/subscriptions/members/status?shop_id=...&shop
 | payload.benefits[].value.promotions[].id     | Идентификатор акции                                                                                                                                                                    |
 | payload.benefits[].value.promotions[].name   | Название акции                                                                                                                                                                         |
 | payload.benefits[].value.promotions[].status | Статус акции: `draft`, `scheduled`, `inactive`, `active`, `archived`                                                                                                                   |
-| payload.benefits[].value.limit               | Лимит скидок по указанным акциям                                                                                                                                                       |
-| payload.benefits[].value.used                | Сколько скидок уже получено по этим акциям в текущий расчетный период                                                                                                                  |
-| payload.benefits[].value.left                | Сколько скидок еще можно получить до конца расчетного период                                                                                                                           |
+| payload.benefits[].value.savings_limit       | Лимит скидок по указанным акциям                                                                                                                                                       |
+| payload.benefits[].value.savings_used        | Сколько скидок уже получено по этим акциям в текущий расчетный период                                                                                                                  |
+| payload.benefits[].value.savings_left        | Сколько скидок еще можно получить до конца расчетного периода                                                                                                                          |
+| payload.benefits[].value.usage_limit         | Лимит по кол-ву применения указанных акций                                                                                                                                             |
+| payload.benefits[].value.usage_used          | Сколько раз уже были применены акции в текущий расчетный период                                                                                                                        |
+| payload.benefits[].value.usage_left          | Сколько еще раз осталось применит акции до конца расчетного период                                                                                                                     |
 
 
  

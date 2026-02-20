@@ -49,8 +49,13 @@ curl --header "Content-Type: application/json" \
   "success": true,
   "payload": {
     "message": "The subscription is cancelled",
-    "identifier": "...",
-    "subscription": "..."
+    "member": {
+      "identifier": "...",
+      "subscription": "...",
+      "plan": "...",
+      "paid_till": "...",
+      "limits_reset_date": "..."
+    }
   }
 }
 ```
@@ -68,9 +73,10 @@ curl --header "Content-Type: application/json" \
 
 Расшифровка ответа:
 
-| Параметр                  | Описание                                                             |
-|---------------------------|----------------------------------------------------------------------|
-| success                   | Запрос выполнен успешно или нет                                      |
-| payload.message           | Сообщение с результатом обработки запроса                            |
-| payload.identifier        | Идентификатор участника программы лояльности в формате `7XXXXXXXXXX` |
-| payload.subscription      | Уникальный код подписки                                              |
+| Параметр                    | Описание                                                             |
+|-----------------------------|----------------------------------------------------------------------|
+| success                     | Запрос выполнен успешно или нет                                      |
+| payload.message             | Сообщение с результатом обработки запроса                            |
+| payload.member              | Объект подписчика                                                    |
+| payload.member.identifier   | Идентификатор участника программы лояльности в формате `7XXXXXXXXXX` |
+| payload.member.subscription | Уникальный код подписки                                              |

@@ -58,11 +58,13 @@ curl --header "Content-Type: application/json" \
   "success": true,
   "payload": {
     "message": "Member is joined to subscription",
-    "identifier": "...",
-    "subscription": "...",
-    "plan": "...",
-    "paid_till": "...",
-    "limits_reset_date": "..."
+    "member": {
+      "identifier": "...",
+      "subscription": "...",
+      "plan": "...",
+      "paid_till": "...",
+      "limits_reset_date": "..."
+    }
   }
 }
 ```
@@ -80,12 +82,13 @@ curl --header "Content-Type: application/json" \
 
 Расшифровка ответа:
 
-| Параметр                  | Описание                                                             |
-|---------------------------|----------------------------------------------------------------------|
-| success                   | Запрос выполнен успешно или нет                                      |
-| payload.message           | Сообщение с результатом обработки запроса                            |
-| payload.identifier        | Идентификатор участника программы лояльности в формате `7XXXXXXXXXX` |
-| payload.subscription      | Уникальный код подписки                                              |
-| payload.plan              | Уникальный код плана                                                 |
-| payload.paid_till         | Дата, до которой оплачена подписка                                   |
-| payload.limits_reset_date | Дата, когда будет выполнен следующий сброс лимитов                   |
+| Параметр                         | Описание                                           |
+|----------------------------------|----------------------------------------------------|
+| success                          | Запрос выполнен успешно или нет                    |
+| payload.message                  | Сообщение с результатом обработки запроса          |
+| payload.member                   | Объект подписчика                                  |
+| payload.member.identifier        | Идентификатор подписчика                           |
+| payload.member.subscription      | Уникальный код подписки                            |
+| payload.member.plan              | Уникальный код плана                               |
+| payload.member.paid_till         | Дата, до которой оплачена подписка                 |
+| payload.member.limits_reset_date | Дата, когда будет выполнен следующий сброс лимитов |

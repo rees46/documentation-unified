@@ -40,7 +40,13 @@ curl https://api.rees46.ru/loyalty/subscriptions/members?shop_id=...&shop_secret
         "paid_till": "...",
         "limits_reset_date": "..."
       },
-      ...
+      {
+        "identifier": "...",
+        "subscription": "...",
+        "plan": "...",
+        "paid_till": "...",
+        "limits_reset_date": "..."
+      }
     ]
   }
 }

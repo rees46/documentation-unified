@@ -106,6 +106,41 @@ export default defineConfig({
               ]
             },
             {
+              text: 'Процессинг',
+              collapsed: true,
+              items: [
+                { text: 'Введение', link: '/integration/loyalty/checkout/index.md' },
+              ]
+            },
+            {
+              text: 'Бонусы',
+              collapsed: true,
+              items: [
+                { text: 'Введение', link: '/integration/loyalty/bonuses/index.md' },
+              ]
+            },
+            {
+              text: 'Сертификаты',
+              collapsed: true,
+              items: [
+                { text: 'Введение', link: '/integration/loyalty/certificates/index.md' },
+              ]
+            },
+            {
+              text: 'Акции',
+              collapsed: true,
+              items: [
+                { text: 'Введение', link: '/integration/loyalty/promotions/index.md' },
+              ]
+            },
+            {
+              text: 'Реферальные программы',
+              collapsed: true,
+              items: [
+                { text: 'Введение', link: '/integration/loyalty/referral/index.md' },
+              ]
+            },
+            {
               text: 'Wallet',
               collapsed: true,
               items: [
@@ -127,7 +162,32 @@ export default defineConfig({
                 { text: 'Список клиентов', link: '/integration/loyalty/subscriptions/members.md' },
                 { text: 'Статус клиента', link: '/integration/loyalty/subscriptions/status.md' },
               ]
-            }
+            },
+            {
+              text: 'Промокоды',
+              collapsed: true,
+              items: [
+                { text: 'Введение', link: '/integration/loyalty/promo-codes/index.md' },
+              ]
+            },
+            {
+              text: 'Стикеры и фишки',
+              collapsed: true,
+              items: [
+                { text: 'Введение', link: '/integration/loyalty/stickers/index.md' },
+              ]
+            },
+            {
+              text: 'OTP верификация',
+              collapsed: true,
+              items: [
+                { text: 'Введение', link: '/integration/loyalty/otp/index.md' },
+                { text: 'Отправка кода', link: '/integration/loyalty/otp/code-send.md' },
+                { text: 'Проверка кода', link: '/integration/loyalty/otp/code-check.md' },
+                { text: 'Получение QR-кода', link: '/integration/loyalty/otp/qr-get.md' },
+                { text: 'Проверка QR-кода', link: '/integration/loyalty/otp/qr-check.md' },
+              ]
+            },
           ]
         },
         {

@@ -110,6 +110,20 @@ export default defineConfig({
               collapsed: true,
               items: [
                 { text: 'Введение', link: '/integration/loyalty/checkout/index.md' },
+                { text: 'Предварительная оценка', link: '/integration/loyalty/checkout/estimate.md' },
+                { text: 'Создание заказа', link: '/integration/loyalty/checkout/apply.md' },
+                { text: 'Подтверждение заказа', link: '/integration/loyalty/checkout/confirm.md' },
+                { text: 'Отмена заказа', link: '/integration/loyalty/checkout/cancel.md' },
+                { text: 'Частичный возврат', link: '/integration/loyalty/checkout/change.md' },
+                { text: 'Информация о заказе', link: '/integration/loyalty/checkout/details.md' },
+                { text: 'История заказов', link: '/integration/loyalty/checkout/history.md' },
+              ]
+            },
+            {
+              text: 'Акции',
+              collapsed: true,
+              items: [
+                { text: 'Введение', link: '/integration/loyalty/promotions/index.md' },
               ]
             },
             {
@@ -124,13 +138,6 @@ export default defineConfig({
               collapsed: true,
               items: [
                 { text: 'Введение', link: '/integration/loyalty/certificates/index.md' },
-              ]
-            },
-            {
-              text: 'Акции',
-              collapsed: true,
-              items: [
-                { text: 'Введение', link: '/integration/loyalty/promotions/index.md' },
               ]
             },
             {

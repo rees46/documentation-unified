@@ -14,5 +14,5 @@ COPY --from=build /app/docs/.vitepress/dist /app
 
 WORKDIR /app
 
-EXPOSE 8080
+EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]

@@ -168,6 +168,7 @@ export default defineConfig({
                 { text: 'Удаление подписки', link: '/integration/loyalty/subscriptions/leave.md' },
                 { text: 'Список клиентов', link: '/integration/loyalty/subscriptions/members.md' },
                 { text: 'Статус клиента', link: '/integration/loyalty/subscriptions/status.md' },
+                { text: 'Отчет клиента', link: '/integration/loyalty/subscriptions/report.md' },
               ]
             },
             {

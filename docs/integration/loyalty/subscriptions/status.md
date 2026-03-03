@@ -119,7 +119,7 @@ curl https://api.rees46.ru/loyalty/subscriptions/members/status?shop_id=...&shop
 | payload.benefits[].value.savings_left        | Сколько скидок еще можно получить до конца расчетного периода                                                                                                                          |
 | payload.benefits[].value.usage_limit         | Лимит по кол-ву применения указанных акций                                                                                                                                             |
 | payload.benefits[].value.usage_used          | Сколько раз уже были применены акции в текущий расчетный период                                                                                                                        |
-| payload.benefits[].value.usage_left          | Сколько еще раз осталось применит акции до конца расчетного период                                                                                                                     |
+| payload.benefits[].value.usage_left          | Сколько еще раз осталось применить акции до конца расчетного период                                                                                                                    |
 
 
  

@@ -24,7 +24,9 @@ export default defineConfig({
                     text: `Общий контент`,
                     collapsed: true,
                     items: [
-                        {text: 'Баннеры и слайдеры', link: '/guides/sliders/index.md'},
+                        {text: 'Баннеры и слайдеры', link: '/guides/common-content/sliders/index.md'},
+                        {text: 'Вставляемые скрипты', link: '/guides/common-content/js-snippets/index.md'},
+                        {text: 'Промокоды', link: '/guides/common-content/promocodes/index.md'},
                     ]
                 },
 

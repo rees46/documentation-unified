@@ -34,7 +34,7 @@ export default defineConfig({
                     collapsed: true,
                     items: [
                         { text: 'О сервисе', link: '/guides/cdp/index.md' },
-                        { text: 'Возможности', link: '/guides/cdp/features.md' },
+                        { text: 'Расширенная CDP', link: '/guides/cdp/features.md' },
                     ]
                 },
             ],

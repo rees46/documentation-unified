@@ -29,8 +29,14 @@ export default defineConfig({
                         {text: 'Промокоды', link: '/guides/common-content/promocodes/index.md'},
                     ]
                 },
-
-
+                {
+                    text: `CDP`,
+                    collapsed: true,
+                    items: [
+                        { text: 'О сервисе', link: '/guides/cdp/index.md' },
+                        { text: 'Возможности', link: '/guides/cdp/features.md' },
+                    ]
+                },
             ],
 
             '/integration/': [

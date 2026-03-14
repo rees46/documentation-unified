@@ -156,6 +156,19 @@ export default defineConfig({
                             collapsed: true,
                             items: [
                                 {text: 'Введение', link: '/integration/loyalty/certificates/index.md'},
+                                {text: 'Список сертификатов', link: '/integration/loyalty/certificates/list.md'},
+                                {text: 'Создание сертификата', link: '/integration/loyalty/certificates/create.md'},
+                                {text: 'Активация сертификата', link: '/integration/loyalty/certificates/activate.md'},
+                                {text: 'Деактивация сертификата', link: '/integration/loyalty/certificates/deactivate.md'},
+                                {text: 'Блокировка сертификата', link: '/integration/loyalty/certificates/block.md'},
+                                {text: 'Восстановить сертификат', link: '/integration/loyalty/certificates/unblock.md'},
+                                {text: 'Баланс сертификата', link: '/integration/loyalty/certificates/balance.md'},
+                                {text: 'Транзакции сертификата', link: '/integration/loyalty/certificates/transactions.md'},
+                                {text: 'Сертификаты клиента', link: '/integration/loyalty/certificates/by-user.md'},
+                                {text: '<hr>'},
+                                {text: 'Объект сертификата', link: '/integration/loyalty/certificates/object-certificate.md'},
+                                {text: 'Объект пула', link: '/integration/loyalty/certificates/object-pool.md'},
+                                {text: 'Объект транзакции', link: '/integration/loyalty/certificates/object-transaction.md'},
                             ]
                         },
                         {

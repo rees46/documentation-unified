@@ -275,7 +275,17 @@ export default defineConfig({
                 },
             ],
 
-            '/education/': [],
+            '/education/': [
+                {
+                    text: 'Полезная информация',
+                    collapsed: true,
+                    items: [
+                        {text: 'Как зарегистрироваться в качестве отправителя AMP-контента в Gmail', link: '/education/useful-information/amp-registration.md'},
+                        {text: 'Требования и рекомендации по аутентификации электронной почты', link: '/education/useful-information/email-providers-validation.md'},
+                   ]
+                },
+
+            ],
 
             '/glossary/': [
 

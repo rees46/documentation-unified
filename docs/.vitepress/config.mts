@@ -145,10 +145,10 @@ export default defineConfig({
                             ]
                         },
                         {
-                            text: 'Интеграция с кассами Эватор',
+                            text: 'Интеграция с кассами',
                             collapsed: true,
                             items: [
-                                {text: 'Интеграция приложения программы лояльности в кассу Эватор', link: '/integration/loyalty/evator-integration/index.md'},
+                                {text: 'Эвотор', link: '/integration/loyalty/evator-integration/index.md'},
                             ]
                         },
                         {

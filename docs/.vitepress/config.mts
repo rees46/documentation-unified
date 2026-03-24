@@ -142,6 +142,9 @@ export default defineConfig({
                             collapsed: true,
                             items: [
                                 {text: 'Введение', link: '/integration/loyalty/promotions/index.md'},
+                                {text: 'Список акций', link: '/integration/loyalty/promotions/list.md'},
+                                {text: 'Акции для клиента', link: '/integration/loyalty/promotions/client.md'},
+                                {text: 'Акции для корзины', link: '/integration/loyalty/promotions/cart.md'},
                             ]
                         },
                         {

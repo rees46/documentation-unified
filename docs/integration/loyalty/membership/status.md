@@ -84,3 +84,14 @@ curl https://api.rees46.ru/loyalty/members/status?shop_id=...&shop_secret=...&id
 | payload.level.name            | Название уровня программы лояльности                                                  |
 | payload.level.code            | Уникальный код уровня программы лояльности                                            |
 | payload.level.expiration_date | Срок действия уровня программы лояльности, после которого будет выполнен его пересчет |
+
+В случае ошибки ответ будет в формате:
+
+```json 
+{
+  "success": false,
+  "payload": {
+    "message": "Identifier is not valid"
+  }
+}
+```

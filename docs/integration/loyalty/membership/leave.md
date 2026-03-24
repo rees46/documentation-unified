@@ -57,3 +57,14 @@ curl --header "Content-Type: application/json" \
 |----------|---------------------------------|
 | success  | Запрос выполнен успешно или нет |
 | payload  | Всегда будет пустым             |
+
+В случае ошибки ответ будет в формате:
+
+```json 
+{
+  "success": false,
+  "payload": {
+    "message": "Identifier is not valid"
+  }
+}
+```

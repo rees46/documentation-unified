@@ -19,7 +19,7 @@ GET https://api.rees46.ru/loyalty/certificates/by-user
 Пример запроса:
 
 ```shell 
-curl https://api.rees46.ru/loyalty/loyalty/certificates/by-user?shop_id=...&shop_secret=...&identifier=...
+curl https://api.rees46.ru/loyalty/certificates/by-user?shop_id=...&shop_secret=...&identifier=...
 ```
 
 ## Ответ

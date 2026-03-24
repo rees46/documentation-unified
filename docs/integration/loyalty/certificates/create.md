@@ -24,7 +24,7 @@ POST https://api.rees46.ru/loyalty/certificates
 curl --header "Content-Type: application/json" \
   --request POST \
   --data-binary "@payload.json" \
-  https://api.rees46.ru/loyalty/loyalty/certificates
+  https://api.rees46.ru/loyalty/certificates
 ```
 
 Пример JSON-тела:

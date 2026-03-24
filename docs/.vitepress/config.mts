@@ -151,7 +151,10 @@ export default defineConfig({
                             text: 'Интеграция с кассами',
                             collapsed: true,
                             items: [
-                                {text: 'Эвотор', link: '/integration/loyalty/cash-register-integration/evotor/index.md'},
+                                {text: 'Введение', link: '/integration/loyalty/pos/index.md'},
+                                {text: 'Эвотор', link: '/integration/loyalty/pos/evotor.md'},
+                                {text: 'IIKO', link: '/integration/loyalty/pos/iiko.md'},
+                                {text: '1С', link: '/integration/loyalty/pos/1c.md'},
                             ]
                         },
                         {
@@ -191,6 +194,8 @@ export default defineConfig({
                             collapsed: true,
                             items: [
                                 {text: 'Введение', link: '/integration/loyalty/referral/index.md'},
+                                {text: 'Регистрация участника', link: '/integration/loyalty/referral/join.md'},
+                                {text: 'Коды участника', link: '/integration/loyalty/referral/code.md'},
                             ]
                         },
                         {
@@ -222,6 +227,11 @@ export default defineConfig({
                             collapsed: true,
                             items: [
                                 {text: 'Введение', link: '/integration/loyalty/promo-codes/index.md'},
+                                {text: 'Списки', link: '/integration/loyalty/promo-codes/list.md'},
+                                {text: 'Получение промокода', link: '/integration/loyalty/promo-codes/fetch.md'},
+                                {text: 'Добавить промокоды', link: '/integration/loyalty/promo-codes/upload.md'},
+                                {text: 'Очистить список', link: '/integration/loyalty/promo-codes/purge.md'},
+                                {text: 'Удалить промокоды', link: '/integration/loyalty/promo-codes/delete.md'},
                             ]
                         },
                         {
@@ -229,6 +239,8 @@ export default defineConfig({
                             collapsed: true,
                             items: [
                                 {text: 'Введение', link: '/integration/loyalty/stickers/index.md'},
+                                {text: 'Баланс стикеров', link: '/integration/loyalty/stickers/balance.md'},
+                                {text: 'История стикеров', link: '/integration/loyalty/stickers/history.md'},
                             ]
                         },
                         {

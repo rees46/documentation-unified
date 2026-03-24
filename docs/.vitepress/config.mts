@@ -156,6 +156,11 @@ export default defineConfig({
                             collapsed: true,
                             items: [
                                 {text: 'Введение', link: '/integration/loyalty/bonuses/index.md'},
+                                {text: 'Бонусный баланс', link: '/integration/loyalty/bonuses/balance.md'},
+                                {text: 'История транзакций', link: '/integration/loyalty/bonuses/history.md'},
+                                {text: 'История вознаграждений', link: '/integration/loyalty/bonuses/history_events.md'},
+                                {text: 'Вознаграждение бонусами', link: '/integration/loyalty/bonuses/reward.md'},
+                                {text: 'Отмена вознаграждения', link: '/integration/loyalty/bonuses/cancel.md'},
                             ]
                         },
                         {

@@ -151,7 +151,7 @@ export default defineConfig({
                             text: 'Интеграция с кассами',
                             collapsed: true,
                             items: [
-                                {text: 'Эвотор', link: '/integration/loyalty/evator-integration/index.md'},
+                                {text: 'Эвотор', link: '/integration/loyalty/cash-register-integration/evotor/index.md'},
                             ]
                         },
                         {

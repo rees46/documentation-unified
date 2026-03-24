@@ -22,7 +22,7 @@ PATCH https://api.rees46.ru/loyalty/certificates/unblock
 curl --header "Content-Type: application/json" \
   --request PATCH \
   --data-binary "@payload.json" \
-  https://api.rees46.ru/loyalty/loyalty/certificates/unblock
+  https://api.rees46.ru/loyalty/certificates/unblock
 ```
 
 Пример JSON-тела:

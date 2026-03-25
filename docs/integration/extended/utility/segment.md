@@ -24,6 +24,6 @@ sdk.getSegment()
 ```
 
 ```js [ReactNative SDK]
-// TBD
+sdk.getCurrentSegment()
 ```
 :::

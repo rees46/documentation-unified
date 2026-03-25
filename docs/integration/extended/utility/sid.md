@@ -24,6 +24,7 @@ sdk.getSid()
 ```
 
 ```js [ReactNative SDK]
-// TBD
+// Это свойство, а не метод
+sdk.userSeance
 ```
 :::

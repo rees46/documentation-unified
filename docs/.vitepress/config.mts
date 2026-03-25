@@ -294,6 +294,7 @@ export default defineConfig({
                             {text: 'Сегмент A/B-теста', link: '/integration/extended/utility/segment.md'},
                             {text: 'Device ID', link: '/integration/extended/utility/did.md'},
                             {text: 'Seance ID', link: '/integration/extended/utility/sid.md'},
+                            {text: 'Сокращение ссылок', link: '/integration/extended/utility/url-shortener.md'},
                           ]
                         },
                     ]

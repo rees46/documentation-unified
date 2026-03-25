@@ -342,6 +342,13 @@ export default defineConfig({
                         {text: 'Требования и рекомендации по аутентификации электронной почты', link: '/education/useful-information/email-providers-validation.md'},
                    ]
                 },
+                {
+                    text: 'Готовые примеры',
+                    collapsed: true,
+                    items: [
+                        {text: 'Как настроить массовую рассылку WhatsApp (edna)', link: '/education/examples/mass-WA-campaign-edna.md'},
+                   ]
+                },
 
             ],
 

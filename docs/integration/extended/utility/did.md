@@ -24,6 +24,6 @@ sdk.getDid()
 ```
 
 ```js [ReactNative SDK]
-// TBD
+sdk.getDeviceId()
 ```
 :::

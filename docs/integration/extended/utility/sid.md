@@ -16,11 +16,11 @@ r46('sid', function(result){
 ```
 
 ```swift [iOS SDK]
-// TBD
+sdk.getSession()
 ```
 
 ```kotlin [Android SDK]
-// TBD
+sdk.getSid()
 ```
 
 ```js [ReactNative SDK]

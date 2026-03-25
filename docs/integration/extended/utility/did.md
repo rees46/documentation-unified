@@ -16,11 +16,11 @@ r46('did', function(result){
 ```
 
 ```swift [iOS SDK]
-// TBD
+sdk.getDeviceId() 
 ```
 
 ```kotlin [Android SDK]
-// TBD
+sdk.getDid() 
 ```
 
 ```js [ReactNative SDK]

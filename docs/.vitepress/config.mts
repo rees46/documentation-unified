@@ -261,10 +261,40 @@ export default defineConfig({
                     collapsed: true,
                     items: [
                         {text: 'Введение', link: '/integration/extended/index.md'},
-                        {text: 'On-premise', link: '/integration/extended/on-premise.md'},
-                        {text: 'White label', link: '/integration/extended/white-label.md'},
+                        {text: 'Виды поставки', link: '/integration/extended/clusters.md'},
+                        {
+                          text: 'On-premise',
+                          collapsed: true,
+                          items: [
+                            {text: 'Введение', link: '/integration/extended/on-premise/index.md'},
+                            {text: 'План действий', link: '/integration/extended/on-premise/plan.md'},
+                            {text: 'Серверы', link: '/integration/extended/on-premise/servers.md'},
+                            {text: 'Домены', link: '/integration/extended/on-premise/domains.md'},
+                          ]
+                        },
+                        {
+                          text: 'Почтовый кластер',
+                          collapsed: true,
+                          items: [
+                            {text: 'Введение', link: '/integration/extended/mta/index.md'},
+                            {text: 'Сервисные адреса', link: '/integration/extended/mta/mailboxes.md'},
+                            {text: 'Домены для отправки', link: '/integration/extended/mta/senders.md'},
+                            {text: 'Мониторинг репутации', link: '/integration/extended/mta/postmasters.md'},
+                          ]
+                        },
+
                         {text: 'S2S – серверная интеграция', link: '/integration/extended/s2s.md'},
                         {text: 'Dashboard API', link: '/integration/extended/dashboard-api.md'},
+                        {
+                          text: 'Служебные методы SDK',
+                          collapsed: true,
+                          items: [
+                            {text: 'Введение', link: '/integration/extended/utility/index.md'},
+                            {text: 'Сегмент A/B-теста', link: '/integration/extended/utility/segment.md'},
+                            {text: 'Device ID', link: '/integration/extended/utility/did.md'},
+                            {text: 'Seance ID', link: '/integration/extended/utility/sid.md'},
+                          ]
+                        },
                     ]
                 },
             ],

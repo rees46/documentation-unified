@@ -27,6 +27,7 @@ export default defineConfig({
                         {text: 'Баннеры и слайдеры', link: '/guides/common-content/sliders/index.md'},
                         {text: 'Вставляемые скрипты', link: '/guides/common-content/js-snippets/index.md'},
                         {text: 'Промокоды', link: '/guides/common-content/promocodes/index.md'},
+                        {text: 'Список поддерживаемых liquid-переменных', link: '/guides/common-content/liquid-vars/liquid-vars.md'},
                     ]
                 },
                 {

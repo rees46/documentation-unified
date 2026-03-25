@@ -39,7 +39,7 @@ curl --header "Content-Type: application/json" \
   "shop_secret": "...",
   "links": [
     {
-      "url": "https://example.com/page/1/?utm_source=source...",
+      "url": "https://example.com/page/1/?utm_source=source..."
     },
     {
       "url": "https://example.com/page/2/?utm_source=source...",

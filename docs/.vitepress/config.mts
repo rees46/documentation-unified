@@ -100,6 +100,10 @@ export default defineConfig({
                     collapsed: true,
                     items: [
                         {text: 'Введение', link: '/integration/stories/index.md'},
+                        {text: 'Сайт', link: '/integration/stories/web.md'},
+                        {text: 'iOS', link: '/integration/stories/ios.md'},
+                        {text: 'Android', link: '/integration/stories/android.md'},
+                        {text: 'React Native', link: '/integration/stories/react-native.md'},
                     ]
                 },
                 {

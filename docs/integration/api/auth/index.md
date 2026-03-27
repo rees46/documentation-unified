@@ -166,7 +166,6 @@ yarn add @react-native-firebase/app
 yarn add @react-native-firebase/messaging
 yarn add @notifee/react-native
 ```
-
 :::
 
 ## Запуск сессии

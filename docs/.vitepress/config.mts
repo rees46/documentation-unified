@@ -133,6 +133,7 @@ export default defineConfig({
                             collapsed: true,
                             items: [
                                 {text: 'Введение', link: '/integration/loyalty/checkout/index.md'},
+                                {text: 'Управление запретами', link: '/integration/loyalty/checkout/exclude.md'},
                                 {text: 'Предварительная оценка', link: '/integration/loyalty/checkout/estimate.md'},
                                 {text: 'Создание заказа', link: '/integration/loyalty/checkout/apply.md'},
                                 {text: 'Подтверждение заказа', link: '/integration/loyalty/checkout/confirm.md'},

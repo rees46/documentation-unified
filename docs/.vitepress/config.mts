@@ -565,14 +565,14 @@ export default defineConfig({
                     text: 'Юридические документы',
                     collapsed: false,
                     items: [
-                        {text: 'Пользовательское соглашение', link: 'legal/documents/agreement.md'},
+                        {text: 'Соглашение', link: 'legal/documents/agreement.md'},
                         {text: 'Договор-оферта', link: 'legal/documents/offer.md'},
-                        {text: 'Политика конфиденциальности', link: 'legal/documents/policy.md'}
+                        {text: 'Конфиденциальность', link: 'legal/documents/policy.md'}
                     ]
                 },
                 {
                     text: 'Согласия',
-                    collapsed: true,
+                    collapsed: false,
                     items: [
                         {text: 'Обратная связь', link: 'legal/consents/feedback.md'},
                         {text: 'Персональные данные', link: 'legal/consents/personal-data.md'},
@@ -582,19 +582,33 @@ export default defineConfig({
                 },
                 {
                   text: 'Регламенты',
-                  collapsed: true,
+                  collapsed: false,
                   items: [
+                    {text: 'Удаленный доступ', link: 'legal/protocols/remote-access.md'},
+                    {text: 'Мониторинг', link: 'legal/protocols/monitoring.md'},
                     {text: 'Управление доступом', link: 'legal/protocols/access.md'},
-                    {text: 'Инциденты', link: 'legal/protocols/incidents.md'},
+                    {text: 'Реагирование на инциденты', link: 'legal/protocols/incidents.md'},
+                    {text: 'Положения оператора ПД', link: 'legal/protocols/pi-operator.md'},
+                    {text: 'NDA', link: 'legal/protocols/nda.md'},
+                    {text: 'Процедура ознакомления', link: 'legal/protocols/sign.md'},
                   ]
                 },
 
                 {
-                  text: 'Сертификаты',
-                  collapsed: true,
+                  text: 'Лицензии и сертификаты',
+                  collapsed: false,
                   items: [
-                    {text: '...', link: 'legal/certificates/access.md'},
+                    {text: 'Роспатент', link: 'legal/certificates/rospatent.md'},
                   ]
+                },
+
+                {
+                    text: 'Технология',
+                    collapsed: false,
+                    items: [
+                        {text: 'Технический стек', link: 'legal/technical/stack.md'},
+                        {text: 'Сертификация ЦОДа', link: 'legal/technical/data-center.md'},
+                    ]
                 }
 
             ],

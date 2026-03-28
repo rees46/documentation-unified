@@ -560,35 +560,43 @@ export default defineConfig({
             ],
 
             '/legal/': [
+                {text: 'Список документов', link: 'legal/index.md'},
                 {
                     text: 'Юридические документы',
                     collapsed: false,
                     items: [
-                        {text: 'Список документов', link: 'legal/index.md'},
-                        {text: 'Пользовательское соглашение', link: 'legal/agreement.md'},
-                        {text: 'Договор-оферта', link: 'legal/offer.md'},
-                        {text: 'Политика конфиденциальности', link: 'legal/policy.md'}
+                        {text: 'Пользовательское соглашение', link: 'legal/documents/agreement.md'},
+                        {text: 'Договор-оферта', link: 'legal/documents/offer.md'},
+                        {text: 'Политика конфиденциальности', link: 'legal/documents/policy.md'}
                     ]
                 },
                 {
                     text: 'Согласия',
-                    collapsed: false,
+                    collapsed: true,
                     items: [
-                        {
-                            text: 'Согласие на получение и обработку персональных данных при запросе на обратную связь',
-                            link: 'legal/feedback.md'
-                        },
-                        {text: 'Согласие на получение и обработку персональных данных', link: 'legal/personal-data.md'},
-                        {
-                            text: 'Согласие на получение и обработку персональных данных в целях рекламы',
-                            link: 'legal/ads.md'
-                        },
-                        {
-                            text: 'Согласие на получение и обработку персональных данных при регистрации',
-                            link: 'legal/registration.md'
-                        }
+                        {text: 'Обратная связь', link: 'legal/consents/feedback.md'},
+                        {text: 'Персональные данные', link: 'legal/consents/personal-data.md'},
+                        {text: 'Реклама', link: 'legal/consents/ads.md'},
+                        {text: 'Обратная связь', link: 'legal/consents/registration.md'}
                     ]
+                },
+                {
+                  text: 'Регламенты',
+                  collapsed: true,
+                  items: [
+                    {text: 'Управление доступом', link: 'legal/protocols/access.md'},
+                    {text: 'Инциденты', link: 'legal/protocols/incidents.md'},
+                  ]
+                },
+
+                {
+                  text: 'Сертификаты',
+                  collapsed: true,
+                  items: [
+                    {text: '...', link: 'legal/certificates/access.md'},
+                  ]
                 }
+
             ],
         },
 

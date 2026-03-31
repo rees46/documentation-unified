@@ -61,10 +61,44 @@ export default defineConfig({
                     ]
                 },
                 {
-                    text: 'Каналы коммуникации',
+                    text: 'Рассылки',
                     collapsed: true,
                     items: [
-                        {text: 'Введение', link: '/integration/channels/index.md'},
+                        { text: 'Введение', link: '/integration/messaging/index.md' },
+                        {
+                            text: 'Настройка каналов',
+                            collapsed: true,
+                            items: [
+                                {text: 'Email', link: '/integration/messaging/channels/email.md'},
+                                {text: 'Mobile push', link: '/integration/messaging/channels/mobile-push.md'},
+                                {text: 'Web push', link: '/integration/messaging/channels/web-push.md'},
+                                {text: 'SMS', link: '/integration/messaging/channels/sms.md'},
+                                {text: 'WhatsApp', link: '/integration/messaging/channels/whatsapp.md'},
+                                {text: 'Telegram', link: '/integration/messaging/channels/telegram.md'},
+                                {text: 'Wallet', link: '/integration/messaging/channels/wallet.md'},
+                                {text: 'MAX', link: '/integration/messaging/channels/max.md'},
+                            ]
+                        },
+                        {
+                          text: 'Триггерные цепочки',
+                          collapsed: true,
+                          items: [
+                            {text: 'Введение', link: '/integration/messaging/triggers/index.md'},
+                            {text: 'Стандартные триггеры', link: '/integration/messaging/triggers/common.md'},
+                            {text: 'Кастомные триггеры', link: '/integration/messaging/triggers/custom.md'},
+                            {text: 'Системные триггеры', link: '/integration/messaging/triggers/system.md'},
+                          ]
+                        },
+                        {
+                          text: 'Транзакционные рассылки',
+                          collapsed: true,
+                          items: [
+                            {text: 'Введение', link: '/integration/messaging/transactional/index.md'},
+                            {text: 'Отправка', link: '/integration/messaging/transactional/sending.md'},
+                            {text: 'Отправка файлов', link: '/integration/messaging/transactional/files.md'},
+                            {text: 'Каскады', link: '/integration/messaging/transactional/cascade.md'},
+                          ]
+                        },
                     ]
                 },
                 {
@@ -72,6 +106,7 @@ export default defineConfig({
                     collapsed: true,
                     items: [
                         {text: 'Введение', link: '/integration/recommendations/index.md'},
+
                     ]
                 },
                 {

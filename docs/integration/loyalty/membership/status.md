@@ -30,7 +30,7 @@ curl https://api.rees46.ru/loyalty/members/status?shop_id=...&shop_secret=...&id
 
 ```json
 {
-  "success": true,
+  "status": "success",
   "payload": {
     "member": true,
     "level": {
@@ -46,7 +46,7 @@ curl https://api.rees46.ru/loyalty/members/status?shop_id=...&shop_secret=...&id
 
 ```json
 {
-  "success": true,
+  "status": "success",
   "payload": {
     "member": true,
     "level": {
@@ -62,7 +62,7 @@ curl https://api.rees46.ru/loyalty/members/status?shop_id=...&shop_secret=...&id
 
 ```json
 {
-  "success": true,
+  "status": "success",
   "payload": {
     "member": false,
     "level": {
@@ -89,7 +89,7 @@ curl https://api.rees46.ru/loyalty/members/status?shop_id=...&shop_secret=...&id
 
 ```json 
 {
-  "success": false,
+  "status": "error",
   "payload": {
     "message": "Identifier is not valid"
   }

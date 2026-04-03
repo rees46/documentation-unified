@@ -16,7 +16,7 @@ DELETE https://api.rees46.ru/loyalty/members/destroy
 |-------------|-------------|----------------------------|
 | shop_id     | Да          | API-ключ                   |
 | shop_secret | Да          | Секретный ключ API         |
-| phone       | Да          | Идентификатор участника ПЛ |
+| identifier  | Да          | Идентификатор участника ПЛ |
 
 
 ## Запрос
@@ -46,7 +46,7 @@ curl --header "Content-Type: application/json" \
 
 ```json 
 {
-  "success": true,
+  "status": "success",
   "payload": null
 }
 ```
@@ -62,7 +62,7 @@ curl --header "Content-Type: application/json" \
 
 ```json 
 {
-  "success": false,
+  "status": "error",
   "payload": {
     "message": "Identifier is not valid"
   }

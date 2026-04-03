@@ -52,7 +52,7 @@ curl --header "Content-Type: application/json" \
 
 ```json 
 {
-  "success": true,
+  "status": "success",
   "payload": {
     "message": "Member is registered successfully",
     "identifier": "..."

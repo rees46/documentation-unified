@@ -4,7 +4,7 @@
 
 
 ```
-PATCH https://app.rees46.ru/loyalty/bonuses/cancel
+PATCH https://api.rees46.ru/loyalty/bonuses/cancel
 ```
 
 ## Параметры

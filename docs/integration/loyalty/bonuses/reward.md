@@ -16,7 +16,7 @@
 
 
 ```
-POST https://app.rees46.ru/loyalty/basic/event_bonus
+POST https://api.rees46.ru/loyalty/basic/event_bonus
 ```
 
 ## Параметры

@@ -31,7 +31,7 @@ curl https://api.rees46.ru/loyalty/checkout/history?shop_id=...&shop_secret=...&
 
 ```json 
 {
-  "success": true,
+  "status": "success",
   "payload": {
     "orders": [
       {
@@ -78,7 +78,7 @@ curl https://api.rees46.ru/loyalty/checkout/history?shop_id=...&shop_secret=...&
 
 ```json 
 {
-  "success": false,
+  "status": "error",
   "payload": {
     "message": "Loyalty program member is not found"
   }

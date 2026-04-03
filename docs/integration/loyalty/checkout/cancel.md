@@ -63,7 +63,7 @@ curl --header "Content-Type: application/json" \
 
 ```json 
 {
-  "success": true,
+  "status": "success",
   "payload": {
     "order_id": "...",
     "identifier": "..."
@@ -84,7 +84,7 @@ curl --header "Content-Type: application/json" \
 
 ```json 
 {
-  "success": false,
+  "status": "error",
   "payload": {
     "message": "Could not cancel order in its current status"
   }

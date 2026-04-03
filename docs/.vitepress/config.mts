@@ -7,6 +7,10 @@ export default defineConfig({
     base: "/help/",
     themeConfig: {
 
+        search: {
+          provider: 'local'
+        },
+
         // https://vitepress.dev/reference/default-theme-config
         nav: [
             {text: 'Начало', link: '/'},

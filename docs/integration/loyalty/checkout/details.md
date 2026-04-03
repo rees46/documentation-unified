@@ -33,7 +33,7 @@ curl https://api.rees46.ru/loyalty/checkout/details?shop_id=...&shop_secret=...&
 
 ```json 
 {
-  "success": true,
+  "status": "success",
   "payload": {
     "order_id": "...",
     "identifier": "...",
@@ -114,7 +114,7 @@ curl https://api.rees46.ru/loyalty/checkout/details?shop_id=...&shop_secret=...&
 
 ```json 
 {
-  "success": false,
+  "status": "error",
   "payload": {
     "message": "Order ABC not found"
   }

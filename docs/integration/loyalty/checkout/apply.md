@@ -62,7 +62,7 @@ curl --header "Content-Type: application/json" \
 
 ```json 
 {
-  "success": true,
+  "status": "success",
   "payload": {
     "order_id": "...",
     "identifier": "...",
@@ -143,7 +143,7 @@ curl --header "Content-Type: application/json" \
 
 ```json 
 {
-  "success": false,
+  "status": "success",
   "payload": {
     "message": "Cart contains line items with the same product ID",
     "identifier": "..."

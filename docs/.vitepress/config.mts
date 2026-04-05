@@ -91,7 +91,7 @@ export default defineConfig({
                           ]
                         },
                         {
-                          text: 'Заказы и статусы',
+                          text: 'Заказы и их статусы',
                           collapsed: true,
                           items: [
                             {text: 'Введение', link: '/integration/cdp/orders/index.md'},

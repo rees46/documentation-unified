@@ -61,7 +61,7 @@ curl --header "Content-Type: application/json" \
 
 ```json 
 {
-  "success": true,
+  "status": "success",
   "transaction_id": 3373
 }
 ```
@@ -71,7 +71,7 @@ curl --header "Content-Type: application/json" \
 
 ```json 
 {
-  "success": false,
+  "status": "error",
   "payload": {
     "message": "Identifier is not valid"
   }

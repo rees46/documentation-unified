@@ -45,16 +45,60 @@ export default defineConfig({
             ],
 
             '/integration/': [
+                {text: 'План интеграции', link: '/integration/index.md'},
                 {
-                    text: 'Начальная интеграция',
+                    text: 'CDP',
                     collapsed: true,
                     items: [
-                        {text: 'Введение', link: '/integration/start/index.md'},
-                        {text: 'Установка SDK', link: '/integration/start/sdk.md'},
-                        {text: 'Инициализация сессии', link: '/integration/start/init.md'},
-                        {text: 'Стандартные события', link: '/integration/start/events.md'},
-                        {text: 'Кастомные события', link: '/integration/start/custom-events.md'},
-                        {text: 'Профиль', link: '/integration/start/profile.md'},
+                        {text: 'Введение', link: '/integration/cdp/index.md'},
+                        {text: 'Идентификатор клиента', link: '/integration/cdp/identifier.md'},
+                        {text: 'Установка SDK', link: '/integration/cdp/sdk.md'},
+                        {
+                          text: 'Стандартные события',
+                          collapsed: true,
+                          items: [
+                            {text: 'Введение', link: '/integration/cdp/standard-events/index.md'},
+                            {text: 'Атрибуция инструментов', link: '/integration/cdp/standard-events/attribution.md'},
+                            {text: 'Просмотр товара', link: '/integration/cdp/standard-events/view.md'},
+                            {text: 'Просмотр категории', link: '/integration/cdp/standard-events/category.md'},
+                            {text: 'Поисковый запрос', link: '/integration/cdp/standard-events/search.md'},
+                            {text: 'Покупка', link: '/integration/cdp/standard-events/purchase.md'},
+                            {text: 'Добавление в избранное', link: '/integration/cdp/standard-events/favorites.md'},
+                            {text: 'Убрать из избранного', link: '/integration/cdp/standard-events/remove-from-favorites.md'},
+                            {text: 'Просмотр сторис', link: '/integration/cdp/standard-events/stories.md'},
+                          ]
+                        },
+                        {text: 'Кастомные события', link: '/integration/cdp/custom-events.md'},
+                        {
+                          text: 'События рассылок',
+                          collapsed: true,
+                          items: [
+                            {text: 'Введение', link: '/integration/cdp/communications-events/index.md'},
+                            {text: 'Трекинг источника', link: '/integration/cdp/communications-events/source.md'},
+                            {text: 'Сообщение доставлено', link: '/integration/cdp/communications-events/message-delivered.md'},
+                            {text: 'Сообщение открыто', link: '/integration/cdp/communications-events/message-opened.md'},
+                            {text: 'Клик по сообщению', link: '/integration/cdp/communications-events/message-clicked.md'},
+                            {text: 'Сообщение закрыто', link: '/integration/cdp/communications-events/message-closed.md'},
+                          ]
+                        },
+                        {
+                          text: 'Профиль',
+                          collapsed: true,
+                          items: [
+                            {text: 'Введение', link: '/integration/cdp/profile/index.md'},
+                            {text: 'Запись', link: '/integration/cdp/profile/set.md'},
+                            {text: 'Чтение', link: '/integration/cdp/profile/get.md'},
+                          ]
+                        },
+                        {
+                          text: 'Заказы и статусы',
+                          collapsed: true,
+                          items: [
+                            {text: 'Введение', link: '/integration/cdp/orders/index.md'},
+                            {text: 'Статусы заказов', link: '/integration/cdp/orders/status.md'},
+                            {text: 'Оффлайн-заказы', link: '/integration/cdp/orders/offline.md'},
+                          ]
+                        },
                     ]
                 },
                 {

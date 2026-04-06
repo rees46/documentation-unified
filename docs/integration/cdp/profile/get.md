@@ -28,10 +28,6 @@ GET https://api.rees46.ru/profile/get
 
 ## Запрос
 
-:::danger TODO
-Описать мобильные SDK
-:::
-
 Пример запроса:
 
 ::: code-group
@@ -51,17 +47,17 @@ r46('profile', 'get', function(profile) {
 ```
 
 ```swift [iOS] 
-NOT IMPLEMENTED YET
+// NOT IMPLEMENTED YET
 ```
 
 
 ```kotlin [Kotlin]
-NOT IMPLEMENTED YET
+// NOT IMPLEMENTED YET
 ```
 
 
 ```java [Java (deprecated)]
-NOT IMPLEMENTED YET
+// NOT SUPPORTED
 ```
 
 

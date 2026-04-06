@@ -88,6 +88,9 @@ export default defineConfig({
                             {text: 'Введение', link: '/integration/cdp/profile/index.md'},
                             {text: 'Запись', link: '/integration/cdp/profile/set.md'},
                             {text: 'Чтение', link: '/integration/cdp/profile/get.md'},
+                            {text: 'Перезаписать email', link: '/integration/cdp/profile/force-change-email.md'},
+                            {text: 'Перезаписать телефон', link: '/integration/cdp/profile/force-change-phone.md'},
+                            {text: 'Очистить профиль', link: '/integration/cdp/profile/purge.md'},
                           ]
                         },
                         {

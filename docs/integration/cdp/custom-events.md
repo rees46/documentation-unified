@@ -40,8 +40,11 @@ POST https://api.rees46.ru/push/custom
 
 ## Запрос
 
-Пример запроса:
+:::danger TODO
+Исправить мобильные SDK
+:::
 
+Пример запроса:
 
 ::: code-group
 ```shell [S2S]

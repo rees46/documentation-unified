@@ -56,7 +56,7 @@ r46('profile', 'get', function(profile) {
 ```
 
 
-```java [Java (deprecated)]
+```java [Java (deprecated)] 
 // NOT SUPPORTED
 ```
 
@@ -71,3 +71,91 @@ sdk.getProfile().then((profile) => {
 })
 ```
 :::
+
+
+
+## Ответ
+
+:::info Свойства ответа
+Набор свойств ответа может отличаться в зависимости настроек вашего проекта и активированных сервисов.
+:::
+
+Пример ответа сервера, если запрос без секретного ключа:
+
+```json
+{
+    "has_email": true,
+    "computed_gender": null,
+    "gender": null,
+    "bought_something": false,
+    "id": "...",
+    "custom_properties": {}
+}
+```
+
+Пример ответа сервера, если запрос с секретным ключом:
+
+```json 
+{
+  "first_name": "...",
+  "last_name": "...",
+  "email": "...",
+  "phone": "...",
+  "fb_id": "...",
+  "vk_id": "...",
+  "telegram_id": "...",
+  "loyalty_id": "...",
+  "loyalty_card_location": "...",
+  "loyalty_status": "...",
+  "loyalty_bonuses": "...",
+  "loyalty_bonuses_to_next_level": "...",
+  "gender": "...",
+  "location": "...",
+  "age": "...",
+  "birthday": "...",
+  "bought_something": "...",
+  "tags": [
+    "...",
+    "..."
+  ],
+  "custom_properties": {
+    "prop_key_1": "prop_value",
+    "prop_key_2": "prop_value"
+  },
+  "additional_phones": [],
+  "additional_emails": [],
+  "additional_loyalty_ids": [],
+  "orders": [
+    {
+      "id": "...",
+      "value": "...",
+      "status": "...",
+      "items": [
+        {
+          "id": "...",
+          "price": "...",
+          "name": "...",
+          "quantity": "..."
+        },
+        {
+          "id": "...",
+          "price": "...",
+          "name": "...",
+          "quantity": "..."
+        }
+      ]
+    }
+  ]
+}
+```
+
+В случае ошибки ответ будет в формате:
+
+```json 
+{
+  "status": "error",
+  "payload": {
+    "message": "Shop not found"
+  }
+}
+```

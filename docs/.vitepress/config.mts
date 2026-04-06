@@ -432,6 +432,7 @@ export default defineConfig({
                     items: [
                         {text: 'Как зарегистрироваться в качестве отправителя AMP-контента в Gmail', link: '/education/useful-information/amp-registration.md'},
                         {text: 'Требования и рекомендации по аутентификации электронной почты', link: '/education/useful-information/email-providers-validation.md'},
+                        {text: 'Как настроить кастомный домен', link: '/education/useful-information/custom-domain.md'},
                    ]
                 },
                 {

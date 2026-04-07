@@ -40,10 +40,6 @@ POST https://api.rees46.ru/push/custom
 
 ## Запрос
 
-:::danger TODO
-Исправить мобильные SDK
-:::
-
 Пример запроса:
 
 ::: code-group
@@ -106,6 +102,17 @@ r46("track", "my_event", {
   "plan_price": 50000,
   "accepted_offer": true
 });
+
+// Событие с payload с произвольными переменными для сохранения в БД
+r46("track", "my_event", {
+  "category": "request_demo",
+  "label": "home_page",
+  "payload": {
+    "selected_plan": "pro",
+    "plan_price": 50000,
+    "accepted_offer": true
+  }
+});
 ```
 
 ```swift [iOS] 
@@ -116,15 +123,7 @@ sdk.trackEvent(event: "something_happened")
 sdk.trackEvent(event: "something_happened", category: "important", label: "banner_click", value: 42)
 
 // Событие с произвольными переменными
-sdk.trackEvent(event: "something_happened", category: "important", label: "user_event", value: 5, completion: @escaping (Result<Void, SDKError>) -> Void) {
-  sessionQueue.addOperation {
-    let path = "push/custom"
-    var params: [String: Any] = [
-      "selected_plan": "pro",
-      "plan_price": 50000,
-      "accepted_offer": true
-    ]
-}
+// NOT IMPLEMENTED YET: DEV-4061
 ```
 
 
@@ -140,6 +139,9 @@ sdk.trackEventManager.customTrack(
   value = YOUR_EVENT_VALUE
 )
 
+// Событие с произвольными переменными
+// NOT IMPLEMENTED YET: DEV-4060
+
 ```
 
 
@@ -149,7 +151,6 @@ REES46.track("my_event");
 
 // Событие с дополнительными свойствами: категория, метка и ценность
 REES46.track("my_event", "event category", "event label", 100);
-
 ```
 
 
@@ -162,6 +163,23 @@ sdk.trackEvent('my_event', {
   category: "event category",
   label: "event label",
   value: 100
+});
+
+// Событие с явным указанием времени
+sdk.trackEvent("my_event", {
+  "category": "event category",
+  "label": "event label",
+  "value": 100,
+  "time": 1652648400
+});
+
+// Событие с произвольными переменными
+sdk.trackEvent("my_event", {
+  "category": "request_demo",
+  "label": "home_page",
+  "selected_plan": "pro",
+  "plan_price": 50000,
+  "accepted_offer": true
 });
 ```
 :::

@@ -24,26 +24,28 @@
 ```
 
 ```swift [iOS]
+// ## При работе с CocoaPods
 
-// Cocoapods
+// 1. В Podfile:
 target '...' do
   // ...
-  // Add this
+  // 1.1. Добавьте это:
   pod 'REES46'
   // ...
 end
-// ... and this (to be able to run it on simulators):
+
+// 1.2. И это (для того, чтобы работало в симуляторе)
 post_install do |installer|
   installer.pods_project.build_configurations.each do |config|
     config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "arm64"
   end
 end
 
-// Swift package manager (XCode >= 11)
-// 1. Click File menu
-// 2. Swift Packages
-// 3. Add Package Dependency...
-// 4. Specify the git URL for SDK repo: https://github.com/rees46/ios-sdk.git
+// ## Swift package manager (XCode >= 11)
+// 1. Кликните меню File
+// 2. Выберите "Swift Packages"
+// 3. Кликните в "Add Package Dependency..."
+// 4. Укажите URL репозитория с SDK: https://github.com/rees46/ios-sdk.git
 ```
 
 ```kotlin [Android Kotlin]

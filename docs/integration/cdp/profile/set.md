@@ -84,10 +84,6 @@ POST https://api.rees46.ru/profile/set
 
 ## Запрос
 
-:::danger TODO
-Описать мобильные SDK
-:::
-
 Пример запроса:
 
 ::: code-group
@@ -130,6 +126,7 @@ r46('profile', 'set', {
 
 ```swift [iOS] 
 // Стандартные свойства
+// В будущем ключи будут переделаны на полное соответствие параметрам в API: DEV-4068
 sdk.setProfileData(
   userEmail: "YOUR_EMAIL",
   userPhone: "YOUR_PHONE",
@@ -158,23 +155,23 @@ let floatArray: [Float] = [1.1, 2.2, 3.3]
 let boolArray = [true, false, true]
 let dateArray = [Date(),Date(),Date()]
 let object: [String: Any] = [
-  "stringKey": "stringValue",
-  "intKey": 123,
-  "floatKey": 45.67,
-  "boolKey": true,
-  "dateKey": Date(),
-  "arrayKey": [1, 2, 3],
-  "nestedObjectKey": [
-  "nestedStringKey": "nestedValue",
-  "nestedIntKey": 456
+  "string_example": "stringValue",
+  "integer_example": 123,
+  "float_example": 45.67,
+  "boolean_example": true,
+  "date_example": Date(),
+  "array_example": [1, 2, 3],
+  "nested_object_example": [
+  "nested_string_example": "nestedValue",
+  "nested_integer_example": 456
 ]
 let customProperties: [String: Any] = [
-  "stringArray": stringArray,
-  "intArray": intArray,
-  "floatArray": floatArray,
-  "boolArray": boolArray,
-  "dateArray": dateArray,
-  "customObject": object
+  "string_array_example": stringArray,
+  "int_array_example": intArray,
+  "float_array_example": floatArray,
+  "bool_array_example": boolArray,
+  "date_array_example": dateArray,
+  "custom_object_example": object
 ]
 sdk.setProfileData(
   customProperties: customProperties
@@ -185,9 +182,10 @@ sdk.setProfileData(
 ```kotlin [Kotlin]
 // Обычные свойства
 val params = ProfileParams.Builder()
-  .put("userEmail", "YOUR_EMAIL")
-  .put("userPhone", "YOUR_PHONE")
-  .put("userLoyaltyId", "YOUR_LOYALTY_ID")
+  .put("email", "YOUR_EMAIL")
+  .put("phone", "YOUR_PHONE")
+  .put("loyalty_id", "YOUR_LOYALTY_ID")
+  .put("location", "Moscow")
   .put("birthday", Date())
 sdk.profile(params, object : OnApiCallbackListener() {
   override fun onSuccess(response: JSONObject?) {
@@ -202,27 +200,27 @@ val floatArray = arrayOf(1.1f, 2.2f, 3.3f)
 val boolArray = arrayOf(true, false, true)
 val dateArray = arrayOf(Date(), Date(), Date())
 val nestedObject = JSONObject().apply {
-  put("nestedStringKey", "nestedValue")
-  put("nestedIntKey", 456)
+  put("nested_string_example", "nestedValue")
+  put("nested_integer_example", 456)
 }
 val customObject = JSONObject().apply {
-  put("stringKey", "stringValue")
-  put("intKey", 123)
-  put("floatKey", 45.67f)
-  put("boolKey", true)
-  put("dateKey", Date())
-  put("arrayKey", JSONArray(arrayOf(1, 2, 3)))
-  put("nestedObjectKey", nestedObject)
+  put("string_example", "stringValue")
+  put("integer_example", 123)
+  put("float_example", 45.67f)
+  put("boolean_example", true)
+  put("date_example", Date())
+  put("array_example", JSONArray(arrayOf(1, 2, 3)))
+  put("nested_object_example", nestedObject)
 }
 val customObjectArray = arrayOf(customObject, customObject)
 val params = ProfileParams.Builder()
-  .put("stringArray", stringArray)
-  .put("intArray", intArray)
-  .put("floatArray", floatArray)
-  .put("boolArray", boolArray)
-  .put("dateArray", dateArray)
-  .put("customObject", customObject)
-  .put("customObjectArray", customObjectArray)
+  .put("string_array_example", stringArray)
+  .put("int_array_example", intArray)
+  .put("float_array_example", floatArray)
+  .put("bool_array_example", boolArray)
+  .put("date_array_example", dateArray)
+  .put("custom_object_example", customObject)
+  .put("custom_objects_array_example", customObjectArray)
 sdk.profile(params, object : OnApiCallbackListener() {
   override fun onSuccess(response: JSONObject?) {
     Log.i(TAG, "Response: $response") // Logs the API response
@@ -249,7 +247,7 @@ REES46.profile(params, new Api.OnApiCallbackListener() {
 
 ```javascript [ReactNative]
 const params = {
-  id: 100500,
+  external_id: 100500,
   email: "john.doe@examplemail.com",
   phone: "4400114527199",
   first_name: "John",
@@ -273,7 +271,9 @@ const params = {
   ],
   auto: [
     {brand: "Nissan", model: "Qashqai", vds: "TM7N243E4G0BJG978"}
-  ]
+  ],
+  custom_property_1: [1,2,3],
+  custom_property_2: ["a", "b", "c"]
 };
 
 sdk.setProfile(params);

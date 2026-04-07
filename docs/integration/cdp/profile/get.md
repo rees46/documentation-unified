@@ -47,12 +47,12 @@ r46('profile', 'get', function(profile) {
 ```
 
 ```swift [iOS] 
-// NOT IMPLEMENTED YET
+// NOT IMPLEMENTED YET: DEV-4062
 ```
 
 
 ```kotlin [Kotlin]
-// NOT IMPLEMENTED YET
+// NOT IMPLEMENTED YET: DEV-4063
 ```
 
 

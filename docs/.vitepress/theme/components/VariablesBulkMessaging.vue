@@ -63,7 +63,11 @@ export default {
           'loyalty_actual_level',
           'campaign_id',
           `referral_code`,
-          `referral_code_ID`
+          `referral_code_ID`,
+          `loyalty_subscription_code`,
+          `loyalty_subscription_name`,
+          `loyalty_subscription_plan_code`,
+          `loyalty_subscription_plan_name`
         ],
         HTTP: [
           'client_id',

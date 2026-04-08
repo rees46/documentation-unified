@@ -12,8 +12,8 @@ GET https://api.rees46.ru/promo_codes/fetch
 |----------|-------------|--------------------------------------------|
 | shop_id  | Да          | API-ключ                                   |
 | id       | Да          | Идентификатор списка промокодов            |
-| did      | Да          | Идентификатор устройства клиента из JS SDK |
-| sid      | Да          | Идентификатор сессии клиента из JS SDK     |
+| did      | Нет         | Идентификатор устройства клиента из JS SDK |
+| sid      | Нет         | Идентификатор сессии клиента из JS SDK     |
 
 
 
@@ -24,7 +24,7 @@ GET https://api.rees46.ru/promo_codes/fetch
 ::: code-group
 
 ```shell [S2S]
-curl https://api.rees46.ru/promo_codes/fetch?shop_id=...&shop_secret=...&offset=0&limit=30&active=true&exclude=3,1,44
+curl https://api.rees46.ru/promo_codes/fetch?shop_id=...&shop_secret=...&id=...
 ```
 
 ```js [JS SDK]

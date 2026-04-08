@@ -6,7 +6,7 @@
 2. Ограниченный профиль с нечувствительными данными из SDK без передачи секретного ключа. Это может потребоваться для проверки некоторых свойств, чтобы кастомизировать интерфейс сайта или мобильного приложения под посетителя.
 
 ```
-GET https://api.rees46.ru/profile/get
+GET https://api.rees46.ru/profile
 ```
 
 ## Параметры
@@ -33,7 +33,7 @@ GET https://api.rees46.ru/profile/get
 ::: code-group
 
 ```shell [S2S]
-curl https://api.rees46.ru/profile/get?shop_id=...&shop_secret=...&email=...
+curl https://api.rees46.ru/profile?shop_id=...&shop_secret=...&email=...
 ```
 
 ```javascript [JS SDK]

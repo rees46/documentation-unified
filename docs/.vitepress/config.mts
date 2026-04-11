@@ -51,7 +51,16 @@ export default defineConfig({
                     collapsed: true,
                     items: [
                         {text: 'Введение', link: '/integration/cdp/index.md'},
-                        {text: 'Идентификатор клиента', link: '/integration/cdp/identifier.md'},
+                        {
+                            text: 'Сущности платформы',
+                            collapsed: true,
+                            items: [
+                                {text: 'Идентификатор клиента', link: '/integration/cdp/entities/identifier.md'},
+                                {text: 'Device ID', link: '/integration/cdp/entities/did.md'},
+                                {text: 'Идентификатор сессии', link: '/integration/cdp/entities/sid.md'},
+                                {text: 'Стрим', link: '/integration/cdp/entities/stream.md'},
+                            ]
+                        },
                         {text: 'Установка SDK', link: '/integration/cdp/sdk.md'},
                         {
                           text: 'Стандартные события',
@@ -62,10 +71,14 @@ export default defineConfig({
                             {text: 'Просмотр товара', link: '/integration/cdp/standard-events/view.md'},
                             {text: 'Просмотр категории', link: '/integration/cdp/standard-events/category.md'},
                             {text: 'Поисковый запрос', link: '/integration/cdp/standard-events/search.md'},
+                            {text: 'Добавление в корзину', link: '/integration/cdp/standard-events/cart.md'},
+                            {text: 'Удаление из корзины', link: '/integration/cdp/standard-events/remove-from-cart.md'},
                             {text: 'Покупка', link: '/integration/cdp/standard-events/purchase.md'},
                             {text: 'Добавление в избранное', link: '/integration/cdp/standard-events/favorites.md'},
-                            {text: 'Убрать из избранного', link: '/integration/cdp/standard-events/remove-from-favorites.md'},
+                            {text: 'Удаление из избранного', link: '/integration/cdp/standard-events/remove-from-favorites.md'},
                             {text: 'Просмотр сторис', link: '/integration/cdp/standard-events/stories.md'},
+                            {text: 'Подписка на цену', link: '/integration/cdp/standard-events/subscribe-for-price.md'},
+                            {text: 'Подписка на наличие', link: '/integration/cdp/standard-events/subscribe-for-stock.md'},
                           ]
                         },
                         {text: 'Кастомные события', link: '/integration/cdp/custom-events.md'},
@@ -98,7 +111,7 @@ export default defineConfig({
                           collapsed: true,
                           items: [
                             {text: 'Введение', link: '/integration/cdp/orders/index.md'},
-                            {text: 'Статусы заказов', link: '/integration/cdp/orders/status.md'},
+                            {text: 'Синхронизация заказов', link: '/integration/cdp/orders/sync.md'},
                             {text: 'Оффлайн-заказы', link: '/integration/cdp/orders/offline.md'},
                           ]
                         },

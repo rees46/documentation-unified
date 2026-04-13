@@ -46,10 +46,6 @@ POST https://api.rees46.ru/push
 
 ## Запрос
 
-:::danger TODO
-Ревью мобильных SDK
-:::
-
 Пример запроса:
 
 ::: code-group

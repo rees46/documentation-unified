@@ -1,6 +1,8 @@
 # Просмотр товара
 
-Событие просмотра товара должно срабатывать при открытии карточки товара. Либо, если у вас на сайте есть модальное окно с полной информацией о товаре, которое появляется при клике на него в списке товаров.
+Событие просмотра товара должно срабатывать при открытии карточки товара. 
+
+Либо, если у вас на сайте есть предпросмотр товара из листинга (модальное окно), то при его открытии нужно также передавать это событие.
 
 На данное событие завязаны следующие механики платформы:
 
@@ -124,12 +126,38 @@ sdk.track(event: .productView(id: "PRODUCT_ID"), recommendedBy: recData) { track
 
 
 ```kotlin [Kotlin]
-TBD
+// Простейший трекинг без атрибуции
+sdk.trackEventManager.track(TrackEvent.VIEW, "SKU-12345")
+
+// Трекинг с атрибуцией блока товарных рекомендаций в явном виде
+val params = Params()
+ .put(RecParams(RecParams.TYPE.RECOMMENDATION, "i7y233krghlzifuosy"))
+ .put(ProductItemParams("SKU-12345"))
+
+sdk.trackEventManager.track(
+    TrackEvent.VIEW,
+    params,
+    object : OnApiCallbackListener() {
+        override fun onSuccess(response: org.json.JSONObject?) { /* ... */ }
+        override fun onError(code: Int, msg: String?) { /* ... */ }
+    }
+)
+
+// Вариант, когда вы задаете контекст атрибуции. Например, при нажатии пользователя на товар
+// в блоке товарных рекомендаций, вы отмечаете, что следующий просмотр товара, который будет вызван при открытии
+// карточки товара, должен произойти с этой атрибуцией
+// 1. В момент нажатия на товар задаем контекст:
+sdk.setRecommendedByUseCase(
+ DomainRec(DomainRec.TYPE.RECOMMENDATION, code = "i7y233krghlzifuosy")
+)
+// 2. Вызываем простой трекинг просмотра, контекст атрибуции будет передан автоматически и очищен, так что следующий
+// просмотр товара будет уже без атрибуции.
+sdk.trackEventManager.track(TrackEvent.VIEW, "SKU-12345")
 ```
 
 
 ```java [Java (deprecated)]
-TBD
+Deprecated
 ```
 
 

@@ -156,6 +156,61 @@ sdk.trackEventManager.track(
     }
   }
 )
+
+/* 
+
+Пример реализации
+
+   1. Сначала задаются параметры заказа, включая обязательные ORDER_ID и ORDER_PRICE. Порядок параметров не важен. 
+   2. Затем происходит отправка события с обработкой результата
+
+   TrackEvent.PURCHASE, - тип события
+   params - собранные параметры
+   OnApiCallbackListener() - обработка успешной или не успешной отправки события
+*/
+
+val params = Params()
+    .put(Params.Parameter.ORDER_ID, "ORD-100500")
+    .put(Params.Parameter.ORDER_PRICE, "2499.99")
+    .put(ProductItemParams("SKU-1")
+        .set(ProductItemParams.PARAMETER.AMOUNT, 1)
+        .set(ProductItemParams.PARAMETER.PRICE, "499.99"))
+    .put(ProductItemParams("SKU-2")
+        .set(ProductItemParams.PARAMETER.AMOUNT, 2)
+        .set(ProductItemParams.PARAMETER.PRICE, "2000"))
+sdk.trackEventManager.track(
+    TrackEvent.PURCHASE,
+    params,
+    object : OnApiCallbackListener() {
+        override fun onSuccess(response: JSONObject?) {
+
+        }
+        override fun onError(code: Int, msg: String?) {
+
+        }
+    }
+)
+
+/* 
+
+Пример реализации с кастомными параметрами 
+
+    1. Сначала задаются кастомные параметры
+    2. Затем блок кастомных параметров добавляется в общий контейнер через метод .put()
+    
+    Кастомные параметры группируются в отдельный блок и таким образом специфические детали заказа не смешиваются со стандартными полями
+*/
+
+val custom = Params.CustomOrderParameters()
+ .set("order_id", "ORD-100500")
+ .set("payment_type", "card")
+ 
+val params = Params()
+ .put(custom)
+ .put(ProductItemParams("SKU-1").set(ProductItemParams.PARAMETER.PRICE, 99.0).set(ProductItemParams.PARAMETER.AMOUNT, 1))
+
+sdk.trackEventManager.track(TrackEvent.PURCHASE, params, null)
+
 ```
 
 

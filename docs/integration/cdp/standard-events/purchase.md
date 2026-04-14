@@ -118,99 +118,60 @@ sdk.track(event: .orderCreated(orderId: "123", totalValue: 33.3, products: [(id:
 }
 ```
 
-
 ```kotlin [Kotlin]
-val params = Params().apply {
-  put(
-    Params.Item(YOUR_ITEM_ID).apply {
-    set(Params.Item.COLUMN.AMOUNT, YOUR_AMOUNT)
-    set(Params.Item.COLUMN.PRICE, YOUR_PRICE)
-    }
-  )
-  put(Params.Parameter.ORDER_ID, YOUR_ORDER_ID)
-  put(Params.Parameter.ORDER_PRICE, YOUR_ORDER_PRICE)
-  put(Params.Parameter.DELIVERY_ADDRESS, YOUR_DELIVERY_ADDRESS)
-  put(Params.RecommendedBy(Params.RecommendedBy.TYPE.RECOMMENDATION, YOUR_RECCOMENDATION_CODE))
- }
+// Простейший трекинг заказа
+val params = Params()
+  .put(ProductItemParams("SKU-1").set(ProductItemParams.PARAMETER.PRICE, 99.0).set(ProductItemParams.PARAMETER.AMOUNT, 1))
+  .put(ProductItemParams("SKU-2").set(ProductItemParams.PARAMETER.PRICE, 33.0).set(ProductItemParams.PARAMETER.AMOUNT, 2))
+  .put(Params.Parameter.ORDER_ID, "ORD-100500")
+  .put(Params.Parameter.ORDER_PRICE, "2499.99")
+sdk.trackEventManager.track(TrackEvent.PURCHASE, params, null)
+
+
+// Трекинг с дополнительными параметрами и коллбэком
+val params = Params()
+  .put(ProductItemParams("SKU-1").set(ProductItemParams.PARAMETER.PRICE, 99.0).set(ProductItemParams.PARAMETER.AMOUNT, 1))
+  .put(ProductItemParams("SKU-2").set(ProductItemParams.PARAMETER.PRICE, 33.0).set(ProductItemParams.PARAMETER.AMOUNT, 2))
+  .put(Params.Parameter.ORDER_ID, "ORD-100500")
+  .put(Params.Parameter.ORDER_PRICE, "2499.99")
+  .put(Params.Parameter.DELIVERY_ADDRESS, "Восстания, 1")
 sdk.trackEventManager.track(
-  event = TrackEvent.PURCHASE,
-  params = params,
-  listener = object : OnApiCallbackListener() {
-
-    // Handle a successful response with a JSON array
-    override fun onSuccess(response: JSONArray) {
-      super.onSuccess(response)
-      // You can process the JSON array here, for example, a list of items
-    }
-
-    // Handle a successful response with a JSON object
+  TrackEvent.PURCHASE, 
+  params, 
+  object : OnApiCallbackListener() {
     override fun onSuccess(response: JSONObject?) {
-      super.onSuccess(response)
-      // You can process the JSON object here, for example, order details
+      // ...
     }
-
-    // Handle an error response
     override fun onError(code: Int, msg: String?) {
-      super.onError(code, msg)
-      // Handle the error based on the code and message
+      // ...
     }
   }
 )
 
-/* 
 
-Пример реализации
-
-   1. Сначала задаются параметры заказа, включая обязательные ORDER_ID и ORDER_PRICE. Порядок параметров не важен. 
-   2. Затем происходит отправка события с обработкой результата
-
-   TrackEvent.PURCHASE, - тип события
-   params - собранные параметры
-   OnApiCallbackListener() - обработка успешной или не успешной отправки события
-*/
-
+// Трекинг с явной атрибуцией
+// Может потребоваться в случае заказа в 1 клик. 
+// Иначе атрибуция берется из событий просмотра и добавления в корзину.
 val params = Params()
-    .put(Params.Parameter.ORDER_ID, "ORD-100500")
-    .put(Params.Parameter.ORDER_PRICE, "2499.99")
-    .put(ProductItemParams("SKU-1")
-        .set(ProductItemParams.PARAMETER.AMOUNT, 1)
-        .set(ProductItemParams.PARAMETER.PRICE, "499.99"))
-    .put(ProductItemParams("SKU-2")
-        .set(ProductItemParams.PARAMETER.AMOUNT, 2)
-        .set(ProductItemParams.PARAMETER.PRICE, "2000"))
-sdk.trackEventManager.track(
-    TrackEvent.PURCHASE,
-    params,
-    object : OnApiCallbackListener() {
-        override fun onSuccess(response: JSONObject?) {
-
-        }
-        override fun onError(code: Int, msg: String?) {
-
-        }
-    }
-)
-
-/* 
-
-Пример реализации с кастомными параметрами 
-
-    1. Сначала задаются кастомные параметры
-    2. Затем блок кастомных параметров добавляется в общий контейнер через метод .put()
-    
-    Кастомные параметры группируются в отдельный блок и таким образом специфические детали заказа не смешиваются со стандартными полями
-*/
-
-val custom = Params.CustomOrderParameters()
- .set("order_id", "ORD-100500")
- .set("payment_type", "card")
- 
-val params = Params()
- .put(custom)
- .put(ProductItemParams("SKU-1").set(ProductItemParams.PARAMETER.PRICE, 99.0).set(ProductItemParams.PARAMETER.AMOUNT, 1))
-
+  .put(ProductItemParams("SKU-1").set(ProductItemParams.PARAMETER.PRICE, 99.0).set(ProductItemParams.PARAMETER.AMOUNT, 1))
+  .put(ProductItemParams("SKU-2").set(ProductItemParams.PARAMETER.PRICE, 33.0).set(ProductItemParams.PARAMETER.AMOUNT, 2))
+  .put(Params.Parameter.ORDER_ID, "ORD-100500")
+  .put(Params.Parameter.ORDER_PRICE, "2499.99")
+  .put(Params.RecommendedBy(Params.RecommendedBy.TYPE.RECOMMENDATION, "block_code"))
 sdk.trackEventManager.track(TrackEvent.PURCHASE, params, null)
 
+
+// Трекинг с кастомными свойствами заказа
+val сustomParameters = Params.CustomOrderParameters()
+  .set("tour_class", "AAA")
+  .set("guests", 5)
+val params = Params()
+  .put(ProductItemParams("SKU-1").set(ProductItemParams.PARAMETER.PRICE, 99.0).set(ProductItemParams.PARAMETER.AMOUNT, 1))
+  .put(ProductItemParams("SKU-2").set(ProductItemParams.PARAMETER.PRICE, 33.0).set(ProductItemParams.PARAMETER.AMOUNT, 2))
+  .put(Params.Parameter.ORDER_ID, "ORD-100500")
+  .put(Params.Parameter.ORDER_PRICE, "2499.99")
+  .put(сustomParameters)
+sdk.trackEventManager.track(TrackEvent.PURCHASE, params, null)
 ```
 
 

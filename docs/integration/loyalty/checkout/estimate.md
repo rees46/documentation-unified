@@ -171,40 +171,40 @@ curl --header "Content-Type: application/json" \
 
 Расшифровка ответа:
 
-| Параметр                                                            | Описание                                                                                                  |
-|---------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
-| success                                                             | Запрос выполнен успешно или нет                                                                           |
-| payload.message                                                     | Сообщение с результатом обработки запроса                                                                 |
-| payload.order_id                                                    | Идентификатор заказа, в `estimate` равен `null`, если явно не передан в запросе                           |
-| payload.identifier                                                  | Идентификатор участника программы лояльности в формате `7XXXXXXXXXX`                                      |
-| payload.payment_type                                                | Способ оплаты, переданный в запросе                                                                       |
-| payload.products_total                                              | Количество штук товаров в корзине (сумма `quantity` всех SKU)                                             |
-| payload.order_total                                                 | Полная стоимость заказа (сумма `price * quantity` всех SKU)                                               |
-| payload.saved_total                                                 | Суммарная скидка текущей корзины по всем инструментам                                                     |
-| payload.saved_by_discounts                                          | Суммарая скидка заказа по скидочной программе лояльности                                                  |
-| payload.saved_by_bonuses                                            | Суммарая скидка заказа по бонусной программе лояльности                                                   |
-| payload.saved_by_offers                                             | Суммарая скидка заказа по акциям                                                                          |
-| payload.saved_by_certificates                                       | Сколько будет сэкономлено при оплате сертификатами                                                        |
-| payload.order_to_pay                                                | Конечная сумма денег к оплате заказа                                                                      |
-| payload.order_bonuses_to_charge                                     | Сколько будет списано бонусов, если заказ состоится                                                       |
-| payload.bonuses_balance                                             | Текущий бонусный баланс покупателя до списания бонусов                                                    |
-| payload.bonuses_reward                                              | Расчетное вознаграждение покупателя бонусами                                                              |
-| payload.bonuses_referrer_reward                                     | Расчетное вознаграждение реферера (партнера) бонусами                                                     |
-| payload.referrer_identifier                                         | Идентификатор реферера (партнера)                                                                         |
-| payload.referral_program                                            | Идентификатор реферальной программы, если передан реферальный промокод                                    |
-| payload.applied_promotions                                          | Массив идентификаторов примененных акций                                                                  |
-| payload.rewarded_stickers                                           | Объект со служебной информацией о вознаграждении стикерами                                                |
-| payload.used_stickers                                               | Объект со служебной информацией по списанным стикерам                                                     |
-| payload.stickers_balance                                            | Объект со служебной информацией по текущему балансу стикеров                                              |
-| payload.promo_codes[]                                               | Список примененных промокодов (массив строк)                                                              |
-| payload.promo_codes_failed[]                                        | Список не примененных промокодов (массив объектов)                                                        |
-| payload.promo_codes_failed[].code                                   | Промокод                                                                                                  |
-| payload.promo_codes_failed[].message                                | Причина, почему промокод не применен                                                                      |
-| payload.certificates[]                                              | Список примененных сертификатов (массив строк)                                                            |
-| payload.certificates_failed[]                                       | Список не примененных сертификатов (массив объектов)                                                      |
-| payload.certificates_failed[].code                                  | Код сертификата                                                                                           |
-| payload.certificates_failed[].message                               | Причина, почему сертификат не применен                                                                    |
-| payload.items[]                                                     | Список товаров в корзине                                                                                  |
+| Параметр                              | Описание                                                                        |
+|---------------------------------------|---------------------------------------------------------------------------------|
+| success                               | Запрос выполнен успешно или нет                                                 |
+| payload.message                       | Сообщение с результатом обработки запроса                                       |
+| payload.order_id                      | Идентификатор заказа, в `estimate` равен `null`, если явно не передан в запросе |
+| payload.identifier                    | Идентификатор участника программы лояльности в формате `7XXXXXXXXXX`            |
+| payload.payment_type                  | Способ оплаты, переданный в запросе                                             |
+| payload.products_total                | Количество штук товаров в корзине (сумма `quantity` всех SKU)                   |
+| payload.order_total                   | Полная стоимость заказа (сумма `price * quantity` всех SKU)                     |
+| payload.saved_total                   | Суммарная скидка текущей корзины по всем инструментам                           |
+| payload.saved_by_discounts            | Суммарная скидка заказа по скидочной программе лояльности                       |
+| payload.saved_by_bonuses              | Суммарная скидка заказа по бонусной программе лояльности                        |
+| payload.saved_by_offers               | Суммарная скидка заказа по акциям                                               |
+| payload.saved_by_certificates         | Сколько будет сэкономлено при оплате сертификатами                              |
+| payload.order_to_pay                  | Конечная сумма денег к оплате заказа                                            |
+| payload.order_bonuses_to_charge       | Максимально доступная сумма оплаты бонусами по заказу                           |
+| payload.bonuses_balance               | Текущий бонусный баланс покупателя до списания бонусов                          |
+| payload.bonuses_reward                | Расчетное вознаграждение покупателя бонусами                                    |
+| payload.bonuses_referrer_reward       | Расчетное вознаграждение реферера (партнера) бонусами                           |
+| payload.referrer_identifier           | Идентификатор реферера (партнера)                                               |
+| payload.referral_program              | Идентификатор реферальной программы, если передан реферальный промокод          |
+| payload.applied_promotions            | Массив идентификаторов примененных акций                                        |
+| payload.rewarded_stickers             | Объект со служебной информацией о вознаграждении стикерами                      |
+| payload.used_stickers                 | Объект со служебной информацией по списанным стикерам                           |
+| payload.stickers_balance              | Объект со служебной информацией по текущему балансу стикеров                    |
+| payload.promo_codes[]                 | Список примененных промокодов (массив строк)                                    |
+| payload.promo_codes_failed[]          | Список не примененных промокодов (массив объектов)                              |
+| payload.promo_codes_failed[].code     | Промокод                                                                        |
+| payload.promo_codes_failed[].message  | Причина, почему промокод не применен                                            |
+| payload.certificates[]                | Список примененных сертификатов (массив строк)                                  |
+| payload.certificates_failed[]         | Список не примененных сертификатов (массив объектов)                            |
+| payload.certificates_failed[].code    | Код сертификата                                                                 |
+| payload.certificates_failed[].message | Причина, почему сертификат не применен                                          |
+| payload.items[]                       | Список товаров в корзине                                                        |
 
 Свойства каждого элемента в `payload.items[]`:
 

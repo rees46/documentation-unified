@@ -3,7 +3,7 @@
 Перманентно деактивирует сертификат. Деактивированный сертификат невозможно использовать для оплаты и невозможно восстановить.
 
 ```
-PATCH https://api.rees46.ru/loyalty/certificates/activate
+PATCH https://api.rees46.ru/loyalty/certificates/deactivate
 ```
 
 ## Параметры

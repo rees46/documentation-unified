@@ -111,7 +111,9 @@ export default defineConfig({
                           collapsed: true,
                           items: [
                             {text: 'Введение', link: '/integration/cdp/orders/index.md'},
+                            {text: 'Статусы заказов', link: '/integration/cdp/orders/statuses.md'},
                             {text: 'Синхронизация заказов', link: '/integration/cdp/orders/sync.md'},
+                            {text: 'Отмена заказов', link: '/integration/cdp/orders/cancel.md'},
                             {text: 'Оффлайн-заказы', link: '/integration/cdp/orders/offline.md'},
                           ]
                         },

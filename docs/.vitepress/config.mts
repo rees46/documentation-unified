@@ -61,7 +61,18 @@ export default defineConfig({
                                 {text: 'Стрим', link: '/integration/cdp/entities/stream.md'},
                             ]
                         },
-                        {text: 'Установка SDK', link: '/integration/cdp/sdk.md'},
+                        {
+                            text: 'Установка SDK и старт',
+                            collapsed: true,
+                            items: [
+                                {text: 'Введение', link: '/integration/cdp/sdk/index.md'},
+                                {text: 'Сайт', link: '/integration/cdp/sdk/js.md'},
+                                {text: 'iOS SDK', link: '/integration/cdp/sdk/swift.md'},
+                                {text: 'Android SDK Kotlin', link: '/integration/cdp/sdk/kotlin.md'},
+                                {text: 'Android SDK Java', link: '/integration/cdp/sdk/java.md'},
+                                {text: 'ReactNative SDK', link: '/integration/cdp/sdk/react-native.md'},
+                            ]
+                        },
                         {
                           text: 'Стандартные события',
                           collapsed: true,

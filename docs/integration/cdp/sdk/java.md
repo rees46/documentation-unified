@@ -25,7 +25,7 @@ buildscript {
 }
 ```
 
-Добавьте в `build.gradle` модуля после строки `com.android.application`
+Добавьте в `build.gradle` модуля после строки `com.android.application`:
 
 ```java
 apply plugin: 'com.google.gms.google-services'
@@ -37,7 +37,7 @@ apply plugin: 'com.google.gms.google-services'
 - Java 22
 - Kotlin 2.0.0
 - Gradle 8.8
-- Android Gradle Plugin 8.5.1- 
+- Android Gradle Plugin 8.5.1
 :::
 
 

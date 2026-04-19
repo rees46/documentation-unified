@@ -35,12 +35,9 @@ yarn add @notifee/react-native
 
 ```javascript
 import REES46 from '@rees46/rn-sdk';
-const rees46 = new REES46("YOUR_SHOP_ID");
+const sdk = new REES46("YOUR_SHOP_ID");
 
-// Иницализация асинхронная
-rees46.isInit();
-
-// В дальнейшем вы можете проверить, инициализирован ли SDK
+// Инициализация асинхронная. В дальнейшем вы можете проверить, инициализирован ли SDK
 if(sdk.isInit()) {
   
 }
@@ -53,15 +50,15 @@ if(sdk.isInit()) {
 | `apiDomain`            | Кастомный домен REES46 API в случае on-premise                                                                            |
 | `enableLogs`           | Булевый параметр для включения логов                                                                                      |
 | `parentViewController` | Без этого параметра `in-app` попапы не будут показываться                                                                 |
-| `needReInitialization` | Флаг необходимости провести переинициализацию SDK и очистки хранилища SDK                                                 |
-| `sendAdvertisingId`    | Булевый флаг о том, чтобы вместо генерации `did` использовать `Apple Advertising Identifier (IDFA)`. По-умолчанию `false` |
+| `needReInitialization` | Флаг необходимости провести переинициализацию SDK и очистку хранилища SDK                                                 |
+| `sendAdvertisingId`    | Булевый флаг о том, чтобы вместо генерации `did` использовать `Apple Advertising Identifier (IDFA)`. По умолчанию `false` |
 
 
 ```javascript
 const stream = 'iPhone';
 const debug = true;
 const autoSendPushToken = false;
-const rees46 = new REES46("YOUR_SHOP_ID", stream, debug, autoSendPushToken);
+const sdk = new REES46("YOUR_SHOP_ID", stream, debug, autoSendPushToken);
 ```
 
 Инициализация с помощью Expo выглядит так:
@@ -70,7 +67,7 @@ const rees46 = new REES46("YOUR_SHOP_ID", stream, debug, autoSendPushToken);
 const stream = 'iPhone';
 const debug = true;
 const autoSendPushToken = false;
-const rnsdk = new @rees46('YOUR_SHOP_ID', stream, debug, autoSendPushToken);
+const sdk = new @rees46('YOUR_SHOP_ID', stream, debug, autoSendPushToken);
 ```
 
 :::info TODO
@@ -102,10 +99,9 @@ async function getDeviceId() {
 const stream = 'ios';
 const debug = true;
 const autoSendPushToken = false;
-const rnsdk = new @rees46('YOUR_SHOP_ID', stream, debug, autoSendPushToken, {
+const sdk = new @rees46('YOUR_SHOP_ID', stream, debug, autoSendPushToken, {
   id: await getDeviceId(),
 });
-
 ```
 
 
@@ -115,8 +111,8 @@ const rnsdk = new @rees46('YOUR_SHOP_ID', stream, debug, autoSendPushToken, {
 
 Откройте `ios/{projectName}/AppDelegate.m` и добавьте в начало файла:
 
-```swift
-import <Firebase.h>
+```
+#import <Firebase.h>
 ```
 
 Откройте терминал, перейдите в папку проекта и выполните:
@@ -150,7 +146,7 @@ apply plugin: 'com.google.gms.google-services'
 ```javascript
 import REES46 from '@rees46/rn-sdk';
 
-// Автоматически получаем mobile push токены. По-умолчанию `true`
+// Автоматически получаем mobile push токены. По умолчанию `true`
 const autoSendPushToken = true;
 const sdk = new REES46("YOUR_SHOP_ID", 'ios', true, autoSendPushToken);
 ```
@@ -158,7 +154,7 @@ const sdk = new REES46("YOUR_SHOP_ID", 'ios', true, autoSendPushToken);
 Пример с Expo:
 
 ```javascript
-// Автоматически получаем mobile push токены. По-умолчанию `true`
+// Автоматически получаем mobile push токены. По умолчанию `true`
 const autoSendPushToken = true;
 const sdk = new @rees46('YOUR_SHOP_ID', 'ios', false, autoSendPushToken);
 ```

@@ -32,7 +32,7 @@ end
 
 1. Кликните меню `File`
 2. Выберите `Swift Packages`
-3. Кликните в `Add Package Dependency...`
+3. Кликните `Add Package Dependency...`
 4. Укажите URL репозитория с SDK: `https://github.com/rees46/ios-sdk.git`
 
 
@@ -43,7 +43,7 @@ end
 ```swift 
 import REES46
 
-sdk = createPersonalizationSDK(
+let sdk = createPersonalizationSDK(
   shopId: AppEnvironments.shopId,
   { error in
       // Задать глобальную переменную для доступа к SDK из любой точки приложения
@@ -63,8 +63,8 @@ sdk = createPersonalizationSDK(
 | `apiDomain`            | Кастомный домен REES46 API в случае on-premise                                                                            |
 | `enableLogs`           | Булевый параметр для включения логов                                                                                      |
 | `parentViewController` | Без этого параметра `in-app` попапы не будут показываться                                                                 |
-| `needReInitialization` | Флаг необходимости провести переинициализацию SDK и очистки хранилища SDK                                                 |
-| `sendAdvertisingId`    | Булевый флаг о том, чтобы вместо генерации `did` использовать `Apple Advertising Identifier (IDFA)`. По-умолчанию `false` |
+| `needReInitialization` | Флаг необходимости провести переинициализацию SDK и очистку хранилища SDK                                                 |
+| `sendAdvertisingId`    | Булевый флаг о том, чтобы вместо генерации `did` использовать `Apple Advertising Identifier (IDFA)`. По умолчанию `false` |
 
 :::info Важно
 Если вы установили `sendAdvertisingId` в `true`, нужно добавить `NSUserTrackingUsageDescription` в файл `Info.plist` приложения. Это обязательно.
@@ -76,7 +76,7 @@ sdk = createPersonalizationSDK(
 ```swift
 import REES46
 
-sdk = createPersonalizationSDK(
+let sdk = createPersonalizationSDK(
   shopId: AppEnvironments.shopId,
   apiDomain: AppEnvironments.apiDomain,
   enableLogs: true,
@@ -84,10 +84,10 @@ sdk = createPersonalizationSDK(
   needReInitialization: true,
   sendAdvertisingId: true,
   { error in
-      // Assign the SDK instance to a global variable for reuse across the application.
+      // Задать глобальную переменную для доступа к SDK из любой точки приложения
       r46SDK = self.sdk
 
-      // Notify other parts of the application about the successful initialization of the SDK.
+      // Уведомить остальные части приложения об успешном старте сессии
       NotificationCenter.default.post(name: globalSDKNotificationNameMainInit, object: nil)
   }
 )

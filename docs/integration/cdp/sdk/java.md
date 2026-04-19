@@ -4,51 +4,46 @@
 Java SDK устарел и поддерживаться не будет. Используйте [Kotlin](./kotlin.md).
 :::
 
-
-:::danger TODO
-Актуализировать
-:::
-
 ## Шаг 1. Установка SDK
 
-```java [Android Java]
+Добавьте в зависимости:
 
-// DEPRECATED
-
-// 1. Add to dependencies:
+```java
 implementation 'com.rees46:rees46-sdk:+'
 implementation 'com.google.firebase:firebase-bom:29.0.3'
 implementation 'com.google.firebase:firebase-messaging:23.0.0'
+```
 
-// 2. Append to your project build.gradle
+Добавьте в `build.gradle` проекта:
+
+```java
 buildscript {
     dependencies {
-        ...
+        // ...
         classpath 'com.google.gms:google-services:4.3.10'
     }
 }
-
-// 3. Append to your app module build.gradle after line apply plugin: 'com.android.application'
-apply plugin: 'com.google.gms.google-services'
-
-// 4. Create your app in the Firebase console
-//    and copy file google-services.json to your app root path.
-//    Sync gradle now.
-
-// 5. Library versions used in the SDK:
-// Java 22
-// Kotlin 2.0.0
-// Gradle 8.8
-// Android Gradle Plugin 8.5.1
 ```
+
+Добавьте в `build.gradle` модуля после строки `com.android.application`
+
+```java
+apply plugin: 'com.google.gms.google-services'
+```
+
+Создайте свое приложение в консоли Firebase и скопируйте файл `google-services.json` в корень проекта. Синхронизируйте `gradle`.
+
+:::info Версии библиотек, используемые в SDK:
+- Java 22
+- Kotlin 2.0.0
+- Gradle 8.8
+- Android Gradle Plugin 8.5.1- 
+:::
 
 
 ## Шаг 2. Запуск сессии
 
-```java [Android Java]
-
-// DEPRECATED
-
+```java
 private rees46 rees46;
 
 @Override

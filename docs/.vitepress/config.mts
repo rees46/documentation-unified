@@ -42,6 +42,14 @@ export default defineConfig({
                         { text: 'Расширенная CDP', link: '/guides/cdp/features.md' },
                     ]
                 },
+                {
+                    text: 'MCP (beta)',
+                    collapsed: true,
+                    items: [
+                        {text: 'Введение', link: '/guides/mcp/index.md'},
+                        {text: 'Подключение', link: '/guides/mcp/connect.md'},
+                    ]
+                },
             ],
 
             '/integration/': [
@@ -372,14 +380,6 @@ export default defineConfig({
                                 {text: 'Проверка QR-кода', link: '/integration/loyalty/otp/qr-check.md'},
                             ]
                         },
-                    ]
-                },
-                {
-                    text: 'MCP (beta)',
-                    collapsed: true,
-                    items: [
-                        {text: 'Введение', link: '/integration/mcp/index.md'},
-                        {text: 'Подключение', link: '/integration/mcp/connect.md'},
                     ]
                 },
                 {

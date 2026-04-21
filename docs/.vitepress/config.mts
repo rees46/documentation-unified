@@ -375,6 +375,14 @@ export default defineConfig({
                     ]
                 },
                 {
+                    text: 'MCP (beta)',
+                    collapsed: true,
+                    items: [
+                        {text: 'Введение', link: '/integration/mcp/index.md'},
+                        {text: 'Подключение', link: '/integration/mcp/connect.md'},
+                    ]
+                },
+                {
                     text: 'Режим PRO',
                     collapsed: true,
                     items: [

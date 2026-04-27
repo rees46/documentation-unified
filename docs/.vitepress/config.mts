@@ -231,6 +231,21 @@ export default defineConfig({
                     collapsed: true,
                     items: [
                         {text: 'Введение', link: '/integration/popups/index.md'},
+                        {
+                            text: 'Попапы для сайта',
+                            collapsed: true,
+                            items: [
+                                {text: 'Введение', link: '/integration/popups/web/index.md'},
+                            ]
+                        },
+                        {
+                            text: 'In-app попапы',
+                            collapsed: true,
+                            items: [
+                                {text: 'Введение', link: '/integration/popups/in-app/index.md'},
+                                {text: 'Настройка iOS SDK', link: '/integration/popups/in-app/swift.md'},
+                            ]
+                        }
                     ]
                 },
                 {

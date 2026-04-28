@@ -53,7 +53,7 @@ if(sdk.isInit()) {
 | `shopId`               |                       | API-ключ проекта                                                                         |
 | `stream`               |                       | [Стрим](../entities/stream.md)                                                           |
 | `autoSendPushToken`    | `true`                | Булевый флаг для автоматического запроса mobile push токена                              |
-| `enableLogs `          | `true`                | Булевый флаг включения логов                                                             |
+| `enableLogs `          | `false`               | Булевый флаг включения логов                                                             |
 
 
 Инициализация с помощью Expo выглядит так:

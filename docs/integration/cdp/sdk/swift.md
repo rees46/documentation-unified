@@ -78,14 +78,14 @@ personalizationSDK = createPersonalizationSDK(
 
 | Свойство                       | Значение по-умолчанию | Назначение                                                                                          |
 |--------------------------------|-----------------------|-----------------------------------------------------------------------------------------------------|
-| `apiDomain`                    | api.rees46.ru         | Кастомный домен REES46 API в случае on-premise                                                      |
-| `stream `                      | ios                   | [Стрим](../entities/stream.md)                                                                      |
-| `enableLogs`                   | false                 | Булевый параметр для включения логов                                                                |
-| `autoSendPushToken`            | true                  | Автоматически получать mobile push токен                                                            |
-| `parentViewController`         | rootViewController    | Без этого параметра `in-app` попапы не будут показываться                                           |
-| `needReInitialization`         | false                 | Флаг необходимости провести переинициализацию SDK и запрос новых `did` и `sid` с сервера            |
-| `sendAdvertisingId`            | false                 | Булевый флаг о том, чтобы вместо генерации `did` использовать `Apple Advertising Identifier (IDFA)` |
-| `enableAutoPopupPresentation`  | true                  | Булевый флаг о том, чтобы автоматически показывать in-app попапы                                    |
+| `apiDomain`                    | `api.rees46.ru`       | Кастомный домен REES46 API в случае on-premise                                                      |
+| `stream `                      | `ios`                 | [Стрим](../entities/stream.md)                                                                      |
+| `enableLogs`                   | `false`               | Булевый параметр для включения логов                                                                |
+| `autoSendPushToken`            | `true`                | Автоматически получать mobile push токен                                                            |
+| `parentViewController`         | `nil`                 | Без этого параметра `in-app` попапы не будут показываться                                           |
+| `needReInitialization`         | `false`               | Флаг необходимости провести переинициализацию SDK и запрос новых `did` и `sid` с сервера            |
+| `sendAdvertisingId`            | `false`               | Булевый флаг о том, чтобы вместо генерации `did` использовать `Apple Advertising Identifier (IDFA)` |
+| `enableAutoPopupPresentation`  | `true`                | Булевый флаг о том, чтобы автоматически показывать in-app попапы                                    |
 
 :::info Важно
 Если вы установили `sendAdvertisingId` в `true`, нужно добавить `NSUserTrackingUsageDescription` в файл `Info.plist` приложения. Это обязательно.

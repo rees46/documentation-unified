@@ -1,39 +1,47 @@
 # Установка Android SDK Kotlin  
 
-:::danger TODO
-Актуализировать.
-Выяснить про остальные свойства: стрим, коллбэки
-:::
-
 ## Шаг 1. Установка SDK
 
-Добавьте в зависимости:
+Добавьте репозиторий JitPack в ваш файл сборки:
 
-```kotlin
-dependencies {
-    implementation 'com.rees46:rees46-sdk:+'
-}
-```
-
-Добавьте в `build.gradle` проекта:
-
-```kotlin
-buildscript {
-    dependencies {
-        ...
-        classpath 'com.google.gms:google-services:4.3.10'
+::: code-group
+```gradle [settings.gradle]
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
     }
 }
 ```
 
-Добавьте в `build.gradle` модуля приложения после строки `id 'com.android.application'`:
-
-```kotlin
-plugins {
-    id 'com.google.gms.google-services'
-    id 'org.jetbrains.kotlin.android'
+```gradle [settings.gradle.kts]
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        mavenCentral()
+        maven { url = uri("https://jitpack.io") }
+    }
 }
 ```
+:::
+
+Добавьте в зависимости:
+
+::: code-group
+```gradle [settings.gradle]
+dependencies {
+    implementation 'com.github.rees46:android-sdk:Tag'
+}
+```
+
+```gradle [settings.gradle.kts]
+dependencies {
+    implementation("com.github.rees46:android-sdk:Tag")
+}
+```
+:::
+
 
 Создайте свое приложение в консоли Firebase и скопируйте файл `google-services.json` в корень проекта. Синхронизируйте `gradle`.
 
@@ -58,10 +66,6 @@ dependencies {
     kapt 'com.google.dagger:dagger-compiler:DAGGER_COMPILER_VERSION'
 }
 ```
-
-:::info JitPack
-SDK доступен также на JitPack: https://jitpack.io/#rees46/android-sdk
-:::
 
 
 ## Шаг 2. Запуск сессии

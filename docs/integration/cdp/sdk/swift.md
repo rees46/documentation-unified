@@ -1,11 +1,5 @@
 # Установка iOS SDK 
 
-:::danger TODO
-Актуализировать.
-Выяснить про остальные свойства: стрим, коллбэки
-:::
-
-Note: В мобильном приложении это делается только при запуске приложения.
 
 ## Шаг 1. Установка SDK
 
@@ -18,13 +12,6 @@ target 'MyApp' do
   use_frameworks!
   pod 'REES46'
   # ...
-end
-
-# Чтобы работало в симуляторе
-post_install do |installer|
-  installer.pods_project.build_configurations.each do |config|
-    config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "arm64"
-  end
 end
 ```
 

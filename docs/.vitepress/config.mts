@@ -43,6 +43,20 @@ export default defineConfig({
                     ]
                 },
                 {
+                    text: `Рассылки`,
+                    collapsed: true,
+                    items: [
+                        { text: 'О сервисе', link: '/guides/communications/index.md' },
+                        {
+                            text: 'Массовые рассылки',
+                            collapsed: true,
+                            items: [
+                                {text: 'Отправка по таймзоне', link: '/guides/communications/bulk/timezone.md'},
+                            ]
+                        },
+                    ]
+                },
+                {
                     text: 'MCP (beta)',
                     collapsed: true,
                     items: [

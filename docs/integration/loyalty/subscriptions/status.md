@@ -36,6 +36,7 @@ curl https://api.rees46.ru/loyalty/subscriptions/members/status?shop_id=...&shop
       "identifier": "...",
       "subscription": "...",
       "plan": "...",
+      "active": true,
       "paid_till": "...",
       "limits_reset_date": "..."
     },
@@ -103,6 +104,7 @@ curl https://api.rees46.ru/loyalty/subscriptions/members/status?shop_id=...&shop
 | payload.member.identifier                    | Идентификатор участника программы лояльности в формате `7XXXXXXXXXX`                                                                                                                   |
 | payload.member.subscription                  | Уникальный код подписки                                                                                                                                                                |
 | payload.member.plan                          | Уникальный код плана                                                                                                                                                                   |
+| payload.member.active                        | Флаг, что подписка все еще активна. Будет равен `false`, если `paid_till` в прошлом                                                                                                    |
 | payload.member.paid_till                     | Дата, до которой оплачена подписка                                                                                                                                                     |
 | payload.member.limits_reset_date             | Дата, когда будет выполнен следующий сброс лимитов                                                                                                                                     |
 | payload.benefits[]                           | Массив со списком бенефитов клиента                                                                                                                                                    |

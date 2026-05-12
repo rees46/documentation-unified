@@ -114,56 +114,6 @@ r46('track', 'purchase', {
 
 ```swift [iOS] 
 
-// Минимальный набор обязательных полей
-
-let request = PurchaseTrackingRequest(
-    orderId: "order-123",
-    orderPrice: 99.90,
-    items: [
-        PurchaseItemRequest(
-            id: "sku-456",
-            amount: 1,
-            price: 99.90
-        )
-    ]
-)
-
-// Полный набор параметров
-
-let request = PurchaseTrackingRequest(
-    orderId: "order-full-001",
-    orderPrice: 199.98,
-    items: [
-        PurchaseItemRequest(
-            id: "sku-456",
-            amount: 2,
-            price: 49.99,
-            quantity: 2,
-            lineId: "line-1",
-            fashionSize: "L"
-        )
-    ],
-    deliveryType: "courier",
-    deliveryAddress: "ул. Пример, 1",
-    paymentType: "card",
-    isTaxFree: true,
-    promocode: "DEMO10",
-    orderCash: 100,
-    orderBonuses: 10,
-    orderDelivery: 5,
-    orderDiscount: 15,
-    channel: "mobile",
-    custom: [
-        "my_key_string": "value",
-        "my_key_number": 123,
-        "my_key_bool": true
-    ],
-    recommendedSource: [
-        "source_key": "source_value"
-    ],
-    stream: "ios"
-)
-
 // Пример простейшего трекинга
 
 let request = PurchaseTrackingRequest(
@@ -264,60 +214,6 @@ sdk.trackPurchase(request) { result in
 ```
 
 ```kotlin [Kotlin]
-
-// Минимальный набор обязательных полей
-
-val request = PurchaseTrackingRequest(
-    orderId = "order-123",
-    orderPrice = 99.90,
-    items = listOf(
-        PurchaseItemRequest(
-            id = "sku-456",
-            amount = 1,
-            price = 99.90
-        )
-    )
-)
-
-//Полный набор параметров
-
-val request = PurchaseTrackingRequest(
-    orderId = "order-full-001",
-    orderPrice = 199.98,
-    items = listOf(
-        PurchaseItemRequest(
-            id = "sku-456",
-            amount = 2,
-            price = 49.99,
-            quantity = 2,
-            lineId = "line-1",
-            fashionSize = "L",
-        )
-    ),
-    deliveryType = "courier",
-    deliveryAddress = "ул. Пример, 1",
-    paymentType = "card",
-    isTaxFree = true,
-    promocode = "DEMO10",
-    orderCash = 100.0,
-    orderBonuses = 10.0,
-    orderDelivery = 5.0,
-    orderDiscount = 15.0,
-    channel = "mobile",
-    custom = mapOf(
-        "my_key_string" to "value",
-        "my_key_number" to 123,
-        "my_key_bool" to true,
-    ),
-    recommendedBy = Params.RecommendedBy(
-        recommendedBy = "dynamic",
-        recommendedCode = "your-recommended-code",
-    ),
-    recommendedSource = JSONObject().apply {
-        put("source_key", "source_value")
-    },
-    stream = "android",
-)
 
 // Пример простейшего трекинга заказа
 

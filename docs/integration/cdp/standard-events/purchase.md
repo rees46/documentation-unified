@@ -211,6 +211,11 @@ sdk.trackPurchase(request) { result in
     }
 }
 
+// Устаревшие методы (поддерживаются)
+
+sdk.track(event: .orderCreated(orderId: "123", totalValue: 33.3, products: [(id: "PRODUCT_ID_1", amount: 3, price: 300), (id: "PRODUCT_ID_2", amount: 1, price: 100)])) { trackResponse in
+    // ... обработка коллбэков показана в описании события "Просмотр товара"
+}    
 ```
 
 ```kotlin [Kotlin]
@@ -319,6 +324,59 @@ sdk.trackPurchase(
         }
     }
 )
+
+// Устаревшие методы (поддерживаются)
+
+// Простейший трекинг заказа
+val params = Params()
+  .put(ProductItemParams("SKU-1").set(ProductItemParams.PARAMETER.PRICE, 99.0).set(ProductItemParams.PARAMETER.AMOUNT, 1))
+  .put(ProductItemParams("SKU-2").set(ProductItemParams.PARAMETER.PRICE, 33.0).set(ProductItemParams.PARAMETER.AMOUNT, 2))
+  .put(Params.Parameter.ORDER_ID, "ORD-100500")
+  .put(Params.Parameter.ORDER_PRICE, "2499.99")
+sdk.trackEventManager.track(TrackEvent.PURCHASE, params, null)
+
+
+// Трекинг с дополнительными параметрами и коллбэком
+
+val params = Params()
+  .put(ProductItemParams("SKU-1").set(ProductItemParams.PARAMETER.PRICE, 99.0).set(ProductItemParams.PARAMETER.AMOUNT, 1))
+  .put(ProductItemParams("SKU-2").set(ProductItemParams.PARAMETER.PRICE, 33.0).set(ProductItemParams.PARAMETER.AMOUNT, 2))
+  .put(Params.Parameter.ORDER_ID, "ORD-100500")
+  .put(Params.Parameter.ORDER_PRICE, "2499.99")
+  .put(Params.Parameter.DELIVERY_ADDRESS, "Восстания, 1")
+sdk.trackEventManager.track(
+  TrackEvent.PURCHASE, 
+  params, 
+  object : OnApiCallbackListener() {
+    override fun onSuccess(response: JSONObject?) {
+      // ...
+    }
+    override fun onError(code: Int, msg: String?) {
+      // ...
+      
+// Трекинг с явной атрибуцией
+// Может потребоваться в случае заказа в 1 клик. 
+// Иначе атрибуция берется из событий просмотра и добавления в корзину.
+val params = Params()
+  .put(ProductItemParams("SKU-1").set(ProductItemParams.PARAMETER.PRICE, 99.0).set(ProductItemParams.PARAMETER.AMOUNT, 1))
+  .put(ProductItemParams("SKU-2").set(ProductItemParams.PARAMETER.PRICE, 33.0).set(ProductItemParams.PARAMETER.AMOUNT, 2))
+  .put(Params.Parameter.ORDER_ID, "ORD-100500")
+  .put(Params.Parameter.ORDER_PRICE, "2499.99")
+  .put(Params.RecommendedBy(Params.RecommendedBy.TYPE.RECOMMENDATION, "block_code"))
+sdk.trackEventManager.track(TrackEvent.PURCHASE, params, null)
+
+
+// Трекинг с кастомными свойствами заказа
+val сustomParameters = Params.CustomOrderParameters()
+  .set("tour_class", "AAA")
+  .set("guests", 5)
+val params = Params()
+  .put(ProductItemParams("SKU-1").set(ProductItemParams.PARAMETER.PRICE, 99.0).set(ProductItemParams.PARAMETER.AMOUNT, 1))
+  .put(ProductItemParams("SKU-2").set(ProductItemParams.PARAMETER.PRICE, 33.0).set(ProductItemParams.PARAMETER.AMOUNT, 2))
+  .put(Params.Parameter.ORDER_ID, "ORD-100500")
+  .put(Params.Parameter.ORDER_PRICE, "2499.99")
+  .put(сustomParameters)
+sdk.trackEventManager.track(TrackEvent.PURCHASE, params, null)
 ```
 
 
@@ -464,6 +522,32 @@ const request = {
 }
 
 sdk.trackPurchase(request)
+
+// Устаревшие методы (поддерживаются)
+
+// Обычный трекинг
+sdk.track("purchase", {
+    products: [
+        {id: "37", price: 318, amount: 3},
+        {id: "187", price: 5000, amount: 1}
+    ],
+    order: 'N318',
+    order_price: 29999
+});
+
+// С расширенными свойствами заказа
+sdk.track('purchase', {
+    'email': "john.doe@examplemail.com",
+    'phone': "4400114527199",
+    'products': [
+        {'id': 37, 'price': 318, 'quantity': 1},
+    ],
+    'custom': {
+        'date_start': '2024-03-01',
+    },
+    'order': 'N318',
+    'order_price': 29999
+});
 ```
 :::
 

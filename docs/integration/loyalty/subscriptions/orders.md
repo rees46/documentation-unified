@@ -69,18 +69,18 @@ curl https://api.rees46.ru/loyalty/subscriptions/orders?shop_id=...&shop_secret=
 
 Расшифровка ответа:
 
-| Параметр                           | Описание                                                                                                                                     |
-|------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| success                            | Запрос выполнен успешно или нет                                                                                                              |
-| payload.message                    | Сообщение с результатом обработки запроса                                                                                                    |
-| payload.orders[]                   | Список заказов                                                                                                                               |
-| payload.orders[].id                | Идентификатор заказа                                                                                                                         |
-| payload.orders[].date              | Дата заказа                                                                                                                                  |
-| payload.orders[].status            | Статус заказа                                                                                                                                |
-| payload.orders[].total             | Сумма к оплате, равна значению `order_to_pay` из [`checkout/estimate`](./estimate.md)                                                        |
-| payload.orders[].items[]           | Список товаров в заказе                                                                                                                      |
-| payload.orders[].items[].id        | Артикул товара                                                                                                                               |
-| payload.orders[].items[].name      | Название товара из товарного фида. Если товара нет в товарном фиде, будет `---`                                                              |
-| payload.orders[].items[].quantity  | Количество единиц товара                                                                                                                     |
-| payload.orders[].items[].price     | Цена товара после применения всех скидок, равна значению `items[].total_after_discounts_per_product` из [`checkout/estimate`](./estimate.md) |
-| ayload.members[].limits_reset_date | Дата, когда будет выполнен следующий сброс лимитов                                                                                           |
+| Параметр                           | Описание                                                                                                                                               |
+|------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+| success                            | Запрос выполнен успешно или нет                                                                                                                        |
+| payload.message                    | Сообщение с результатом обработки запроса                                                                                                              |
+| payload.orders[]                   | Список заказов                                                                                                                                         |
+| payload.orders[].id                | Идентификатор заказа                                                                                                                                   |
+| payload.orders[].date              | Дата заказа                                                                                                                                            |
+| payload.orders[].status            | Статус заказа                                                                                                                                          |
+| payload.orders[].total             | Сумма к оплате, равна значению `order_to_pay` из [`checkout/estimate`](../checkout/estimate.md)                                                        |
+| payload.orders[].items[]           | Список товаров в заказе                                                                                                                                |
+| payload.orders[].items[].id        | Артикул товара                                                                                                                                         |
+| payload.orders[].items[].name      | Название товара из товарного фида. Если товара нет в товарном фиде, будет `---`                                                                        |
+| payload.orders[].items[].quantity  | Количество единиц товара                                                                                                                               |
+| payload.orders[].items[].price     | Цена товара после применения всех скидок, равна значению `items[].total_after_discounts_per_product` из [`checkout/estimate`](../checkout/estimate.md) |
+| ayload.members[].limits_reset_date | Дата, когда будет выполнен следующий сброс лимитов                                                                                                     |

@@ -375,6 +375,7 @@ export default defineConfig({
                                 {text: 'Список клиентов', link: '/integration/loyalty/subscriptions/members.md'},
                                 {text: 'Статус клиента', link: '/integration/loyalty/subscriptions/status.md'},
                                 {text: 'Отчет клиента', link: '/integration/loyalty/subscriptions/report.md'},
+                                {text: 'Заказы клиента', link: '/integration/loyalty/subscriptions/orders.md'},
                             ]
                         },
                         {

@@ -282,8 +282,8 @@ val request = PurchaseTrackingRequest(
         PurchaseItemRequest(id = "SKU-2", amount = 2, price = 33.0)
     ),
     recommendedBy = Params.RecommendedBy(
-        recommendedBy = "recommendation",
-        recommendedCode = "block_code"
+        type = Params.RecommendedBy.TYPE.RECOMMENDATION,
+        code = "block_code"
     )
 )
 

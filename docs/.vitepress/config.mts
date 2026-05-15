@@ -300,6 +300,7 @@ export default defineConfig({
                                 {text: 'Список акций', link: '/integration/loyalty/promotions/list.md'},
                                 {text: 'Акции для клиента', link: '/integration/loyalty/promotions/client.md'},
                                 {text: 'Акции для корзины', link: '/integration/loyalty/promotions/cart.md'},
+                                {text: 'Арбитраж акций', link: '/integration/loyalty/promotions/arbitr.md'}
                             ]
                         },
                         {

@@ -35,6 +35,13 @@ export default defineConfig({
                     ]
                 },
                 {
+                    text: `Программа лояльности`,
+                    collapsed: true,
+                    items: [
+                        {text: 'Акции', collapsed: true, items: [{text:'Арбитраж',link: '/guides/loyalty/promotions/arbitr.md'}]},
+                    ]
+                },
+                {
                     text: `CDP`,
                     collapsed: true,
                     items: [

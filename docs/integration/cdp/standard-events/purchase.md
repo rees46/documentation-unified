@@ -113,12 +113,220 @@ r46('track', 'purchase', {
 ```
 
 ```swift [iOS] 
+
+// Пример простейшего трекинга
+
+let request = PurchaseTrackingRequest(
+    orderId: "order-123",
+    orderPrice: 99.90,
+    items: [
+        PurchaseItemRequest(
+            id: "sku-456",
+            amount: 1,
+            price: 99.90
+        )
+    ]
+)
+sdk.trackPurchase(request) { result in
+    switch result {
+    case .success:
+        break
+    case .failure(let error):
+        break
+    }
+}
+
+// Пример с дополнительными параметрами
+
+let request = PurchaseTrackingRequest(
+    orderId: "ORD-789012",
+    orderPrice: 299.99,
+    items: [
+        PurchaseItemRequest(
+            id: "SKU-100",
+            amount: 1,
+            price: 199.99,
+            quantity: 1,
+            lineId: "line-1",
+            fashionSize: "M"
+        ),
+        PurchaseItemRequest(
+            id: "SKU-200",
+            amount: 1,
+            price: 100.00,
+            quantity: 1,
+            lineId: "line-2",
+            fashionSize: "L"
+        )
+    ],
+    deliveryType: "courier",
+    deliveryAddress: "ул. Пушкина, д. 10",
+    paymentType: "card",
+    isTaxFree: false,
+    promocode: "SUMMER15",
+    orderCash: 0,
+    orderBonuses: 50,
+    orderDelivery: 5.99,
+    orderDiscount: 45.00,
+    channel: "mobile"
+)
+
+sdk.trackPurchase(request) { result in
+    switch result {
+    case .success:
+       // обработка успеха
+    case .failure(let error):
+       // обработка ошибки
+    }
+}
+
+// Пример с кастомными свойствами заказа
+
+let request = PurchaseTrackingRequest(
+    orderId: "ORD-555777",
+    orderPrice: 4999.99,
+    items: [
+        PurchaseItemRequest(
+            id: "TOUR-100",
+            amount: 1,
+            price: 4999.99,
+            quantity: 1
+        )
+    ],
+    custom: [
+        "tour_class": "AAA",
+        "guests_count": 5,
+        "departure_date": "2025-07-15",
+        "is_vip": true,
+        "tour_operator": "SunRise Tours"
+    ]
+)
+
+sdk.trackPurchase(request) { result in
+    switch result {
+    case .success:
+       // обработка успеха
+    case .failure(let error):
+       // обработка ошибки
+    }
+}
+
+// Устаревшие методы (поддерживаются)
+
 sdk.track(event: .orderCreated(orderId: "123", totalValue: 33.3, products: [(id: "PRODUCT_ID_1", amount: 3, price: 300), (id: "PRODUCT_ID_2", amount: 1, price: 100)])) { trackResponse in
     // ... обработка коллбэков показана в описании события "Просмотр товара"
-}
+}    
 ```
 
 ```kotlin [Kotlin]
+
+// Пример простейшего трекинга заказа
+
+val request = PurchaseTrackingRequest(
+    orderId = "ORD-100500",
+    orderPrice = 2499.99,
+    items = listOf(
+        PurchaseItemRequest(id = "SKU-1", amount = 1, price = 99.0),
+        PurchaseItemRequest(id = "SKU-2", amount = 2, price = 33.0)
+    )
+)
+
+sdk.trackPurchase(
+    request = request,
+    listener = object : OnApiCallbackListener() {
+        override fun onSuccess(response: JSONObject?) {
+            // обработать успех
+        }
+
+        override fun onError(code: Int, msg: String?) {
+            // обработать ошибку
+        }
+    }
+)
+
+// Пример с дополнительными параметрами
+
+val request = PurchaseTrackingRequest(
+    orderId = "ORD-100500",
+    orderPrice = 2499.99,
+    items = listOf(
+        PurchaseItemRequest(id = "SKU-1", amount = 1, price = 99.0),
+        PurchaseItemRequest(id = "SKU-2", amount = 2, price = 33.0)
+    ),
+     deliveryType = "courier",
+    deliveryAddress = "Восстания, 1"
+)
+
+sdk.trackPurchase(
+    request = request,
+    listener = object : OnApiCallbackListener() {
+        override fun onSuccess(response: JSONObject?) {
+            // обработать успех
+        }
+
+        override fun onError(code: Int, msg: String?) {
+            // обработать ошибку
+        }
+    }
+)
+
+// Трекинг с явной атрибуцией
+// Может потребоваться в случае заказа в 1 клик. 
+// Иначе атрибуция берется из событий просмотра и добавления в корзину.
+
+val request = PurchaseTrackingRequest(
+    orderId = "ORD-100500",
+    orderPrice = 2499.99,
+    items = listOf(
+        PurchaseItemRequest(id = "SKU-1", amount = 1, price = 99.0),
+        PurchaseItemRequest(id = "SKU-2", amount = 2, price = 33.0)
+    ),
+    recommendedBy = Params.RecommendedBy(
+        type = Params.RecommendedBy.TYPE.RECOMMENDATION,
+        code = "block_code"
+    )
+)
+
+sdk.trackPurchase(
+    request = request,
+    listener = object : OnApiCallbackListener() {
+        override fun onSuccess(response: JSONObject?) {
+            // обработать успех
+        }
+
+        override fun onError(code: Int, msg: String?) {
+            // обработать ошибку
+        }
+    }
+)
+
+//  Пример с кастомными свойствами заказа
+
+val request = PurchaseTrackingRequest(
+    orderId = "ORD-100500",
+    orderPrice = 2499.99,
+    items = listOf(
+        PurchaseItemRequest(id = "SKU-1", amount = 1, price = 99.0),
+        PurchaseItemRequest(id = "SKU-2", amount = 2, price = 33.0)
+    ),
+    custom = mapOf("tour_class" to "AAA", "guests" to 5)
+)
+
+sdk.trackPurchase(
+    request = request,
+    listener = object : OnApiCallbackListener() {
+        override fun onSuccess(response: JSONObject?) {
+            // обработать успех
+        }
+
+        override fun onError(code: Int, msg: String?) {
+            // обработать ошибку
+        }
+    }
+)
+
+// Устаревшие методы (поддерживаются)
+
 // Простейший трекинг заказа
 val params = Params()
   .put(ProductItemParams("SKU-1").set(ProductItemParams.PARAMETER.PRICE, 99.0).set(ProductItemParams.PARAMETER.AMOUNT, 1))
@@ -129,6 +337,7 @@ sdk.trackEventManager.track(TrackEvent.PURCHASE, params, null)
 
 
 // Трекинг с дополнительными параметрами и коллбэком
+
 val params = Params()
   .put(ProductItemParams("SKU-1").set(ProductItemParams.PARAMETER.PRICE, 99.0).set(ProductItemParams.PARAMETER.AMOUNT, 1))
   .put(ProductItemParams("SKU-2").set(ProductItemParams.PARAMETER.PRICE, 33.0).set(ProductItemParams.PARAMETER.AMOUNT, 2))
@@ -144,11 +353,7 @@ sdk.trackEventManager.track(
     }
     override fun onError(code: Int, msg: String?) {
       // ...
-    }
-  }
-)
-
-
+      
 // Трекинг с явной атрибуцией
 // Может потребоваться в случае заказа в 1 клик. 
 // Иначе атрибуция берется из событий просмотра и добавления в корзину.
@@ -192,30 +397,157 @@ sdk.track(Params.TrackEvent.PURCHASE, purchase);
 
 
 ```javascript [ReactNative]
+
+//Пример набора обязательных параметров
+
+const request: PurchaseTrackingRequest = {
+    orderId: 'order-123',
+    orderPrice: 99.9,
+    items: [
+        {
+            id: 'sku-456',
+            amount: 1,
+            price: 99.9,
+        },
+    ],
+}
+sdk.trackPurchase(request)
+
+// Пример полного набора параметров
+
+const request: PurchaseTrackingRequest = {
+    orderId: 'order-full-001',
+    orderPrice: 199.98,
+    items: [
+        {
+            id: 'sku-456',
+            amount: 2,
+            price: 49.99,
+            quantity: 2,
+            lineId: 'line-1',
+            fashionSize: 'L',
+        },
+    ],
+    deliveryType: 'courier',
+    deliveryAddress: 'ул. Пример, 1',
+    paymentType: 'card',
+    isTaxFree: true,
+    promocode: 'DEMO10',
+    orderCash: 100,
+    orderBonuses: 10,
+    orderDelivery: 5,
+    orderDiscount: 15,
+    channel: 'mobile',
+    custom: {
+        my_key_string: 'value',
+        my_key_number: 123,
+        my_key_bool: true,
+        my_key_null: null,
+    },
+    recommendedSource: {
+        source_key: 'source_value',
+    },
+    stream: 'my-stream',
+}
+sdk.trackPurchase(request)
+
+// Пример обычного трекинга
+const request = {
+    orderId: 'ORD-100500',
+    orderPrice: 2499.99,
+    items: [
+        { id: 'SKU-1', amount: 1, price: 99.0 },
+        { id: 'SKU-2', amount: 2, price: 33.0 }
+    ]
+}
+
+sdk.trackPurchase(request)
+
+// Пример трекинга с расширенными свойствами заказа
+const request = {
+    orderId: 'ORD-789012',
+    orderPrice: 299.99,
+    items: [
+        {
+            id: 'SKU-100',
+            amount: 1,
+            price: 199.99,
+            quantity: 1,
+            lineId: 'line-1',
+            fashionSize: 'M'
+        },
+        {
+            id: 'SKU-200',
+            amount: 1,
+            price: 100.00,
+            quantity: 1,
+            lineId: 'line-2',
+            fashionSize: 'L'
+        }
+    ],
+    deliveryType: 'courier',
+    deliveryAddress: 'ул. Пушкина, д. 10',
+    paymentType: 'card',
+    isTaxFree: false,
+    promocode: 'SUMMER15',
+    orderCash: 0,
+    orderBonuses: 50,
+    orderDelivery: 5.99,
+    orderDiscount: 45.00,
+    channel: 'mobile'
+}
+
+sdk.trackPurchase(request)
+
+// Пример трекинга с кастомными свойствами заказа
+
+const request = {
+    orderId: 'ORD-555777',
+    orderPrice: 4999.99,
+    items: [
+        {
+            id: 'TOUR-100',
+            amount: 1,
+            price: 4999.99,
+            quantity: 1
+        }
+    ],
+    custom: {
+        tour_class: 'AAA',
+        guests_count: 5,
+        departure_date: '2025-07-15',
+        is_vip: true,
+        tour_operator: 'SunRise Tours'
+    }
+}
+
+sdk.trackPurchase(request)
+
+// Устаревшие методы (поддерживаются)
+
 // Обычный трекинг
 sdk.track("purchase", {
-  products: [
-    {id: "37", price: 318, amount: 3},
-    {id: "187", price: 5000, amount: 1}
-  ],
-  order: 'N318',
-  order_price: 29999
+    products: [
+        {id: "37", price: 318, amount: 3},
+        {id: "187", price: 5000, amount: 1}
+    ],
+    order: 'N318',
+    order_price: 29999
 });
 
 // С расширенными свойствами заказа
 sdk.track('purchase', {
-  'email': "john.doe@examplemail.com",
-  'phone': "4400114527199",
-  'products': [
-    {'id': 37, 'price': 318, 'quantity': 1},
-  ],
-  'custom': {
-    'date_start': '2024-03-01',
-  },
-  'order': 'N318',
-  'order_price': 29999
+    'email': "john.doe@examplemail.com",
+    'phone': "4400114527199",
+    'products': [
+        {'id': 37, 'price': 318, 'quantity': 1},
+    ],
+    'custom': {
+        'date_start': '2024-03-01',
+    },
+    'order': 'N318',
+    'order_price': 29999
 });
-
 ```
 :::
 

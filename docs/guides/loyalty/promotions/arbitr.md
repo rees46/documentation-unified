@@ -35,7 +35,7 @@
 
 ## Схема работы арбитража
 
-![Схема работы арбитража](images/promos_arbitr_shema.png)
+![Схема работы арбитража](images/promotions_arbitr_shema.png)
 
 1. Checkout-controller получает запрос (estimate)
 2. Читает все акции и их несовместимости

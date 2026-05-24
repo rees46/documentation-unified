@@ -471,6 +471,13 @@ export default defineConfig({
                     items: []
                 },
                 {
+                    text: 'Рассылки',
+                    collapsed: true,
+                    items: [
+                        {text: 'Отписка от WhatsApp рассылок', link: '/mechanics/communications/whatsapp-unsubscribe.md'},
+                    ]
+                },
+                {
                     text: 'Товарные рекомендации',
                     collapsed: true,
                     items: []

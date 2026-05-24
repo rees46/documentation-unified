@@ -485,7 +485,9 @@ export default defineConfig({
                 {
                     text: 'Поиск',
                     collapsed: true,
-                    items: []
+                    items: [
+                        {text: 'Фасетный поиск: проблемы и особенности реализации', link: '/mechanics/search/facet-search.md'},
+                    ]
                 },
                 {
                     text: 'Листинг товаров',

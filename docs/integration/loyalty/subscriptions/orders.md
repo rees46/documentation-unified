@@ -40,6 +40,7 @@ curl https://api.rees46.ru/loyalty/subscriptions/orders?shop_id=...&shop_secret=
         "date": "...",
         "status": "...",
         "total": "...",
+        "discounts": { ... },
         "items": [
           {
             "id": "...",

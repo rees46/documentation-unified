@@ -78,6 +78,7 @@ curl https://api.rees46.ru/loyalty/subscriptions/orders?shop_id=...&shop_secret=
 | payload.orders[].date              | Дата заказа                                                                                                                                            |
 | payload.orders[].status            | Статус заказа                                                                                                                                          |
 | payload.orders[].total             | Сумма к оплате, равна значению `order_to_pay` из [`checkout/estimate`](../checkout/estimate.md)                                                        |
+| payload.orders[].discounts         | Полный объект `discounts` из [`checkout/estimate`](../checkout/estimate.md)                                                                            |
 | payload.orders[].items[]           | Список товаров в заказе                                                                                                                                |
 | payload.orders[].items[].id        | Артикул товара                                                                                                                                         |
 | payload.orders[].items[].name      | Название товара из товарного фида. Если товара нет в товарном фиде, будет `---`                                                                        |

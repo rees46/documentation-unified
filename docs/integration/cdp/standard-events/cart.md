@@ -273,3 +273,62 @@ sdk.track("cart", [
   }
 }
 ```
+
+## Справочник ошибок
+
+| Сценарий                                         | Пример запроса                                                                             | Код ошибки                                 |
+|:-------------------------------------------------|:-------------------------------------------------------------------------------------------|:-------------------------------------------|
+| **HTTP Method Validation**                       |                                                                                            |                                            |
+| Использование не-POST метода                     | `GET /push?event=cart&items[][id]=123`                                                     | `405 Method Not Allowed`                   |
+| **Authentication & Shop Validation**             |                                                                                            |                                            |
+| Запрос без `shop_id`                             | `POST /push` (без параметров)                                                              | `401 Unauthorized`                         |
+| Пустой `shop_id`                                 | `POST /push?shop_id=&event=cart&items[][id]=123`                                           | `422 Unprocessable`                        |
+| Некорректный формат `shop_id` (не 30 hex)        | `POST /push?shop_id=INVALID_ID&event=cart&items[][id]=123`                                 | `422 Unprocessable`                        |
+| Несуществующий `shop_id`                         | `POST /push?shop_id=000000000000000000000000000000&event=cart&items[][id]=123`             | `404 Not Found`                            |
+| **Device Validation**                            |                                                                                            |                                            |
+| Корректный `shop_id`, но без `did`               | `POST /push?shop_id={valid}&event=cart&items[][id]=123`                                    | `401 Unauthorized`                         |
+| Пустой `did` (трактуется как отсутствие)         | `POST /push?shop_id={valid}&did=&event=cart&items[][id]=123`                               | `401 Unauthorized`                         |
+| Некорректный формат `did`                        | `POST /push?shop_id={valid}&did=INVALID_ID&event=cart&items[][id]=123`                     | `422 Unprocessable`                        |
+| Несуществующий `did`                             | `POST /push?shop_id={valid}&did=0000000000&event=cart&items[][id]=123`                     | `404 Not Found`                            |
+| **Shop Status Validation**                       |                                                                                            |                                            |
+| Магазин неактивен (`non-active`)                 | `POST /push?shop_id={non_active}&did={valid}&event=cart&items[][id]=123`                   | `403 Access Denied`                        |
+| Магазин ограничен (`restricted`)                 | `POST /push?shop_id={restricted}&did={valid}&event=cart&items[][id]=123`                   | `403 Access Denied`                        |
+| У магазина истекла оплата                        | `POST /push?shop_id={unpaid}&did={valid}&event=cart&items[][id]=123`                       | `403 Access Denied`                        |
+| **Required Parameters Validation**               |                                                                                            |                                            |
+| Отсутствует параметр `event`                     | `POST /push?items[][id]=123&shop_id={valid}&did={valid}`                                   | `422 Unprocessable`                        |
+| Пустой параметр `event`                          | `POST /push?event=&items[][id]=123&shop_id={valid}&did={valid}`                            | `422 Unprocessable`                        |
+| Некорректное значение `event` (не 'cart')        | `POST /push?event=INVALID&items[][id]=123&shop_id={valid}&did={valid}`                     | `422 Unprocessable`                        |
+| **Items Validation**                             |                                                                                            |                                            |
+| Отсутствует параметр `items`                     | `POST /push?event=cart&shop_id={valid}&did={valid}`                                        | `422 Unprocessable`                        |
+| Пустой `items` (не массив)                       | `POST /push?event=cart&items=&shop_id={valid}&did={valid}`                                 | `422 Unprocessable`                        |
+| Пустой массив `items` (добавление)               | `POST /push` (JSON: `{"event": "cart", "items": [], ...}`)                                 | `422 Unprocessable`                        |
+| Пустой массив `items` c `full_cart: true`        | `POST /push` (JSON: `{"event": "cart", "full_cart": true, "items": [], ...}`)              | `200 OK`                                   |
+| Все `items` отфильтрованы из-за некорректного ID | `POST /push` (JSON: `{"event": "cart", "items": [{"id": "Hello\\World"}], ...}`)           | `422 Unprocessable`                        |
+| **Optional Parameters Validation**               |                                                                                            |                                            |
+| Пустой `stream`                                  | `POST /push?event=cart&items[][id]=123&stream=&shop_id={valid}&did={valid}`                | `422 Unprocessable`                        |
+| `stream` не строка (массив)                      | `POST /push?event=cart&items[][id]=123&stream[]=42&shop_id={valid}&did={valid}`            | `422 Unprocessable`                        |
+| Пустой `sid`                                     | `POST /push?event=cart&items[][id]=123&sid=&shop_id={valid}&did={valid}`                   | `422 Unprocessable`                        |
+| `sid` не строка                                  | `POST /push?event=cart&items[][id]=123&sid[]=42&shop_id={valid}&did={valid}`               | `422 Unprocessable`                        |
+| Пустой `referer`                                 | `POST /push?event=cart&items[][id]=123&referer=&shop_id={valid}&did={valid}`               | `422 Unprocessable`                        |
+| `referer` не строка                              | `POST /push?event=cart&items[][id]=123&referer[]=42&shop_id={valid}&did={valid}`           | `422 Unprocessable`                        |
+| Пустой `segment`                                 | `POST /push?event=cart&items[][id]=123&segment=&shop_id={valid}&did={valid}`               | `422 Unprocessable`                        |
+| Некорректный `segment` (не 'A' или 'B')          | `POST /push?event=cart&items[][id]=123&segment=C&shop_id={valid}&did={valid}`              | `422 Unprocessable`                        |
+| Пустой `recommended_by`                          | `POST /push?event=cart&items[][id]=123&recommended_by=&shop_id={valid}&did={valid}`        | `422 Unprocessable`                        |
+| Некорректный `recommended_by`                    | `POST /push?event=cart&items[][id]=123&recommended_by=INVALID&shop_id={valid}&did={valid}` | `422 Unprocessable`                        |
+| Пустой `recommended_code`                        | `POST /push?event=cart&items[][id]=123&recommended_code=&shop_id={valid}&did={valid}`      | `422 Unprocessable`                        |
+| Пустой `source` (строка)                         | `POST /push?event=cart&items[][id]=123&source=&shop_id={valid}&did={valid}`                | `422 Unprocessable`                        |
+| Некорректный `source` (не JSON)                  | `POST /push?event=cart&items[][id]=123&source=not-json&shop_id={valid}&did={valid}`        | `422 Unprocessable`                        |
+| **Item Amount/Quantity Logic**                   |                                                                                            |                                            |
+| `items.amount: -1` (ниже минимума)               | `POST /push` (JSON: `{"items": [{"id": "x", "amount": -1}], ...}`)                         | `200 OK` (amount становится `1`)           |
+| `items.amount: 1001` (выше максимума)            | `POST /push` (JSON: `{"items": [{"id": "x", "amount": 1001}], ...}`)                       | `200 OK` (amount становится `1000`)        |
+| `items.quantity: -1` (синоним amount)            | `POST /push` (JSON: `{"items": [{"id": "x", "quantity": -1}], ...}`)                       | `200 OK` (amount становится `1`)           |
+| **Item Price Logic**                             |                                                                                            |                                            |
+| `items.price: -1` (отрицательное число)          | `POST /push` (JSON: `{"items": [{"id": "x", "price": -1}], ...}`)                          | `200 OK` (поле `price` отсутствует)        |
+| `items.price: -0.1` (отрицательный float)        | `POST /push` (JSON: `{"items": [{"id": "x", "price": -0.1}], ...}`)                        | `200 OK` (поле `price` отсутствует)        |
+| `items.price: '-666'` (отрицательная строка)     | `POST /push` (JSON: `{"items": [{"id": "x", "price": "-666"}], ...}`)                      | `200 OK` (поле `price` отсутствует)        |
+| `items.price: 'asdasd'` (не число)               | `POST /push` (JSON: `{"items": [{"id": "x", "price": "asdasd"}], ...}`)                    | `200 OK` (поле `price` отсутствует)        |
+| **Item Other Fields Logic**                      |                                                                                            |                                            |
+| `items.line_id: ''` (пустая строка)              | `POST /push` (JSON: `{"items": [{"id": "x", "line_id": ""}], ...}`)                        | `200 OK` (поле `line_id` отсутствует)      |
+| `items.fashion_size: ''` (пустая строка)         | `POST /push` (JSON: `{"items": [{"id": "x", "fashion_size": ""}], ...}`)                   | `200 OK` (поле `fashion_size` отсутствует) |
+| Пустой `items.id`                                | `POST /push` (JSON: `{"items": [{"id": ""}, {"id": "valid"}], ...}`)                       | `200 OK` (пустой ID фильтруется)           |
+| Слишком длинный `items.id`                       | `POST /push` (JSON: `{"items": [{"id": "aaaa...(>255 chars)"}, ...]}`)                     | `200 OK` (длинный ID фильтруется)          |

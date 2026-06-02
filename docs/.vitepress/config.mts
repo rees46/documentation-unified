@@ -83,6 +83,9 @@ export default defineConfig({
                     items: [
                         {text: 'Введение', link: '/guides/mcp/index.md'},
                         {text: 'Подключение', link: '/guides/mcp/connect.md'},
+                        {text: 'Функциональные возможности MCP', link: '/guides/mcp/mcp-functionality.md'},
+                        {text: 'Базовые рекомендации по формулировке запросов', link: '/guides/mcp/prompt-recommendation.md'},
+                        {text: 'Дополнительные сценарии использования агента-аналитика', link: '/guides/mcp/mcp-best-practice.md'},
                     ]
                 },
             ],

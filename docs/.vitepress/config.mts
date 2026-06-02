@@ -54,7 +54,7 @@ export default defineConfig({
                     items: [
                         { text: 'О сервисе', link: '/guides/cdp/index.md' },
                         { text: 'Расширенная CDP', link: '/guides/cdp/features.md' },
-                        { text: 'Автоматическое удаление анонимных неактивных профилей', link: '/guides/cdp/anonymous-user.md' },
+                        { text: 'Удаление неактивных профилей', link: '/guides/cdp/cleanup.md' },
                         {
                             text: `Метрики клиентов`,
                             collapsed: true,

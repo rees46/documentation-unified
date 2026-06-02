@@ -37,6 +37,7 @@ curl https://api.rees46.ru/loyalty/subscriptions/members?shop_id=...&shop_secret
         "identifier": "...",
         "subscription": "...",
         "plan": "...",
+        "active": true,
         "paid_till": "...",
         "limits_reset_date": "..."
       },
@@ -44,6 +45,7 @@ curl https://api.rees46.ru/loyalty/subscriptions/members?shop_id=...&shop_secret
         "identifier": "...",
         "subscription": "...",
         "plan": "...",
+        "active": false,
         "paid_till": "...",
         "limits_reset_date": "..."
       }
@@ -53,7 +55,7 @@ curl https://api.rees46.ru/loyalty/subscriptions/members?shop_id=...&shop_secret
 ```
 
 :::info Обратите внимание
-Список будет содержать в том числе клиентов, у которых подписка уже просрочена. Не забывайте проверять поле `paid_till`.
+Список будет содержать, в том числе, клиентов, у которых подписка уже просрочена. Не забывайте проверять поле `paid_till` или флаг `active`.
 :::
 
 В случае ошибки ответ будет в формате:
@@ -78,4 +80,5 @@ curl https://api.rees46.ru/loyalty/subscriptions/members?shop_id=...&shop_secret
 | payload.members[].subscription      | Уникальный код подписки                                              |
 | payload.members[].plan              | Уникальный код плана                                                 |
 | payload.members[].paid_till         | Дата, до которой оплачена подписка                                   |
+| payload.members[].active            | Флаг, активна подписка или нет                                       |
 | payload.members[].limits_reset_date | Дата, когда будет выполнен следующий сброс лимитов                   |

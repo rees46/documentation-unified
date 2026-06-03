@@ -38,8 +38,14 @@ export default defineConfig({
                     text: `Программа лояльности`,
                     collapsed: true,
                     items: [
-                        {text: 'Акции', collapsed: true, items: [{text:'Арбитраж',link: '/guides/loyalty/promotions/arbitr.md'}]},
-                        {text: 'Как работает списание бонусов', link: '/guides/loyalty/bonuses-mechanics.md'},
+                        {
+                            text: 'Акции',
+                            collapsed: true,
+                            items: [
+                                { text:'Арбитраж',link: '/guides/loyalty/promotions/arbitr.md' }
+                            ]
+                        },
+                        { text: 'Как работает списание бонусов', link: '/guides/loyalty/bonuses-mechanics.md' },
                     ]
                 },
                 {
@@ -48,6 +54,14 @@ export default defineConfig({
                     items: [
                         { text: 'О сервисе', link: '/guides/cdp/index.md' },
                         { text: 'Расширенная CDP', link: '/guides/cdp/features.md' },
+                        { text: 'Удаление неактивных профилей', link: '/guides/cdp/cleanup.md' },
+                        {
+                            text: `Метрики клиентов`,
+                            collapsed: true,
+                            items: [
+                                { text: 'Привязанность к категориям и брендам', link: '/guides/cdp/metrics/affinity.md' },
+                            ]
+                        },
                     ]
                 },
                 {

@@ -179,11 +179,22 @@ export default defineConfig({
                             text: 'Подписки на рассылки',
                             collapsed: true,
                             items: [
-                                {text: 'Введение', link: '/integration/cdp/subscriptions/index.md'},
-                                {text: 'Управление подписками', link: '/integration/cdp/subscriptions/manage.md'},
-                                {text: 'Сервисные операции', link: '/integration/cdp/subscriptions/callback.md'},
-                                {text: 'Статус подписки', link: '/integration/cdp/subscriptions/check.md'},
-                                {text: 'Список изменений', link: '/integration/cdp/subscriptions/changes.md'},
+                                { text: 'Введение', link: '/integration/cdp/subscriptions/index.md' },
+                                { text: 'Управление подписками', link: '/integration/cdp/subscriptions/manage.md' },
+                                { text: 'Сервисные операции', link: '/integration/cdp/subscriptions/callback.md' },
+                                { text: 'Статус подписки', link: '/integration/cdp/subscriptions/check.md' },
+                                { text: 'Список изменений', link: '/integration/cdp/subscriptions/changes.md' },
+                            ]
+                        },
+                        {
+                            text: 'Центр уведомлений',
+                            collapsed: true,
+                            items: [
+                                { text: 'Введение', link: '/integration/cdp/notifications-center/index.md' },
+                                { text: 'Список сообщений', link: '/integration/cdp/notifications-center/messages.md' },
+                                { text: 'Статус сообщения', link: '/integration/cdp/notifications-center/status.md' },
+                                { text: 'Счетчик сообщений', link: '/integration/cdp/notifications-center/counters.md' },
+                                { text: 'Расширенный счетчик сообщений', link: '/integration/cdp/notifications-center/counters-extended.md' },
                             ]
                         },
                     ]

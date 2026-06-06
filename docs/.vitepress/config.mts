@@ -472,6 +472,24 @@ export default defineConfig({
                     ]
                 },
                 {
+                    text: 'Отзывы и обратная связь',
+                    collapsed: true,
+                    items: [
+                        { text: 'Введение', link: '/integration/feedback/index.md' },
+                        {
+                            text: 'NPS',
+                            collapsed: true,
+                            items: [
+                                { text: 'Введение', link: '/integration/feedback/nps/index.md' },
+                                { text: 'Сохранение оценки', link: '/integration/feedback/nps/create.md' },
+                                { text: 'Список категорий', link: '/integration/feedback/nps/categories.md' },
+                                { text: 'Список каналов', link: '/integration/feedback/nps/channels.md' },
+                                { text: 'Список отзывов', link: '/integration/feedback/nps/reviews.md' },
+                            ]
+                        },
+                    ]
+                },
+                {
                     text: 'Режим PRO',
                     collapsed: true,
                     items: [

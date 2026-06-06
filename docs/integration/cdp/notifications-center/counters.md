@@ -55,7 +55,6 @@ curl 'https://api.rees46.ru/notifications/counters?type=bulk&channel=email&email
 
 Расшифровка свойств ответа:
 
-
 | Property                | Type    | Description                                   |
 |-------------------------|---------|-----------------------------------------------|
 | status                  | String  | Текстовый статус результата обработки запроса |

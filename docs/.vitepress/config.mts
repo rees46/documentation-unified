@@ -175,6 +175,17 @@ export default defineConfig({
                             {text: 'Оффлайн-заказы', link: '/integration/cdp/orders/offline.md'},
                           ]
                         },
+                        {
+                            text: 'Подписки на рассылки',
+                            collapsed: true,
+                            items: [
+                                {text: 'Введение', link: '/integration/cdp/subscriptions/index.md'},
+                                {text: 'Управление подписками', link: '/integration/cdp/subscriptions/manage.md'},
+                                {text: 'Сервисные операции', link: '/integration/cdp/subscriptions/callback.md'},
+                                {text: 'Статус подписки', link: '/integration/cdp/subscriptions/check.md'},
+                                {text: 'Список изменений', link: '/integration/cdp/subscriptions/changes.md'},
+                            ]
+                        },
                     ]
                 },
                 {

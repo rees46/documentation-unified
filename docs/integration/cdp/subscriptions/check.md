@@ -19,7 +19,7 @@ GET https://api.rees46.ru/subscriptions/check
 | did*        | Да          | [Идентификатор устройства](../entities/did.md) |
 
 :::info Идентификаторы
-Параметры, отмеченные [*] - обязателен хотя бы один из них. На стороне сайта или мобильных приложений SDK автоматически передает `did`.
+Параметры, отмеченные [*] — обязателен хотя бы один из них. На стороне сайта или мобильных приложений SDK автоматически передает `did`.
 :::
 
 
@@ -98,36 +98,36 @@ r46('subscription', 'check',
 Расшифровка свойств ответа:
 
 
-| Property                  | Type    | Description                                                                    |
-|---------------------------|---------|--------------------------------------------------------------------------------|
-| exists                    | Boolean | Существует ли клиент с таким идентификатором в CDP?                            |
-| email_bulk                | Boolean | Есть ли у пользователя `email` и подписка на массовую рассылку                 |
-| email_chain               | Boolean | Есть ли у пользователя `email` и подписка на триггерную рассылку               |
-| email_transactional       | Boolean | Есть ли у пользователя `email` и подписка на транзакционную рассылку           |
-| email_invalid             | Boolean | Флаг, что email невалиден                                                      |
-| email_blacklisted         | Boolean | Флаг, что email в черном списке                                                |
-| email_bounced             | Boolean | Флаг, что email bounced (не существует)                                        |
-| email_suppressed          | Boolean | Флаг, что email заблокирован (нельзя менять статус подписки)                   |
-| email_confirmed           | Boolean | Флаг, что email подтвержден                                                    |
-| web_push_bulk             | Boolean | Есть ли у пользователя web push токен и подписка на массовую рассылку          |
-| web_push_chain            | Boolean | Есть ли у пользователя web push токен и подписка на триггерную рассылку        |
-| web_push_transactional    | Boolean | Есть ли у пользователя web push токен и подписка на транзакционную рассылку    |
-| mobile_push_bulk          | Boolean | Есть ли у пользователя mobile push токен и подписка на массовую рассылку       |
-| mobile_push_chain         | Boolean | Есть ли у пользователя mobile push токен и подписка на триггерную рассылку     |
-| mobile_push_transactional | Boolean | Есть ли у пользователя mobile push токен и подписка на транзакционную рассылку |
+| Property                  | Type    | Description                                                                     |
+|---------------------------|---------|---------------------------------------------------------------------------------|
+| exists                    | Boolean | Существует ли клиент с таким идентификатором в CDP?                             |
+| email_bulk                | Boolean | Есть ли у пользователя `email` и подписка на массовую рассылку                  |
+| email_chain               | Boolean | Есть ли у пользователя `email` и подписка на триггерную рассылку                |
+| email_transactional       | Boolean | Есть ли у пользователя `email` и подписка на транзакционную рассылку            |
+| email_invalid             | Boolean | Флаг, что email невалиден                                                       |
+| email_blacklisted         | Boolean | Флаг, что email в черном списке                                                 |
+| email_bounced             | Boolean | Флаг, что email bounced (не существует)                                         |
+| email_suppressed          | Boolean | Флаг, что email заблокирован (нельзя менять статус подписки)                    |
+| email_confirmed           | Boolean | Флаг, что email подтвержден                                                     |
+| web_push_bulk             | Boolean | Есть ли у пользователя web push токен и подписка на массовую рассылку           |
+| web_push_chain            | Boolean | Есть ли у пользователя web push токен и подписка на триггерную рассылку         |
+| web_push_transactional    | Boolean | Есть ли у пользователя web push токен и подписка на транзакционную рассылку     |
+| mobile_push_bulk          | Boolean | Есть ли у пользователя mobile push токен и подписка на массовую рассылку        |
+| mobile_push_chain         | Boolean | Есть ли у пользователя mobile push токен и подписка на триггерную рассылку      |
+| mobile_push_transactional | Boolean | Есть ли у пользователя mobile push токен и подписка на транзакционную рассылку  |
 | sms_bulk                  | Boolean | Есть ли у пользователя номер телефона и подписка на массовую SMS рассылку       |
 | sms_chain                 | Boolean | Есть ли у пользователя номер телефона и подписка на триггерную SMS рассылку     |
 | sms_transactional         | Boolean | Есть ли у пользователя номер телефона и подписка на транзакционную SMS рассылку |
-| telegram_bulk             | Boolean | Есть ли у пользователя Telegram и подписка на массовую рассылку                |
-| telegram_chain            | Boolean | Есть ли у пользователя Telegram и подписка на триггерную рассылку              |
-| telegram_transactional    | Boolean | Есть ли у пользователя Telegram и подписка на транзакционную рассылку          |
-| whatsapp_bulk             | Boolean | Есть ли у пользователя WhatsApp и подписка на массовую рассылку                |
-| whatsapp_chain            | Boolean | Есть ли у пользователя WhatsApp и подписка на триггерную рассылку              |
-| whatsapp_transactional    | Boolean | Есть ли у пользователя WhatsApp и подписка на транзакционную рассылку          |
-| max_bulk                  | Boolean | Есть ли у пользователя MAX и подписка на массовую рассылку                     |
-| max_chain                 | Boolean | Есть ли у пользователя MAX и подписка на триггерную рассылку                   |
-| max_transactional         | Boolean | Есть ли у пользователя MAX и подписка на транзакционную рассылку               |
-| wallet_bulk               | Boolean | Есть ли у пользователя Wallet и подписка на массовую рассылку                  |
+| telegram_bulk             | Boolean | Есть ли у пользователя Telegram и подписка на массовую рассылку                 |
+| telegram_chain            | Boolean | Есть ли у пользователя Telegram и подписка на триггерную рассылку               |
+| telegram_transactional    | Boolean | Есть ли у пользователя Telegram и подписка на транзакционную рассылку           |
+| whatsapp_bulk             | Boolean | Есть ли у пользователя WhatsApp и подписка на массовую рассылку                 |
+| whatsapp_chain            | Boolean | Есть ли у пользователя WhatsApp и подписка на триггерную рассылку               |
+| whatsapp_transactional    | Boolean | Есть ли у пользователя WhatsApp и подписка на транзакционную рассылку           |
+| max_bulk                  | Boolean | Есть ли у пользователя MAX и подписка на массовую рассылку                      |
+| max_chain                 | Boolean | Есть ли у пользователя MAX и подписка на триггерную рассылку                    |
+| max_transactional         | Boolean | Есть ли у пользователя MAX и подписка на транзакционную рассылку                |
+| wallet_bulk               | Boolean | Есть ли у пользователя Wallet и подписка на массовую рассылку                   |
 
 В случае ошибки ответ будет в формате:
 

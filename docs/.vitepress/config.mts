@@ -277,6 +277,18 @@ export default defineConfig({
                     ]
                 },
                 {
+                    text: 'Баннеры и слайдеры',
+                    collapsed: true,
+                    items: [
+                        {text: 'Введение', link: '/integration/sliders/index.md'},
+                        {text: 'JS SDK', link: '/integration/sliders/js.md'},
+                        {text: 'S2S', link: '/integration/sliders/s2s.md'},
+                        {text: 'iOS', link: '/integration/sliders/ios.md'},
+                        {text: 'Android', link: '/integration/sliders/android.md'},
+                        {text: 'React Native', link: '/integration/sliders/react-native.md'},
+                    ]
+                },
+                {
                     text: 'Попапы и in-app push',
                     collapsed: true,
                     items: [

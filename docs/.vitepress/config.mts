@@ -274,6 +274,8 @@ export default defineConfig({
                     collapsed: true,
                     items: [
                         {text: 'Введение', link: '/integration/collections/index.md'},
+                        {text: 'HTML блок', link: '/integration/collections/html.md'},
+                        {text: 'API и SDK', link: '/integration/collections/api.md'},
                     ]
                 },
                 {
@@ -555,7 +557,7 @@ export default defineConfig({
                     text: 'Поиск',
                     collapsed: true,
                     items: [
-                        {text: 'Фасетный поиск: проблемы и особенности реализации', link: '/mechanics/search/facet-search.md'},
+                        { text: 'Фасетный поиск: проблемы и особенности реализации', link: '/mechanics/search/facet-search.md' },
                     ]
                 },
                 {

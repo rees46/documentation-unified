@@ -251,16 +251,35 @@ export default defineConfig({
                     text: 'Товарные рекомендации',
                     collapsed: true,
                     items: [
-                        {text: 'Введение', link: '/integration/recommendations/index.md'},
-                        {text: 'HTML блок', link: '/integration/recommendations/html.md'},
-                        {text: 'API и SDK', link: '/integration/recommendations/api.md'},
+                        { text: 'Введение', link: '/integration/recommendations/index.md' },
+                        { text: 'HTML блок', link: '/integration/recommendations/html.md' },
+                        { text: 'API и SDK', link: '/integration/recommendations/api.md' },
                     ]
                 },
                 {
                     text: 'Поиск',
                     collapsed: true,
                     items: [
-                        {text: 'Введение', link: '/integration/search/index.md'},
+                        { text: 'Введение', link: '/integration/search/index.md' },
+                        {
+                            text: 'Быстрый поиск',
+                            collapsed: true,
+                            items: [
+                                { text: 'Введение', link: '/integration/search/instant/index.md' },
+                                { text: 'HTML блок', link: '/integration/search/instant/html.md' },
+                                { text: 'API и SDK', link: '/integration/search/instant/api.md' },
+                            ]
+                        },
+                        {
+                            text: 'Полный поиск',
+                            collapsed: true,
+                            items: [
+                                { text: 'Введение', link: '/integration/search/full/index.md' },
+                                { text: 'API и SDK', link: '/integration/search/full/api.md' },
+                                { text: 'Фасетный поиск', link: '/integration/search/full/facet.md' },
+                            ]
+                        },
+                        { text: 'Запросы без результата', link: '/integration/search/no-results-queries.md' },
                     ]
                 },
                 {

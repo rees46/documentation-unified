@@ -28,7 +28,7 @@ GET https://api.rees46.ru/collection/:id
 ::: code-group
 
 ```shell [S2S]
-curl https://api.rees46.ru/collection/:id?shop_id=...&location=...&email=...
+curl https://api.rees46.ru/collection/6?shop_id=...&location=...&email=...
 ```
 
 ```javascript [JS SDK]
@@ -131,7 +131,7 @@ r46("collection", "COLLECTION_ID", {
       "name": "...",
       "html": "...",
       "products": []
-    },
+    }
   }
 }
 ```
@@ -148,12 +148,12 @@ r46("collection", "COLLECTION_ID", {
 | name                 | String  | Название товара                                                                               |
 | url                  | String  | Ссылка на товар                                                                               |
 | description          | String  | Описание товара                                                                               |
-| category_ids         | String  | Список идентификаторов категорий товароа                                                      |
+| category_ids         | String  | Список идентификаторов категорий товара                                                       |
 | brand                | String  | Бренд                                                                                         |
 | sales_rate           | String  | Sales rate товара                                                                             |
 | relative_sales_rate  | String  | Относительный sales rate товара                                                               |
 | picture              | String  | Ссылка на фото товара                                                                         |
-| categories           | String  | Список идентификаторов категорий товароа (для обратной совместимости идентичен `category_ids` |
+| categories           | String  | Список идентификаторов категорий товара (для обратной совместимости идентичен `category_ids`) |
 | price_formatted      | String  | Отформатированная цена с валютой, округленная до целого числа                                 |
 | price_full_formatted | String  | Отформатированная цена с валютой и копейками                                                  |
 | price                | Integer | Цена, округленная до целого числа                                                             |

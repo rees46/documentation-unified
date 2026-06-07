@@ -252,7 +252,8 @@ export default defineConfig({
                     collapsed: true,
                     items: [
                         {text: 'Введение', link: '/integration/recommendations/index.md'},
-
+                        {text: 'HTML блок', link: '/integration/recommendations/html.md'},
+                        {text: 'API и SDK', link: '/integration/recommendations/api.md'},
                     ]
                 },
                 {

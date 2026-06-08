@@ -41,6 +41,8 @@ GET https://api.rees46.ru/search
 | filters_search_by  | String  | Нет         | По какому свойству сортировать фильтры в сайдбаре: `name`, `quantity`, `popularity`. Переопределяет настройки из личного кабинета                                                                        |
 | brand_limit        | Integer | Нет         | Лимит значений брендов в фильтре по бренду. По умолчанию `1000`. Чем выше число, тем дольше ответ поиска                                                                                                 |
 | no_clarification   | Boolean | Нет         | Отключить уточняющий поиск                                                                                                                                                                               |
+| limit              | Integer | Нет         | Количество товаров в ответе                                                                                                                                                                              |
+| page               | Integer | Нет         | Страница выборки товаров для постраничной навигации. По умолчанию: 1                                                                                                                                     |
 
 Свойства для области поиска:
 
@@ -433,16 +435,18 @@ sdk.search({
   "status": "success",
   "payload": {
     "search": {
-      "search_query": "iphon",
-      "search_query_original": "iphon",
+      "search_query": "туфли",
+      "search_query_original": "туфли",
+      "collections": [],
       "products_total": 348,
       "html": "...",
       "clarification": true,
       "requests_count": 1,
       "products": [],
-      "queries": [],
       "categories": [],
-      "collections": []
+      "locations": [],
+      "filters": {},
+      "industrial_filters": {}
     }
   }
 }
@@ -459,7 +463,6 @@ sdk.search({
 |------------------------------------------|----------|----------------------------------------------------------------------------------------------------------|
 | search_query                             | String   | Исправленный поисковый запрос за счет синонимов, битой раскладки и пр.                                   |
 | search_query_original                    | String   | Оригинальный поисковый запрос                                                                            |
-| title                                    | String   | Заголовок блока                                                                                          |
 | html                                     | String   | Сгенерированный HTML для результатов полного поиска из шаблона в личном кабинете                         |
 | clarification                            | Boolean  | Флаг того, что был применен "уточняющий" поиск (поиск по частичному совпадению каждого слова из запроса) |
 | requests_count                           | Integer  | Количество внутренних поисковых запросов с учетом раскладки, языка и уточнений                           |

@@ -215,6 +215,26 @@ export default defineConfig({
                     ]
                 },
                 {
+                    text: 'Аудитория и сегменты',
+                    collapsed: true,
+                    items: [
+                        { text: 'Введение', link: '/integration/audience/index.md' },
+                        { text: 'Импорт аудитории', link: '/integration/audience/import.md' },
+                        { text: 'Импорт заблокированных email', link: '/integration/audience/import-suppressed.md' },
+                        {
+                            text: 'Работа с сегментами',
+                            collapsed: true,
+                            items: [
+                                { text: 'Введение', link: '/integration/audience/segments/index.md' },
+                                { text: 'Добавить в сегмент', link: '/integration/audience/segments/add.md' },
+                                { text: 'Удалить из сегмента', link: '/integration/audience/segments/remove.md' },
+                                { text: 'Сегменты пользователя', link: '/integration/audience/segments/list.md' },
+                                { text: 'Проверить вхождение в сегмент', link: '/integration/audience/segments/check.md' },
+                            ]
+                        },
+                    ]
+                },
+                {
                     text: 'Каталог',
                     collapsed: true,
                     items: [

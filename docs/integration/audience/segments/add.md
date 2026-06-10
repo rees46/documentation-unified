@@ -88,16 +88,16 @@ sdk.addToSegment(segmentId: "333", email: "my@example.com", phone: "+10000000000
 
 ```kotlin [Kotlin]
 // Только с `did`
-sdk.addToSegment(YOUR_DID, null, null)
+sdk.addToSegment(segment_id = "12345", email = null, phone = null)
 
 // Только с email
-sdk.addToSegment(YOUR_DID, YOUR_EMAIL, null)
+sdk.addToSegment(segment_id = "12345", email = "...", phone = null)
 
 // Только с телефоном
-sdk.addToSegment(YOUR_DID, null, YOUR_PHONE_NUMBER)
+sdk.addToSegment(segment_id = "12345", email = null, phone = "...")
 
 // Используя все контакты
-sdk.addToSegment(YOUR_DID, YOUR_EMAIL, YOUR_PHONE_NUMBER)
+sdk.addToSegment(segment_id = "12345", email = "...", phone = null)
 ```
 
 ```java [Java (deprecated)] 

@@ -88,16 +88,16 @@ sdk.removeFromSegment(segmentId: "333", email: "my@example.com", phone: "+100000
 
 ```kotlin [Kotlin]
 // Только с `did`
-sdk.removeFromSegment(YOUR_DID, null, null)
+sdk.removeFromSegment(segment_id = "12345", email = null, phone = null)
 
 // Только с email
-sdk.removeFromSegment(YOUR_DID, YOUR_EMAIL, null)
+sdk.removeFromSegment(segment_id = "12345", email = "...", phone = null)
 
 // Только с телефоном
-sdk.removeFromSegment(YOUR_DID, null, YOUR_PHONE_NUMBER)
+sdk.removeFromSegment(segment_id = "12345", email = null, phone = "...")
 
 // Используя все контакты
-sdk.removeFromSegment(YOUR_DID, YOUR_EMAIL, YOUR_PHONE_NUMBER)
+sdk.removeFromSegment(segment_id = "12345", email = "...", phone = null)
 ```
 
 ```java [Java (deprecated)] 

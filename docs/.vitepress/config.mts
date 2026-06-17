@@ -205,6 +205,14 @@ export default defineConfig({
                                 { text: 'Очистка корзины', link: '/integration/cdp/cart/clear.md' },
                             ]
                         },
+                        {
+                            text: 'Заказы клиента',
+                            collapsed: true,
+                            items: [
+                                { text: 'Последний заказ клиента', link: '/integration/cdp/client-orders/last.md' },
+                                { text: 'Заказы клиента', link: '/integration/cdp/client-orders/history.md' },
+                            ]
+                        },
                     ]
                 },
                 {

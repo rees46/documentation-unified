@@ -243,6 +243,7 @@ export default defineConfig({
                         { text: 'Информация о товаре', link: '/integration/catalog/product.md' },
                         { text: 'Счетчики товара', link: '/integration/catalog/counters.md' },
                         { text: 'Скрытые товары', link: '/integration/catalog/non-widgetable.md' },
+                        { text: 'Дерево категорий', link: '/integration/catalog/category-tree.md' },
                     ]
                 },
                 {

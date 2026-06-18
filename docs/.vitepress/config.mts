@@ -891,6 +891,7 @@ export default defineConfig({
                   collapsed: false,
                   items: [
                     { text: 'Роспатент', link: 'legal/certificates/rospatent.md' },
+                    { text: 'Реестр ПО', link: 'legal/certificates/russian-software.md' },
                   ]
                 },
 

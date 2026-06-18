@@ -20,9 +20,25 @@ GET https://api.rees46.ru/loyalty/members/status
 
 Пример запроса:
 
-```shell 
+::: code-group
+
+```shell [S2S]
 curl https://api.rees46.ru/loyalty/members/status?shop_id=...&shop_secret=...&identifier=...
 ```
+
+```javascript [JS SDK]
+r46('loyalty', 'status', '70000000000', function (response) {
+  console.log(response);
+}, function (error) {
+  console.error(error);
+});
+```
+:::
+
+:::info Важно
+Чтобы работал метод в JS SDK, необходимо активировать настройку, разрешающую выполнение этого метода с фронта. Для этого свяжитесь с поддержкой.
+:::
+
 
 ## Ответ
 

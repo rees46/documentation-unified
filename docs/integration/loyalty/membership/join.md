@@ -24,12 +24,34 @@ POST https://api.rees46.ru/loyalty/members/join
 
 Пример запроса:
 
-```shell 
+::: code-group
+
+```shell [S2S]
 curl --header "Content-Type: application/json" \
   --request POST \
   --data-binary "@payload.json" \
   https://api.rees46.ru/loyalty/members/join
 ```
+
+```javascript [JS SDK]
+r46('loyalty', 'join', {
+  phone:     '79991234567',   // Обязательный параметр
+  email:     'en@rees46.ru',
+  firstName: 'Иван',
+  lastName:  'Петров',
+}, function (response) {
+  console.log(response);
+}, function (error) {
+  // Ошибка запроса
+  console.error(error);
+});
+
+```
+:::
+
+:::info Важно
+Чтобы работал метод в JS SDK, необходимо активировать настройку, разрешающую выполнение этого метода с фронта. Для этого свяжитесь с поддержкой.
+:::
 
 Пример JSON-тела:
 

@@ -8,10 +8,86 @@ on:
       - .github/**
   workflow_dispatch:
 
+env:
+  name: documentation-unified
+  ssh_hosts: 94.228.126.211:22,
+  ssh_username: ansible
+
 jobs:
-  build-and-push:
+  build:
     name: Build Docker image and push
     uses: rees46/workflow/.github/workflows/docker-publish.yaml@master
     permissions: write-all
     with:
       packageName: documentation-unified
+
+  deploy:
+    needs: build
+
+    name: Deploy to servers
+    permissions: read-all
+    runs-on: ubuntu-latest
+    steps:
+      - uses: docker/login-action@v4
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Connect to VPN
+        env:
+          CONFIG: ${{ secrets.VPN_CONFIG }}
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends openvpn openvpn-systemd-resolved
+          echo "$CONFIG" > ../vpn_config.ovpn
+
+          sudo openvpn --config ../vpn_config.ovpn --daemon
+
+          echo "Waiting for VPN connection..."
+
+          for i in {1..15}; do
+            if ip a | grep -q "tun0"; then
+              echo "VPN connected successfully!"
+              exit 0
+            fi
+            echo "Waiting for VPN to establish (attempt $i)..."
+            sleep 1
+          done
+
+          echo "Failed to connect to VPN."
+          exit 1
+
+      # FIXME: remove when migrated to new cluster
+      - name: Deploy to oldprojects
+        if: ${{ always() && !cancelled() }}
+        uses: appleboy/ssh-action@1530429296e979861824d74fb800013190b5dee0
+        env:
+          IMAGE: ghcr.io/rees46/${{ env.name }}
+          TAG: ${{ needs.build.outputs.imageTag }}
+          CONTAINER: ${{ env.name }}
+          REGISTRY_USER: ${{ github.repository_owner }}
+          REGISTRY_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          host: ${{ env.ssh_hosts }}
+          username: ${{ env.ssh_username }}
+          key: ${{ secrets.SSH_PRIVATE_KEY_ANSIBLE }}
+          envs: IMAGE,TAG,CONTAINER,REGISTRY_USER,REGISTRY_PASSWORD
+          script: |
+            echo "$REGISTRY_PASSWORD" | docker login ghcr.io -u "$REGISTRY_USER" --password-stdin
+
+            docker pull "$IMAGE":"$TAG"
+
+            docker stop "$CONTAINER"
+            docker rm "$CONTAINER"
+
+            docker run -d \
+              --name "$CONTAINER" \
+              --pull always \
+              --restart unless-stopped \
+              --port 8010:80 \
+              "$IMAGE":"$TAG"
+
+            docker images "$IMAGE" -q \
+              | sort -u \
+              | xargs -r docker rmi || true

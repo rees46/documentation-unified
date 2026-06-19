@@ -85,7 +85,7 @@ jobs:
               --name "$CONTAINER" \
               --pull always \
               --restart unless-stopped \
-              --port 8010:80 \
+              --publish 8010:80 \
               "$IMAGE":"$TAG"
 
             docker images "$IMAGE" -q \

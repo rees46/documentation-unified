@@ -77,7 +77,43 @@ curl --header "Content-Type: application/json" \
         "stream": "ios",
         "badge_label": "-50%",
         "badge_color": "#AABB00",
-        "description": "..."
+        "description": "...",
+        "reward_type": "discount",
+        "reward_rules": {
+          "amount_type": "percentage",
+          "reward_type": "discount",
+          "amount_value": 100,
+          "exclude_products": [],
+          "include_products": [
+            {
+              "sku": {
+                "values": "300275",
+                "operator": "in"
+              },
+              "brand": {
+                "values":[],
+                "operator": "in"
+              },
+              "price": {
+                "value": 0,
+                "operator": "more_than_or_equal_to"
+              },
+              "category": {
+                "values": [],
+                "operator":"in"
+              },
+              "quantity": {
+                "value": 0,
+                "operator": "equal"
+              }
+            }
+          ],
+          "ignore_discount_limit": true,
+          "bonuses_earn_activation": "default",
+          "bonuses_earn_expiration": "default",
+          "bonuses_earn_activation_value": 0,
+          "bonuses_earn_expiration_value": 0
+        }
       },
       {
         "id": 12,
@@ -87,7 +123,9 @@ curl --header "Content-Type: application/json" \
         "stream": null,
         "badge_label": "1+1=3",
         "badge_color": "#AA0000",
-        "description": "..."
+        "description": "...",
+        "reward_type": "bonuses_earn",
+        "reward_rules": {}
       }
     ]
   }
@@ -96,19 +134,21 @@ curl --header "Content-Type: application/json" \
 
 Расшифровка ответа:
 
-| Параметр                         | Описание                         |
-|----------------------------------|----------------------------------|
-| success                          | Запрос выполнен успешно или нет  |
-| payload.promotions               | Массив акций                     |
-| payload.promotions[]             | Объект акции                     |
-| payload.promotions[].id          | Идентификатор акции              |
-| payload.promotions[].name        | Название акции                   |
-| payload.promotions[].description | Описание акции                   |
-| payload.promotions[].start_date  | Дата начала действия акции       |
-| payload.promotions[].finish_date | Дата окончания действия акции    |
-| payload.promotions[].stream      | Стрим, в котором действует акция |
-| payload.promotions[].badge_label | Текст бейджа                     |
-| payload.promotions[].badge_color | Цвет бейджа                      |
+| Параметр                          | Описание                                                                                                          |
+|-----------------------------------|-------------------------------------------------------------------------------------------------------------------|
+| success                           | Запрос выполнен успешно или нет                                                                                   |
+| payload.promotions                | Массив акций                                                                                                      |
+| payload.promotions[]              | Объект акции                                                                                                      |
+| payload.promotions[].id           | Идентификатор акции                                                                                               |
+| payload.promotions[].name         | Название акции                                                                                                    |
+| payload.promotions[].description  | Описание акции                                                                                                    |
+| payload.promotions[].start_date   | Дата начала действия акции                                                                                        |
+| payload.promotions[].finish_date  | Дата окончания действия акции                                                                                     |
+| payload.promotions[].stream       | Стрим, в котором действует акция                                                                                  |
+| payload.promotions[].badge_label  | Текст бейджа                                                                                                      |
+| payload.promotions[].badge_color  | Цвет бейджа                                                                                                       |
+| payload.promotions[].reward_type  | Тип вознаграждения: `discount`, `bonuses_earn`, `bonuses_usage`                                                   |
+| payload.promotions[].reward_rules | Правила вознаграждения: JSON объект с указанием, на какие товары, категории или бренды применяется вознаграждение |
 
 В случае ошибки ответ будет в формате:
 

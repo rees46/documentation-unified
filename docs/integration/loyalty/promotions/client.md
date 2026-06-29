@@ -68,26 +68,26 @@ curl --header "Content-Type: application/json" \
 {
   "success": true,
   "payload": {
-    "transactions": [
+    "promotions": [
       {
-        "date": "2025-01-01",
-        "status": "confirmed",
-        "event_source": "order",
-        "event": null,
-        "order_id": "pc19843",
-        "amount": -300,
-        "activation_date": "2025-01-14",
-        "expiration_date": "2026-01-01"
+        "id": 33,
+        "name": "...",
+        "start_date": "2026-01-01",
+        "finish_date": "2026-01-14",
+        "stream": "ios",
+        "badge_label": "-50%",
+        "badge_color": "#AABB00",
+        "description": "..."
       },
       {
-        "date": "2025-01-01",
-        "status": "confirmed",
-        "event_source": "custom",
-        "event": "registration",
-        "order_id": null,
-        "amount": 1000,
-        "activation_date": "2025-01-14",
-        "expiration_date": "2026-01-01"
+        "id": 12,
+        "name": "...",
+        "start_date": "2026-01-01",
+        "finish_date": "2026-01-14",
+        "stream": null,
+        "badge_label": "1+1=3",
+        "badge_color": "#AA0000",
+        "description": "..."
       }
     ]
   }

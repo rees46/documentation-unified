@@ -5,7 +5,7 @@
 Метод безопасный, его можно вызывать с фронта. 
 
 ```
-POST https://api.rees46.ru/loyalty/promos/for-client
+GET https://api.rees46.ru/loyalty/promos/for-client
 ```
 
 ## Параметры
@@ -21,10 +21,6 @@ POST https://api.rees46.ru/loyalty/promos/for-client
 | loyalty_id              | Нет         | Идентификатор клиента во внешней программе лояльности, если есть                                                                                                                                                    |
 | telegram_id             | Нет         | Идентификатор пользователя Telegram, если есть                                                                                                                                                                      |
 | location_id             | Нет         | Идентификатор локации (города, точки продаж)                                                                                                                                                                        |
-| cart_items[]            | Нет         | Массив товаров или услуг в корзине покупателя. Не может быть пустым                                                                                                                                                 |
-| cart_items[].product_id | Да          | Артикул товара или услуги                                                                                                                                                                                           |
-| cart_items[].price      | Да          | Исходная цена товара до применения скидок и акций                                                                                                                                                                   |
-| cart_items[].quantity   | Да          | Количество единиц данного товара в корзине                                                                                                                                                                          |
 | promo_codes             | Нет         | Список промокодов (массив строк)                                                                                                                                                                                    |
 | charge_bonuses          | Нет         | Булевый флаг, списывать бонусы или нет. По-умолчанию `false`                                                                                                                                                        |
 | subscription            | Нет         | Код подписки клиента, если есть                                                                                                                                                                                     |
@@ -36,28 +32,7 @@ POST https://api.rees46.ru/loyalty/promos/for-client
 Пример запроса:
 
 ```shell 
-curl --header "Content-Type: application/json" \
-  --request POST \
-  --data-binary "@payload.json" \
-  https://api.rees46.ru/loyalty/promos/for-client
-```
-
-Пример JSON-тела:
-
-```json payload.json
-{
-  "shop_id":        "...",
-  "did":            "...",
-  "sid":            "...",
-  "promo_codes":    ["...", "..."],
-  "charge_bonuses": true,
-  "stream":         "pos",
-  "current_time":   "17:31",
-  "cart_items": [
-    {"product_id": "...", "price": 1000, "quantity": 4},
-    {"product_id": "...", "price": 2000, "quantity": 1, "discountable": false, "bonusable": false, "rewardable": false }
-  ]
-}
+curl https://api.rees46.ru/loyalty/promos/for-client?shop_id=...&did=...&sid=...
 ```
 
 ## Ответ

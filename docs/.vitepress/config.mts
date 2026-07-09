@@ -161,6 +161,7 @@ export default defineConfig({
                             { text: 'Чтение', link: '/integration/cdp/profile/get.md' },
                             { text: 'Перезаписать email', link: '/integration/cdp/profile/force-change-email.md' },
                             { text: 'Перезаписать телефон', link: '/integration/cdp/profile/force-change-phone.md' },
+                            { text: 'Перезаписать External ID', link: '/integration/cdp/profile/force-change-id.md' },
                             { text: 'Очистить профиль', link: '/integration/cdp/profile/purge.md' },
                           ]
                         },

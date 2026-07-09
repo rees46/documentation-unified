@@ -34,7 +34,7 @@ POST https://api.rees46.ru/profile/force_change_phone
 curl 'https://api.rees46.ru/profile/force_change_phone' \
     -X 'POST' \
     -H 'Content-Type: application/json' \
-    --data-raw '{"shop_id":"SHOP_ID", "shop_secret":"SHOP_SECRET", "phone":"phone", "gender":"m", "i_understand_what_i_am_doing": true}'
+    --data-raw '{"shop_id":"SHOP_ID", "shop_secret":"SHOP_SECRET", "old_phone":"...", new_phone: "...",, "i_understand_what_i_am_doing": true}'
 ```
 
 ## Ответ

@@ -33,7 +33,7 @@ POST https://api.rees46.ru/profile/force_change_email
 curl 'https://api.rees46.ru/profile/force_change_email' \
     -X 'POST' \
     -H 'Content-Type: application/json' \
-    --data-raw '{"shop_id":"SHOP_ID", "shop_secret":"SHOP_SECRET", "email":"EMAIL", "gender":"m", "i_understand_what_i_am_doing": true}'
+    --data-raw '{"shop_id":"SHOP_ID", "shop_secret":"SHOP_SECRET", "old_email":"EMAIL", "new_email": "NEW_EMAIL", "i_understand_what_i_am_doing": true}'
 ```
 
 ## Ответ

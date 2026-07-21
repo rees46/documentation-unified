@@ -8,9 +8,7 @@ Stories в Android поддерживаются с версии SDK 1.6.0
 - XML
 - Программно
 
-## Интеграция через XML
-
-Для вставки блока сторис на определенный шаблон (`layout`) приложения, добавьте следующий код в ваш XML-файл разметки:
+Для вставки блока сторис на определенный шаблон (layout) приложения, добавьте следующий код в ваш XML-файл разметки:
 
 ```xml
 <com.personalization.stories.views.StoriesView
@@ -22,7 +20,7 @@ Stories в Android поддерживаются с версии SDK 1.6.0
 
 Где вместо `STORY BLOCK CODE` укажите уникальный идентификатор блока сторис из личного кабинета.
 
-Далее, в вашем `Activity` достаточно найти этот элемент и инициализировать его через `SDK`:
+Далее, в вашем `Activity` достаточно найти этот элемент и инициализировать его через SDK:
 
 ::: code-group
 ```kotlin [Kotlin]
@@ -31,13 +29,8 @@ sdk.initializeStoriesView(storiesView)
 ```
 
 ```java [Java (deprecated)]
-<com.personalizatio.stories.views.StoriesView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:code="STORY BLOCK CODE" />
-
-StoriesView storiesView = findViewById(R.id.story_view);
-REES46.initializeStoriesView(storiesView);
+StoriesView storiesView = findViewById(R.id.stories_view);
+sdk.initializeStoriesView(storiesView);
 ```
 :::
 
@@ -48,14 +41,13 @@ REES46.initializeStoriesView(storiesView);
 По умолчанию при нажатии на ссылку в сторис, она будет открыта в браузере. Это поведение можно изменить, задав значение `false` для параметра `needOpeningWebView`.
 
 ```xml
-<com.personalization.stories.views.StoriesView 
-  android:id="@+id/stories_view"
-  android:layout_width="match_parent"
-  android:layout_height="wrap_content"
-  app:code="STORIES_CODE"
-  app:need_opening_web_view="false" />
+<com.personalization.stories.views.StoriesView
+        android:id="@+id/stories_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:code="STORIES_CODE"
+        app:need_opening_web_view="false" />
 ```
-
 
 ## Программная интеграция
 
@@ -63,21 +55,21 @@ REES46.initializeStoriesView(storiesView);
 
 ### Шаг 1. Создание экземпляра StoriesView
 
-Внутри вашего `Activity` создайте новый экземпляр `StoriesView`, передав в конструктор контекст и идентификатор блока сторис:
+Внутри вашего `Activity` создайте новый экземпляр `StoriesView`, передав в конструктор контекст, идентификатор блока сторис, флаг открытия ссылок в браузере (`needOpeningWebView`) и текст-подсказку при копировании промокода (`productBannerTapDefaultMessage`):
 
 ::: code-group
 ```kotlin [Kotlin]
-val storiesView = StoriesView(this, "STORY BLOCK CODE")
+val storiesView = StoriesView(this, "STORY BLOCK CODE", true, "Copied")
 ```
 
 ```java [Java (deprecated)]
-StoriesView storiesView = new StoriesView(this, "STORY BLOCK CODE");
+StoriesView storiesView = new StoriesView(this, "STORY BLOCK CODE", true, "Copied");
 ```
 :::
 
 ### Шаг 2. Добавьте контейнер (опционально)
 
-Если StoriesView создается программно, его нужно добавить в нужный контейнер с помощью addView. Например:
+Если `StoriesView` создается программно, его нужно добавить в нужный контейнер с помощью `addView`. Например:
 
 ::: code-group
 ```kotlin [Kotlin]
@@ -85,7 +77,7 @@ findViewById<ViewGroup>(R.id.stories_container).addView(storiesView)
 ```
 
 ```java [Java (deprecated)]
-((ViewGroup) findViewById(R.id.stories)).addView(storiesView);
+((ViewGroup) findViewById(R.id.stories_container)).addView(storiesView);
 ```
 :::
 
@@ -97,7 +89,7 @@ sdk.initializeStoriesView(storiesView)
 ```
 
 ```java [Java (deprecated)]
-SDK.initializeStoriesView(storiesView);
+sdk.initializeStoriesView(storiesView);
 ```
 :::
 
@@ -112,12 +104,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         // Программная инициализация блока сторис
-        val storiesView = StoriesView(this, "STORY BLOCK CODE")
-        
+        val storiesView = StoriesView(this, "STORY BLOCK CODE", true, "Copied")
+
         // Добавляем блок в контейнер, если создаем его программно
         findViewById<ViewGroup>(R.id.stories_container).addView(storiesView)
-        
+
         // Инициализируем StoriesView через SDK
+        // Переменная sdk — ранее инициализированный экземпляр SDK
         sdk.initializeStoriesView(storiesView)
     }
 }
@@ -131,13 +124,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Программная инициализация блока сторис
-        StoriesView storiesView = new StoriesView(this, "STORY BLOCK CODE");
-        
+        StoriesView storiesView = new StoriesView(this, "STORY BLOCK CODE", true, "Copied");
+
         // Добавляем блок в контейнер, если создаем его программно
         ((ViewGroup) findViewById(R.id.stories_container)).addView(storiesView);
-        
+
         // Инициализируем StoriesView через SDK
-        SDK.initializeStoriesView(storiesView);
+        // Переменная sdk — ранее инициализированный экземпляр SDK
+        sdk.initializeStoriesView(storiesView);
     }
 }
 ```

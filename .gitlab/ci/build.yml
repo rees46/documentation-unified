@@ -1,0 +1,37 @@
+build:
+  stage: build
+  extends: .docker_dind
+  timeout: 30m
+  script:
+    - sh .gitlab/ci/scripts/build.sh
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_TITLE !~ /^Draft:/'
+      when: manual
+    - if: '$CI_COMMIT_BRANCH == "master" && $CI_PIPELINE_SOURCE == "push"'
+      changes:
+        - "**/*"
+        - "!.gitlab/**"
+        - "!.gitlab-ci.yml"
+        - "!.github/**"
+    - if: '$CI_COMMIT_BRANCH == "stage" && $CI_PIPELINE_SOURCE == "push"'
+      changes:
+        - "**/*"
+        - "!.gitlab/**"
+        - "!.gitlab-ci.yml"
+        - "!.github/**"
+    - if: '$CI_PIPELINE_SOURCE == "web"'
+      when: manual
+
+# Deploy is always manual and independent of build (redeploy without rebuild).
+deploy:
+  extends: .deploy_ansible
+  needs: []
+  variables:
+    SERVICE_NAME: documentation-unified
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_TITLE !~ /^Draft:/'
+      when: manual
+    - if: '$CI_COMMIT_BRANCH'
+      when: manual
+    - if: '$CI_PIPELINE_SOURCE == "web"'
+      when: manual

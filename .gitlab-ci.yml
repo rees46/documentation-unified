@@ -1,0 +1,38 @@
+# GitLab CI for documentation-unified (rees46/documentation-unified)
+#
+# Replaces GitHub Actions deploy.yaml (docker-publish + VPN/SSH docker run on oldprojects).
+# Image: ghcr.io/rees46/documentation-unified
+# Deploy: ansible-deploy DEPLOY_SERVICE=documentation-unified → 94.228.126.211 (VPN)
+#
+# SAFE MODE (default):
+#   - docker build --load only, no push to ghcr.io
+#   - deploy triggers ansible-deploy with ANSIBLE_CHECK=true
+#
+# Production:
+#   CI_PUBLISH_ENABLED=true  → push to ghcr.io
+#   CI_DEPLOY_ENABLED=true   → real ansible deploy (no --check)
+#
+# Requires job token access: this project → devops/ansible-deploy
+
+stages:
+  - build
+  - deploy
+
+variables:
+  PACKAGE_NAME: documentation-unified
+  ANSIBLE_DEPLOY_PROJECT: "devops%2Fansible-deploy"
+  FF_USE_FASTZIP: "true"
+  CI_PUBLISH_ENABLED: "false"
+  CI_DEPLOY_ENABLED: "false"
+
+workflow:
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    - if: '$CI_COMMIT_BRANCH == "master" && $CI_PIPELINE_SOURCE == "push"'
+    - if: '$CI_COMMIT_BRANCH == "stage" && $CI_PIPELINE_SOURCE == "push"'
+    - if: '$CI_PIPELINE_SOURCE == "web"'
+    - when: never
+
+include:
+  - local: .gitlab/ci/rules.yml
+  - local: .gitlab/ci/build.yml

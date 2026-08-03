@@ -1,0 +1,42 @@
+# Shared GitLab CI templates for mcp.
+
+.docker_dind:
+  image: docker:27-cli
+  services:
+    - name: docker:27-dind
+      alias: docker
+      command: ["--tls=false", "--host=tcp://0.0.0.0:2375"]
+  variables:
+    DOCKER_HOST: tcp://docker:2375
+    DOCKER_TLS_CERTDIR: ""
+  before_script:
+    - |
+      for i in $(seq 1 30); do
+        docker info >/dev/null 2>&1 && break
+        echo "Waiting for docker... ($i/30)"
+        sleep 2
+      done
+    - docker info
+    - |
+      if [ "${CI_PUBLISH_ENABLED:-false}" = "true" ]; then
+        if [ -n "${GHCR_USERNAME:-}" ] && [ -n "${GHCR_TOKEN:-}" ]; then
+          echo "$GHCR_TOKEN" | docker login ghcr.io -u "$GHCR_USERNAME" --password-stdin
+        else
+          echo "CI_PUBLISH_ENABLED=true requires GHCR_USERNAME and GHCR_TOKEN" >&2
+          exit 1
+        fi
+      else
+        echo "SAFE MODE: CI_PUBLISH_ENABLED is not true — skipping ghcr.io login"
+      fi
+
+.deploy_ansible:
+  stage: deploy
+  image: alpine:3.21
+  timeout: 15m
+  before_script:
+    - apk add --no-cache curl git
+  script:
+    - chmod +x .gitlab/ci/scripts/*.sh
+    - eval "$(sh .gitlab/ci/scripts/docker-tags.sh)"
+    - export DEPLOY_REF IMAGE_TAG="${IMAGE_TAG:-${TAG_SUFFIX:-latest}}"
+    - sh .gitlab/ci/scripts/trigger-ansible-deploy-service.sh

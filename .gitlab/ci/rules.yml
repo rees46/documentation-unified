@@ -18,6 +18,13 @@
       done
     - docker info
     - |
+      # BuildKit layer cache lives in GitLab Container Registry (not ghcr)
+      if [ -z "${CI_REGISTRY:-}" ] || [ -z "${CI_REGISTRY_USER:-}" ] || [ -z "${CI_REGISTRY_PASSWORD:-}" ]; then
+        echo "ERROR: CI_REGISTRY* required for build cache login" >&2
+        exit 1
+      fi
+      echo "$CI_REGISTRY_PASSWORD" | docker login -u "$CI_REGISTRY_USER" --password-stdin "$CI_REGISTRY"
+    - |
       if [ "${CI_PUBLISH_ENABLED:-false}" = "true" ]; then
         if [ -n "${GHCR_USERNAME:-}" ] && [ -n "${GHCR_TOKEN:-}" ]; then
           echo "$GHCR_TOKEN" | docker login ghcr.io -u "$GHCR_USERNAME" --password-stdin

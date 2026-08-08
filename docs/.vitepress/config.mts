@@ -45,6 +45,13 @@ export default defineConfig({
                                 { text:'Арбитраж',link: '/guides/loyalty/promotions/arbitr.md' }
                             ]
                         },
+                        {
+                            text: 'Сертификаты',
+                            collapsed: true,
+                            items: [
+                                { text:'Использование персональных сертификатов',link: '/guides/loyalty/certificates/certificates-by-phone-number.md' }
+                            ]
+                        },
                         { text: 'Как работает списание бонусов', link: '/guides/loyalty/bonuses-mechanics.md' },
                     ]
                 },

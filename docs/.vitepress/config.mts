@@ -581,6 +581,7 @@ export default defineConfig({
                           ]
                         },
 
+                        { text: 'Подсеть REES46', link: '/integration/extended/subnet.md' },
                         { text: 'S2S – серверная интеграция', link: '/integration/extended/s2s.md' },
                         { text: 'Dashboard API', link: '/integration/extended/dashboard-api.md' },
                         {

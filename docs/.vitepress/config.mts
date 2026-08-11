@@ -25,57 +25,148 @@ export default defineConfig({
         sidebar: {
             '/guides/': [
                 {
-                    text: `Общий контент`,
+                    text: `Введение`,
                     collapsed: true,
                     items: [
-                        { text: 'Баннеры и слайдеры', link: '/guides/common-content/sliders/index.md' },
-                        { text: 'Вставляемые скрипты', link: '/guides/common-content/js-snippets/index.md' },
-                        { text: 'Промокоды', link: '/guides/common-content/promocodes/index.md' },
-                        { text: 'Список поддерживаемых liquid-переменных', link: '/guides/common-content/liquid-vars/liquid-vars.md' },
+                        { text: 'Краткий обзор', link: '/guides/intro/index.md' },
                     ]
                 },
                 {
-                    text: `Программа лояльности`,
+                    text: `Инсайты`,
                     collapsed: true,
                     items: [
-                        {
-                            text: 'Акции',
-                            collapsed: true,
-                            items: [
-                                { text:'Арбитраж',link: '/guides/loyalty/promotions/arbitr.md' }
-                            ]
-                        },
-                        { text: 'Как работает списание бонусов', link: '/guides/loyalty/bonuses-mechanics.md' },
+                        { text: 'Обзор', link: '/guides/insights/index.md' },
+                        { text: 'Отчет о заказах', link: '/guides/insights/transactions/index.md' },
+                        { text: 'Воронки', link: '/guides/insights/funnels/index.md' },
+                        { text: 'ИИ-отчеты', link: '/guides/insights/ai-reports/index.md' },
                     ]
                 },
                 {
                     text: `CDP`,
                     collapsed: true,
                     items: [
-                        { text: 'О сервисе', link: '/guides/cdp/index.md' },
+                        { text: 'Обзор', link: '/guides/cdp/index.md' },
                         { text: 'Расширенная CDP', link: '/guides/cdp/features.md' },
+                        { text: 'Пользователи', link: '/guides/cdp/users/index.md' },
+                        { text: 'Отчеты', link: '/guides/cdp/reports/index.md' },
+                        { text: 'Сегменты', link: '/guides/cdp/segments/index.md' },
+                        { text: 'Настройки', link: '/guides/cdp/settings/index.md' },
                         { text: 'Удаление неактивных профилей', link: '/guides/cdp/cleanup.md' },
+                    ]
+                },
+                {
+                    text: `Библиотека`,
+                    collapsed: true,
+                    items: [
+                        { text: 'Обзор', link: '/guides/library/index.md' },
+                        { text: 'Каталог товаров и услуг', link: '/guides/library/products/index.md' },
+                        { text: 'Контент', link: '/guides/library/content/index.md' },
                         {
-                            text: `Метрики клиентов`,
+                            text: 'Утилиты',
                             collapsed: true,
                             items: [
-                                { text: 'Привязанность к категориям и брендам', link: '/guides/cdp/metrics/affinity.md' },
+                                { text: 'JS-сниппеты', link: '/guides/library/utilities/js-snippets.md' },
                             ]
                         },
                     ]
                 },
                 {
-                    text: `Рассылки`,
+                    text: `Витрина`,
                     collapsed: true,
                     items: [
-                        { text: 'О сервисе', link: '/guides/communications/index.md' },
+                        { text: 'Обзор', link: '/guides/storefront/index.md' },
+                        { text: 'Поиск', link: '/guides/storefront/search/index.md' },
+                        { text: 'Товарные рекомендации', link: '/guides/storefront/product-recommendations/index.md' },
+                        { text: 'Товарные коллекции', link: '/guides/storefront/product-collections/index.md' },
+                        { text: 'Товарная лента', link: '/guides/storefront/listings/index.md' },
+                        { text: 'Сторис', link: '/guides/storefront/stories/index.md' },
+                        { text: 'Попапы', link: '/guides/storefront/popups/index.md' },
+                        { text: 'Баннеры', link: '/guides/storefront/banners/index.md' },
+                    ]
+                },
+                {
+                    text: `Коммуникации`,
+                    collapsed: true,
+                    items: [
+                        { text: 'Обзор', link: '/guides/communications/index.md' },
+                        { text: 'Отчеты', link: '/guides/communications/reports/index.md' },
                         {
                             text: 'Массовые рассылки',
                             collapsed: true,
                             items: [
-                                { text: 'Отправка по таймзоне', link: '/guides/communications/bulk/timezone.md' },
+                                { text: 'Обзор', link: '/guides/communications/bulk/index.md' },
+                                { text: 'Отправка по часовому поясу', link: '/guides/communications/bulk/timezone.md' },
                             ]
                         },
+                        { text: 'Триггерные рассылки', link: '/guides/communications/chains/index.md' },
+                        { text: 'Сервисные сообщения', link: '/guides/communications/transactional/index.md' },
+                        { text: 'Настройки', link: '/guides/communications/settings/index.md' },
+                    ]
+                },
+                {
+                    text: `Программа лояльности`,
+                    collapsed: true,
+                    items: [
+                        { text: 'Обзор', link: '/guides/loyalty/index.md' },
+                        { text: 'Общий отчет', link: '/guides/loyalty/report/index.md' },
+                        { text: 'Участники', link: '/guides/loyalty/members/index.md' },
+                        { text: 'Заказы ПЛ', link: '/guides/loyalty/orders/index.md' },
+                        { text: 'Бонусы', link: '/guides/loyalty/bonuses/index.md' },
+                        { text: 'Массовые начисления', link: '/guides/loyalty/bulk-rewards/index.md' },
+                        { text: 'Промокоды', link: '/guides/loyalty/promo-codes/index.md' },
+                        { text: 'Акции', link: '/guides/loyalty/promotions/index.md' },
+                        { text: 'Сертификаты', link: '/guides/loyalty/certificates/index.md' },
+                        { text: 'Фишки', link: '/guides/loyalty/stickers/index.md' },
+                        { text: 'Реферальные программы', link: '/guides/loyalty/referrals/index.md' },
+                        { text: 'Подписки', link: '/guides/loyalty/subscriptions/index.md' },
+                        { text: 'Настройки', link: '/guides/loyalty/settings/index.md' },
+                    ]
+                },
+                {
+                    text: `Опросы и формы`,
+                    collapsed: true,
+                    items: [
+                        { text: 'Обзор', link: '/guides/polls/index.md' },
+                        { text: 'NPS', link: '/guides/polls/nps/index.md' },
+                        { text: 'CSAT', link: '/guides/polls/csat/index.md' },
+                        { text: 'CES', link: '/guides/polls/ces/index.md' },
+                        { text: 'Отзывы о товарах', link: '/guides/polls/reviews/index.md' },
+                        { text: 'Тикеты', link: '/guides/polls/tickets/index.md' },
+                        { text: 'Настройки', link: '/guides/polls/settings/index.md' },
+                    ]
+                },
+                {
+                    text: `Безопасность и аудит`,
+                    collapsed: true,
+                    items: [
+                        { text: 'Обзор', link: '/guides/security/index.md' },
+                        { text: 'Health check', link: '/guides/security/health-check/index.md' },
+                        { text: 'История экспорта', link: '/guides/security/export-logs/index.md' },
+                        { text: 'Системный лог', link: '/guides/security/system-logs/index.md' },
+                        { text: 'Ловушка тестовых запросов', link: '/guides/security/test-requests-logs/index.md' },
+                        { text: 'Отправленные сообщения', link: '/guides/security/sent-messages/index.md' },
+                    ]
+                },
+                {
+                    text: `Настройки`,
+                    collapsed: true,
+                    items: [
+                        { text: 'Обзор', link: '/guides/settings/index.md' },
+                        { text: 'Настройки проекта', link: '/guides/settings/project/index.md' },
+                        { text: 'Управление доступом', link: '/guides/settings/access/index.md' },
+                        { text: 'Вебхуки', link: '/guides/settings/webhooks/index.md' },
+                        { text: 'API', link: '/guides/settings/api/index.md' },
+                    ]
+                },
+                {
+                    text: `Биллинг`,
+                    collapsed: true,
+                    items: [
+                        { text: 'Обзор', link: '/guides/billing/index.md' },
+                        { text: 'Счета на оплату', link: '/guides/billing/invoices/index.md' },
+                        { text: 'Отчет о списаниях', link: '/guides/billing/charges/index.md' },
+                        { text: 'Использование ИИ-токенов', link: '/guides/billing/tokens/index.md' },
+                        { text: 'Реквизиты организации', link: '/guides/billing/organization/index.md' },
                     ]
                 },
                 {
@@ -87,6 +178,44 @@ export default defineConfig({
                         { text: 'Функциональные возможности MCP', link: '/guides/mcp/mcp-functionality.md' },
                         { text: 'Базовые рекомендации по формулировке запросов', link: '/guides/mcp/prompt-recommendation.md' },
                         { text: 'Дополнительные сценарии использования агента-аналитика', link: '/guides/mcp/mcp-best-practice.md' },
+                    ]
+                },
+
+
+                {
+                    text: `Общий контент (unsorted)`,
+                    collapsed: true,
+                    items: [
+                        { text: 'Вставляемые скрипты', link: '/guides/common-content/js-snippets/index.md' },
+                        { text: 'Промокоды', link: '/guides/common-content/promocodes/index.md' },
+                        { text: 'Список поддерживаемых liquid-переменных', link: '/guides/common-content/liquid-vars/liquid-vars.md' },
+                    ]
+                },
+                {
+                    text: `Программа лояльности (unsorted)`,
+                    collapsed: true,
+                    items: [
+                        {
+                            text: 'Акции',
+                            collapsed: true,
+                            items: [
+                                { text:'Арбитраж',link: '/guides/loyalty/promotions/arbitr.md' }
+                            ]
+                        },
+                    ]
+                },
+                {
+                    text: `CDP (unsorted)`,
+                    collapsed: true,
+                    items: [
+                        { text: 'О сервисе', link: '/guides/cdp/index.md' },
+                        {
+                            text: `Метрики клиентов`,
+                            collapsed: true,
+                            items: [
+                                { text: 'Привязанность к категориям и брендам', link: '/guides/cdp/metrics/affinity.md' },
+                            ]
+                        },
                     ]
                 },
             ],

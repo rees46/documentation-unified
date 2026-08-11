@@ -17,6 +17,8 @@
         sleep 2
       done
     - docker info
+    - chmod +x .gitlab/ci/scripts/*.sh 2>/dev/null || true
+    - sh .gitlab/ci/scripts/ensure-prod-ref.sh publish
     - |
       # BuildKit layer cache lives in GitLab Container Registry (not ghcr)
       if [ -z "${CI_REGISTRY:-}" ] || [ -z "${CI_REGISTRY_USER:-}" ] || [ -z "${CI_REGISTRY_PASSWORD:-}" ]; then
@@ -44,6 +46,7 @@
     - apk add --no-cache curl git
   script:
     - chmod +x .gitlab/ci/scripts/*.sh
+    - sh .gitlab/ci/scripts/ensure-prod-ref.sh deploy
     - eval "$(sh .gitlab/ci/scripts/docker-tags.sh)"
     - export DEPLOY_REF IMAGE_TAG="${IMAGE_TAG:-${TAG_SUFFIX:-latest}}"
     - sh .gitlab/ci/scripts/trigger-ansible-deploy-service.sh

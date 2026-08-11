@@ -12,7 +12,8 @@ set -eu
 IMAGE_TAG="${IMAGE_TAG:-latest}"
 gitlab_token="$(sh .gitlab/ci/scripts/gitlab-api-token.sh)"
 
-if [ "${CI_DEPLOY_ENABLED:-false}" = "true" ]; then
+if [ "" = "true" ]; then
+  sh .gitlab/ci/scripts/ensure-prod-ref.sh deploy
   echo "PRODUCTION MODE: triggering real deploy for ${SERVICE_NAME} (ref=${DEPLOY_REF})"
   http_code="$(curl --silent --show-error \
     --output /tmp/deploy-response.txt \

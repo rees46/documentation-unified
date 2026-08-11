@@ -19,6 +19,7 @@ CACHE_ARGS="${CACHE_ARGS} --cache-to=type=registry,ref=${CACHE_REF},mode=max"
 
 
 if [ "${CI_PUBLISH_ENABLED:-false}" = "true" ]; then
+  sh .gitlab/ci/scripts/ensure-prod-ref.sh publish
   IMAGE="${IMAGE_REGISTRY}/${PACKAGE_NAME}"
   echo "Build cache: ${CACHE_REF}"
   echo "PRODUCTION MODE: pushing ${IMAGE}:${TAG_SUFFIX} and ${IMAGE}:${IMAGE_VERSION}"

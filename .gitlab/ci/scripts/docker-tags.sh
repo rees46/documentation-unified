@@ -6,7 +6,7 @@ set -eu
 COMMIT_SHA="$(git rev-parse --short HEAD)"
 BUILD_DATE="$(date +%s)"
 
-branch="${CI_MERGE_REQUEST_TARGET_BRANCH_NAME:-${CI_COMMIT_BRANCH:-}}"
+branch="${CI_MERGE_REQUEST_TARGET_BRANCH_NAME:-${CI_COMMIT_REF_NAME:-}}"
 
 case "${branch}" in
   master|main)

@@ -5,7 +5,7 @@ build:
   script:
     - sh .gitlab/ci/scripts/build.sh
   rules:
-    - if: '$CI_COMMIT_BRANCH == "master" && $CI_PIPELINE_SOURCE == "push"'
+    - if: '$CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH && $CI_PIPELINE_SOURCE == "push"'
       changes:
         - "**/*"
         - "!.gitlab/**"
@@ -13,7 +13,7 @@ build:
         - "!.github/**"
       variables:
         CI_PUBLISH_ENABLED: "true"
-    - if: '$CI_COMMIT_BRANCH == "stage" && $CI_PIPELINE_SOURCE == "push"'
+    - if: '$CI_COMMIT_REF_NAME == "stage" && $CI_PIPELINE_SOURCE == "push"'
       changes:
         - "**/*"
         - "!.gitlab/**"
@@ -30,7 +30,7 @@ deploy:
   variables:
     SERVICE_NAME: documentation-unified
   rules:
-    - if: '($CI_COMMIT_BRANCH == "master" || $CI_COMMIT_BRANCH == "stage") && $CI_PIPELINE_SOURCE == "push"'
+    - if: '($CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH || $CI_COMMIT_REF_NAME == "stage") && $CI_PIPELINE_SOURCE == "push"'
       variables:
         CI_DEPLOY_ENABLED: "true"
     - if: '$CI_PIPELINE_SOURCE == "web"'

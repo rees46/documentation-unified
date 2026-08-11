@@ -26,12 +26,12 @@
       echo "$CI_REGISTRY_PASSWORD" | docker login -u "$CI_REGISTRY_USER" --password-stdin "$CI_REGISTRY"
     - |
       if [ "${CI_PUBLISH_ENABLED:-false}" = "true" ]; then
-        if [ -n "${GHCR_USERNAME:-}" ] && [ -n "${GHCR_TOKEN:-}" ]; then
-          echo "$GHCR_TOKEN" | docker login ghcr.io -u "$GHCR_USERNAME" --password-stdin
-        else
-          echo "CI_PUBLISH_ENABLED=true requires GHCR_USERNAME and GHCR_TOKEN" >&2
+        if [ -z "${GITHUB_PUSH_TOKEN:-}" ]; then
+          echo "CI_PUBLISH_ENABLED=true requires GITHUB_PUSH_TOKEN (PAT with write:packages)" >&2
           exit 1
         fi
+        # App image push target: ghcr.io (PAT via x-access-token)
+        echo "$GITHUB_PUSH_TOKEN" | docker login ghcr.io -u x-access-token --password-stdin
       else
         echo "SAFE MODE: CI_PUBLISH_ENABLED is not true — skipping ghcr.io login"
       fi

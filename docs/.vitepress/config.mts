@@ -370,6 +370,86 @@ export default defineConfig({
                     collapsed: true,
                     items: [
                         { text: 'Введение', link: '/integration/catalog/index.md' },
+                        {
+                            text: 'Сущности каталога',
+                            collapsed: true,
+                            items: [
+                                { text: 'Оффер, товар, услуга', link: '/integration/catalog/entities/offer.md' },
+                                { text: 'Категория', link: '/integration/catalog/entities/category.md' },
+                                { text: 'Локация', link: '/integration/catalog/entities/location.md' },
+                                { text: 'Параметры', link: '/integration/catalog/entities/params.md' },
+                                { text: 'Нишевые параметры', link: '/integration/catalog/entities/niche_params.md' },
+                            ]
+                        },
+                        {
+                            text: 'Импорт каталога',
+                            collapsed: true,
+                            items: [
+                                { text: 'Общие рекомендации', link: '/integration/catalog/import/index.md' },
+                                {
+                                    text: 'Файл Яндекс.Маркет',
+                                    collapsed: true,
+                                    items: [
+                                        { text: 'Введение', link: '/integration/catalog/import/yml/index.md' },
+                                        { text: 'Расписание обновления', link: '/integration/catalog/import/yml/schedule.md' },
+                                        { text: 'Основная структура', link: '/integration/catalog/import/yml/structure.md' },
+                                        { text: 'Структура оффера', link: '/integration/catalog/import/yml/offer.md' },
+                                        { text: 'Пример файла', link: '/integration/catalog/import/yml/example.md' },
+                                    ]
+                                },
+                                {
+                                    text: 'Google Merchant Feed',
+                                    collapsed: true,
+                                    items: [
+                                        { text: 'Введение', link: '/integration/catalog/import/gmf/index.md' },
+                                    ]
+                                },
+                                {
+                                    text: 'API',
+                                    collapsed: true,
+                                    items: [
+                                        { text: 'Введение', link: '/integration/catalog/import/api/index.md' },
+                                        { text: 'Порядок импорта', link: '/integration/catalog/import/api/steps.md' },
+                                        { text: 'Импорт категорий', link: '/integration/catalog/import/api/categories.md' },
+                                        { text: 'Импорт локаций', link: '/integration/catalog/import/api/locations.md' },
+                                        { text: 'Импорт офферов', link: '/integration/catalog/import/api/products.md' },
+                                        { text: 'Вебхуки', link: '/integration/catalog/import/api/webhooks.md' },
+                                    ]
+                                },
+                                {
+                                    text: 'Промежуточная БД',
+                                    collapsed: true,
+                                    items: [
+                                        { text: 'Введение', link: '/integration/catalog/import/database/index.md' },
+                                        { text: 'Доступ к БД', link: '/integration/catalog/import/database/access.md' },
+                                        { text: 'Периодичность обновления', link: '/integration/catalog/import/database/schedule.md' },
+                                        { text: 'Таблица с товарами', link: '/integration/catalog/import/database/products.md' },
+                                        { text: 'Таблица с категориями', link: '/integration/catalog/import/database/categories.md' },
+                                        { text: 'Таблица с локациями', link: '/integration/catalog/import/database/locations.md' },
+                                        { text: 'Проверка работы', link: '/integration/catalog/import/database/control.md' },
+                                    ]
+                                },
+                                {
+                                    text: 'Нишевые свойства',
+                                    collapsed: true,
+                                    items: [
+                                        { text: 'Введение', link: '/integration/catalog/import/niche/index.md' },
+                                        { text: 'Авто товары', link: '/integration/catalog/import/niche/auto.md' },
+                                        { text: 'Книги', link: '/integration/catalog/import/niche/books.md' },
+                                        { text: 'Товары для детей', link: '/integration/catalog/import/niche/kids.md' },
+                                        { text: 'Косметика и парфюмерия', link: '/integration/catalog/import/niche/cosmetics.md' },
+                                        { text: 'Недвижимость', link: '/integration/catalog/import/niche/realty.md' },
+                                        { text: 'Одежда и обувь', link: '/integration/catalog/import/niche/fashion.md' },
+                                        { text: 'Стройматериалы', link: '/integration/catalog/import/niche/construction.md' },
+                                        { text: 'Товары для взрослых', link: '/integration/catalog/import/niche/adult.md' },
+                                        { text: 'Товары для животных', link: '/integration/catalog/import/niche/pets.md' },
+                                        { text: 'FMCG', link: '/integration/catalog/import/niche/fmcg.md' },
+                                        { text: 'Фармацевтика', link: '/integration/catalog/import/niche/pharmacy.md' },
+                                        { text: 'Ювелирные украшения', link: '/integration/catalog/import/niche/jewelry.md' },
+                                    ]
+                                },
+                            ]
+                        },
                         { text: 'Информация о товаре', link: '/integration/catalog/product.md' },
                         { text: 'Счетчики товара', link: '/integration/catalog/counters.md' },
                         { text: 'Скрытые товары', link: '/integration/catalog/non-widgetable.md' },

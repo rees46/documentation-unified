@@ -12,3 +12,4 @@
 | iOS                      | Swift  | [iOS SDK](./swift.md)                |
 | Android                  | Kotlin | [Android SDK](./kotlin.md)           |
 | Muliplatform ReactNative | JS     | [ReactNative SDK](./react-native.md) |
+| Multiplatform Flutter    | Dart   | [Flutter SDK](./flutter.md)          |

@@ -247,6 +247,7 @@ export default defineConfig({
                                 { text: 'Android SDK Kotlin', link: '/integration/cdp/sdk/kotlin.md' },
                                 { text: 'Android SDK Java', link: '/integration/cdp/sdk/java.md' },
                                 { text: 'ReactNative SDK', link: '/integration/cdp/sdk/react-native.md' },
+                                { text: 'Flutter SDK', link: '/integration/cdp/sdk/flutter.md' },
                             ]
                         },
                         {
